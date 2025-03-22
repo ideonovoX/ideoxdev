@@ -52,11 +52,11 @@ const Navbar = () => {
               </Link>
             ))}
             <div className="flex items-center space-x-2">
-              <Button variant="ghost" className="text-slack-black dark:text-white">
-                Log in
+              <Button variant="ghost" className="text-slack-black dark:text-white" asChild>
+                <Link to="/login">Log in</Link>
               </Button>
-              <Button className="bg-slack-purple hover:bg-slack-purple/90 text-white">
-                Get Started
+              <Button className="bg-slack-purple hover:bg-slack-purple/90 text-white" asChild>
+                <Link to="/get-started">Get Started</Link>
               </Button>
             </div>
           </nav>
@@ -91,11 +91,11 @@ const Navbar = () => {
               </Link>
             ))}
             <div className="flex flex-col space-y-3 pt-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              <Button variant="ghost" className="text-slack-black dark:text-white">
-                Log in
+              <Button variant="ghost" className="text-slack-black dark:text-white" asChild onClick={() => setIsOpen(false)}>
+                <Link to="/login">Log in</Link>
               </Button>
-              <Button className="bg-slack-purple hover:bg-slack-purple/90 text-white">
-                Get Started
+              <Button className="bg-slack-purple hover:bg-slack-purple/90 text-white" asChild onClick={() => setIsOpen(false)}>
+                <Link to="/get-started">Get Started</Link>
               </Button>
             </div>
           </div>
