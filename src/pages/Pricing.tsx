@@ -73,7 +73,7 @@ const Pricing = () => {
     },
     {
       question: 'Can I change plans later?',
-      answer: 'Yes, you can upgrade, downgrade, or cancel your plan at any time. When upgrading, you'll be prorated for the remainder of your billing cycle. When downgrading, the new rate will apply to your next billing cycle.'
+      answer: 'Yes, you can upgrade, downgrade, or cancel your plan at any time. When upgrading, you\'ll be prorated for the remainder of your billing cycle. When downgrading, the new rate will apply to your next billing cycle.'
     },
     {
       question: 'What are automation credits?',
