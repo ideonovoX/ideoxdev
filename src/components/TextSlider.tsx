@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Carousel, 
   CarouselContent, 
@@ -8,49 +8,36 @@ import {
 import FadeIn from './FadeIn';
 
 interface TextSliderProps {
-  titles: string[];
+  texts: string[];
   highlightColor?: string;
   className?: string;
+  interval?: number;
 }
 
 const TextSlider = ({ 
-  titles, 
+  texts, 
   highlightColor = "text-slack-purple",
-  className = "" 
+  className = "",
+  interval = 3000
 }: TextSliderProps) => {
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     // Setup auto-sliding effect
-    const interval = setInterval(() => {
-      if (carouselRef.current) {
-        // Auto-advance logic if needed
-      }
-    }, 3000);
+    const timer = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % texts.length);
+    }, interval);
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearInterval(timer);
+  }, [texts, interval]);
 
   return (
     <div className={`overflow-hidden ${className}`}>
-      <Carousel
-        opts={{
-          align: "center",
-          loop: true,
-          duration: 40,
-        }}
-        className="w-full"
-      >
-        <CarouselContent>
-          {titles.map((title, index) => (
-            <CarouselItem key={index} className="flex justify-center">
-              <FadeIn>
-                <span className={`${highlightColor} font-bold`}>{title}</span>
-              </FadeIn>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
+      <div className="w-full">
+        <FadeIn key={activeIndex} duration={300}>
+          <span className={`${highlightColor} font-bold`}>{texts[activeIndex]}</span>
+        </FadeIn>
+      </div>
     </div>
   );
 };

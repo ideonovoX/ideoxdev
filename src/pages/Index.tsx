@@ -14,11 +14,17 @@ import TextSlider from '@/components/TextSlider';
 const Index = () => {
   const [email, setEmail] = useState('');
 
-  const sliderTitles = [
+  const headlineTitles = [
     "AI Powered Chat Bot",
     "Automate Your Business", 
     "Smart Workflow Optimization",
     "Seamless Integrations"
+  ];
+
+  const descriptionTexts = [
+    "Transform your business with intelligent automation that learns and adapts.",
+    "Save time and reduce errors with our powerful workflow automation.",
+    "Focus on what matters while our AI handles repetitive tasks.",
   ];
 
   const features = [
@@ -99,10 +105,14 @@ const Index = () => {
               Now available for enterprise
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slack-black dark:text-white leading-tight mb-6 animate-fade-in" style={{ animationDelay: '100ms' }}>
-              Intelligent Automation Powered by <TextSlider titles={sliderTitles} className="inline-block" />
+              Intelligent Automation Powered by <TextSlider texts={headlineTitles} className="inline-block" />
             </h1>
             <p className="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '200ms' }}>
-              Transform your business with smart automation that learns, adapts, and optimizes your workflows. Save time, reduce errors, and focus on what matters.
+              <TextSlider 
+                texts={descriptionTexts} 
+                highlightColor="text-slate-600 dark:text-slate-400" 
+                className="inline-block"
+              />
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in" style={{ animationDelay: '300ms' }}>
               <div className="flex-1 max-w-xs mx-auto sm:mx-0">
