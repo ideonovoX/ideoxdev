@@ -112,7 +112,7 @@ const Index = () => {
               className="animate-fade-in" 
             />
             
-            <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in" style={{ animationDelay: '300ms' }}>
+            <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in mt-6" style={{ animationDelay: '300ms' }}>
               <div className="flex-1 max-w-xs mx-auto sm:mx-0">
                 <Input 
                   type="email" 
