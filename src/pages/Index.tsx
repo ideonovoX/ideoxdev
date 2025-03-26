@@ -16,16 +16,20 @@ const Index = () => {
 
   const sliderContent = [
     {
-      title: 'Intelligent Automation Powered by AI',
+      title: 'Intelligent Automation',
       description: 'Transform your business with smart automation that learns, adapts, and optimizes your workflows. Save time, reduce errors, and focus on what matters.'
     },
     {
       title: 'Automate Your Business',
-      description: "Streamline operations and increase efficiency with our intelligent platform that handles repetitive tasks. Unlock your team's potential for innovation and growth."
+      description: 'Streamline operations and increase efficiency with our intelligent platform that handles repetitive tasks. Unlock your team's potential for innovation and growth.'
     },
     {
       title: 'AI Powered Chat Bot',
       description: 'Provide instant 24/7 support and engage customers with our conversational AI that understands context and learns from interactions to deliver exceptional experiences.'
+    },
+    {
+      title: 'fCommerce Automation',
+      description: 'Revolutionize your social selling with AI-powered automation that manages product listings, pricing, and customer interactions across multiple social platforms.'
     }
   ];
 
