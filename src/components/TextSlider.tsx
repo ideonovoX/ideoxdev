@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { 
   Carousel, 
   CarouselContent, 
@@ -18,6 +18,19 @@ const TextSlider = ({
   highlightColor = "text-slack-purple",
   className = "" 
 }: TextSliderProps) => {
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Setup auto-sliding effect
+    const interval = setInterval(() => {
+      if (carouselRef.current) {
+        // Auto-advance logic if needed
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className={`overflow-hidden ${className}`}>
       <Carousel
