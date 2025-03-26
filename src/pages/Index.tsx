@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -10,9 +9,17 @@ import FeatureCard from '@/components/FeatureCard';
 import TestimonialCard from '@/components/TestimonialCard';
 import AnimatedGradient from '@/components/AnimatedGradient';
 import FadeIn from '@/components/FadeIn';
+import TextSlider from '@/components/TextSlider';
 
 const Index = () => {
   const [email, setEmail] = useState('');
+
+  const sliderTitles = [
+    "AI Powered Chat Bot",
+    "Automate Your Business", 
+    "Smart Workflow Optimization",
+    "Seamless Integrations"
+  ];
 
   const features = [
     {
@@ -92,7 +99,7 @@ const Index = () => {
               Now available for enterprise
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slack-black dark:text-white leading-tight mb-6 animate-fade-in" style={{ animationDelay: '100ms' }}>
-              Intelligent Automation Powered by <span className="text-slack-purple">AI</span>
+              Intelligent Automation Powered by <TextSlider titles={sliderTitles} className="inline-block" />
             </h1>
             <p className="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '200ms' }}>
               Transform your business with smart automation that learns, adapts, and optimizes your workflows. Save time, reduce errors, and focus on what matters.
