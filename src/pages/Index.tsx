@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -10,9 +9,25 @@ import FeatureCard from '@/components/FeatureCard';
 import TestimonialCard from '@/components/TestimonialCard';
 import AnimatedGradient from '@/components/AnimatedGradient';
 import FadeIn from '@/components/FadeIn';
+import TextSlider from '@/components/TextSlider';
 
 const Index = () => {
   const [email, setEmail] = useState('');
+
+  const sliderContent = [
+    {
+      title: 'Intelligent Automation Powered by AI',
+      description: 'Transform your business with smart automation that learns, adapts, and optimizes your workflows. Save time, reduce errors, and focus on what matters.'
+    },
+    {
+      title: 'Automate Your Business',
+      description: 'Streamline operations and increase efficiency with our intelligent platform that handles repetitive tasks. Unlock your team's potential for innovation and growth.'
+    },
+    {
+      title: 'AI Powered Chat Bot',
+      description: 'Provide instant 24/7 support and engage customers with our conversational AI that understands context and learns from interactions to deliver exceptional experiences.'
+    }
+  ];
 
   const features = [
     {
@@ -91,12 +106,12 @@ const Index = () => {
               <span className="flex h-2 w-2 rounded-full bg-slack-green mr-2"></span>
               Now available for enterprise
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slack-black dark:text-white leading-tight mb-6 animate-fade-in" style={{ animationDelay: '100ms' }}>
-              Intelligent Automation Powered by <span className="text-slack-purple">AI</span>
-            </h1>
-            <p className="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '200ms' }}>
-              Transform your business with smart automation that learns, adapts, and optimizes your workflows. Save time, reduce errors, and focus on what matters.
-            </p>
+            
+            <TextSlider 
+              slides={sliderContent} 
+              className="animate-fade-in" 
+            />
+            
             <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in" style={{ animationDelay: '300ms' }}>
               <div className="flex-1 max-w-xs mx-auto sm:mx-0">
                 <Input 
