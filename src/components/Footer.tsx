@@ -56,6 +56,17 @@ const Footer = () => {
             <p className="text-slate-600 dark:text-slate-400 mb-4 max-w-sm">
               Revolutionizing workflows with intelligent automation powered by cutting-edge AI technology.
             </p>
+            <div className="mb-4">
+              <p className="text-slate-600 dark:text-slate-400">
+                Address: Sonabaria, Satkhira, Dhaka, Bangladesh
+              </p>
+              <p className="text-slate-600 dark:text-slate-400">
+                Contact: +8801311344747
+              </p>
+              <p className="text-slate-600 dark:text-slate-400">
+                Email: ai@ideox.ai
+              </p>
+            </div>
             <div className="flex space-x-4">
               <a href="#" className="text-slack-darkGray hover:text-slack-purple transition-colors">
                 <Twitter size={20} />
