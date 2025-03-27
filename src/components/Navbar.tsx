@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -8,7 +8,8 @@ import { cn } from '@/lib/utils';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
+  const location = useLocation();
+  
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
@@ -24,6 +25,10 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const isActive = (path: string) => {
+    return location.pathname === path;
   };
 
   return (
@@ -48,7 +53,11 @@ const Navbar = () => {
               <Link 
                 key={item}
                 to={`/${item.toLowerCase()}`} 
-                className="text-slack-black dark:text-white hover:text-slack-blue dark:hover:text-slack-blue font-medium transition-colors duration-200"
+                className={cn(
+                  "text-slack-black dark:text-white font-medium transition-colors duration-200 relative",
+                  "after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-4px] after:left-0 after:bg-slack-purple after:origin-bottom-left after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left",
+                  isActive(`/${item.toLowerCase()}`) && "after:scale-x-100 text-slack-purple dark:text-slack-purple"
+                )}
               >
                 {item}
               </Link>
@@ -77,21 +86,17 @@ const Navbar = () => {
               <Link 
                 key={item}
                 to={`/${item.toLowerCase()}`} 
-                className={`text-slack-black dark:text-white text-lg font-medium animate-fade-in`}
+                className={cn(
+                  "text-slack-black dark:text-white text-lg font-medium animate-fade-in relative",
+                  "after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-4px] after:left-0 after:bg-slack-purple after:origin-bottom-left after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left",
+                  isActive(`/${item.toLowerCase()}`) && "after:scale-x-100 text-slack-purple dark:text-slack-purple"
+                )}
                 style={{ animationDelay: `${index * 0.1}s` }}
                 onClick={() => setIsOpen(false)}
               >
                 {item}
               </Link>
             ))}
-            <div className="flex flex-col space-y-3 pt-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              <Button variant="ghost" className="text-slack-black dark:text-white" asChild onClick={() => setIsOpen(false)}>
-                <Link to="/login">Log in</Link>
-              </Button>
-              <Button className="bg-slack-purple hover:bg-slack-purple/90 text-white" asChild onClick={() => setIsOpen(false)}>
-                <Link to="/get-started">Get Started</Link>
-              </Button>
-            </div>
           </div>
         </div>
       </div>
