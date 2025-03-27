@@ -21,7 +21,7 @@ const Index = () => {
     },
     {
       title: 'Automate Your Business',
-      description: 'Streamline operations and increase efficiency with our intelligent platform that handles repetitive tasks. Unlock your team's potential for innovation and growth.'
+      description: "Streamline operations and increase efficiency with our intelligent platform that handles repetitive tasks. Unlock your team's potential for innovation and growth."
     },
     {
       title: 'AI Powered Chat Bot',
