@@ -36,34 +36,24 @@ const Navbar = () => {
       <div className="container mx-auto">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center space-x-2 mr-8">
+            <Link to="/" className="flex items-center space-x-2">
               <Zap className="h-8 w-8 text-slack-purple" />
               <span className="text-xl font-bold text-slack-black dark:text-white">IdeoxAI</span>
             </Link>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex space-x-8 items-center">
-              {['Features', 'Solutions', 'Pricing', 'Resources', 'Contact'].map((item) => (
-                <Link 
-                  key={item}
-                  to={`/${item.toLowerCase()}`} 
-                  className="text-slack-black dark:text-white hover:text-slack-blue dark:hover:text-slack-blue font-medium transition-colors duration-200"
-                >
-                  {item}
-                </Link>
-              ))}
-            </nav>
           </div>
 
-          {/* Login/Get Started Buttons - Desktop */}
-          <div className="hidden md:flex items-center space-x-2">
-            <Button variant="ghost" className="text-slack-black dark:text-white" asChild>
-              <Link to="/login">Log in</Link>
-            </Button>
-            <Button className="bg-slack-purple hover:bg-slack-purple/90 text-white" asChild>
-              <Link to="/get-started">Get Started</Link>
-            </Button>
-          </div>
+          {/* Desktop Navigation - Right Aligned */}
+          <nav className="hidden md:flex space-x-8 items-center">
+            {['Features', 'Solutions', 'Pricing', 'Resources', 'Contact'].map((item) => (
+              <Link 
+                key={item}
+                to={`/${item.toLowerCase()}`} 
+                className="text-slack-black dark:text-white hover:text-slack-blue dark:hover:text-slack-blue font-medium transition-colors duration-200"
+              >
+                {item}
+              </Link>
+            ))}
+          </nav>
 
           {/* Mobile Menu Button */}
           <button
