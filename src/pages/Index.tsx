@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -68,7 +69,7 @@ const Index = () => {
 
   const testimonials = [
     {
-      quote: "AutomateAI has completely transformed how our marketing team operates. We've saved countless hours on repetitive tasks and seen a 40% increase in campaign efficiency.",
+      quote: "IdeoxAI has completely transformed how our marketing team operates. We've saved countless hours on repetitive tasks and seen a 40% increase in campaign efficiency.",
       author: "Sarah Johnson",
       role: "Marketing Director",
       company: "TechCorp Inc.",
@@ -82,7 +83,7 @@ const Index = () => {
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
     },
     {
-      quote: "Setting up integrations used to take our dev team days. With AutomateAI, our business team can do it themselves in minutes. Game changer!",
+      quote: "Setting up integrations used to take our dev team days. With IdeoxAI, our business team can do it themselves in minutes. Game changer!",
       author: "James Wilson",
       role: "CTO",
       company: "Innovate Labs",
@@ -143,7 +144,7 @@ const Index = () => {
                   <div className="w-3 h-3 rounded-full bg-slack-red"></div>
                   <div className="w-3 h-3 rounded-full bg-slack-yellow"></div>
                   <div className="w-3 h-3 rounded-full bg-slack-green"></div>
-                  <div className="ml-2 text-sm text-slate-600 dark:text-slate-400 font-mono">AutomateAI Dashboard</div>
+                  <div className="ml-2 text-sm text-slate-600 dark:text-slate-400 font-mono">IdeoxAI Dashboard</div>
                 </div>
                 <img 
                   src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80" 
@@ -231,7 +232,7 @@ const Index = () => {
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-slack-black dark:text-white mb-4">
-                How AutomateAI Works
+                How IdeoxAI Works
               </h2>
               <p className="text-xl text-slate-600 dark:text-slate-400">
                 Get started in minutes with our simple three-step process
@@ -284,7 +285,7 @@ const Index = () => {
                 What Our Customers Say
               </h2>
               <p className="text-xl text-slate-600 dark:text-slate-400">
-                Discover how AutomateAI is transforming businesses worldwide
+                Discover how IdeoxAI is transforming businesses worldwide
               </p>
             </div>
           </FadeIn>
@@ -316,7 +317,7 @@ const Index = () => {
                 Ready to Transform Your Workflow?
               </h2>
               <p className="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
-                Join thousands of companies already using AutomateAI to streamline operations and boost productivity.
+                Join thousands of companies already using IdeoxAI to streamline operations and boost productivity.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Button className="bg-slack-purple hover:bg-slack-purple/90 text-white h-12 px-6">

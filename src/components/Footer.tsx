@@ -51,7 +51,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center space-x-2 mb-4">
               <Zap className="h-8 w-8 text-slack-purple" />
-              <span className="text-xl font-bold text-slack-black dark:text-white">AutomateAI</span>
+              <span className="text-xl font-bold text-slack-black dark:text-white">IdeoxAI</span>
             </Link>
             <p className="text-slate-600 dark:text-slate-400 mb-4 max-w-sm">
               Revolutionizing workflows with intelligent automation powered by cutting-edge AI technology.
@@ -107,7 +107,7 @@ const Footer = () => {
         <div className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 pb-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-slate-600 dark:text-slate-400 text-sm">
-              &copy; {currentYear} AutomateAI. All rights reserved.
+              &copy; {currentYear} IdeoxAI. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link to="/privacy" className="text-sm text-slate-600 dark:text-slate-400 hover:text-slack-purple">
