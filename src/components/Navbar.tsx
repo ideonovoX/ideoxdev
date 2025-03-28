@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Zap } from 'lucide-react';
@@ -47,7 +46,6 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Desktop Navigation - Right Aligned */}
           <nav className="hidden md:flex space-x-8 items-center">
             {['Features', 'Solutions', 'Pricing', 'Resources', 'Contact'].map((item) => (
               <Link 
@@ -64,7 +62,6 @@ const Navbar = () => {
             ))}
           </nav>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
             className="md:hidden text-slack-black dark:text-white"
@@ -74,10 +71,10 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         <div 
           className={cn(
-            "md:hidden fixed inset-0 bg-slack-black/90 dark:bg-slack-black/95 top-16 transition-transform duration-300 ease-in-out z-40 backdrop-blur-xl",
+            "md:hidden fixed inset-0 transition-transform duration-300 ease-in-out z-40",
+            "bg-gradient-to-br from-[#1A1F2C] via-[#2A2A3A] to-[#3A3A4A] backdrop-blur-xl",
             "flex flex-col justify-center items-center space-y-6 px-6",
             isOpen ? "translate-x-0" : "translate-x-full"
           )}
