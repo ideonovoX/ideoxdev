@@ -1,5 +1,6 @@
 
-import { CircleCheck, ArrowRight, LucideIcon } from 'lucide-react';
+import React from 'react';
+import { CircleCheck, ArrowRight, Link, Activity, BookOpen } from 'lucide-react';
 import FadeIn from '@/components/FadeIn';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -8,7 +9,7 @@ interface StepProps {
   step: string;
   title: string;
   description: string;
-  icon: LucideIcon;
+  icon: React.ReactNode;
   color: string;
 }
 
@@ -18,35 +19,21 @@ const HowItWorksSection = () => {
       step: '01',
       title: 'Connect Your Apps',
       description: 'Easily integrate with your existing tools and platforms with our no-code connectors.',
-      icon: props => (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-        </svg>
-      ),
+      icon: <Link className="h-10 w-10 text-white" />,
       color: 'from-slack-purple to-slack-blue'
     },
     {
       step: '02',
       title: 'Create Workflows',
       description: 'Design intelligent workflows that automate your business processes end-to-end.',
-      icon: props => (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-          <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-        </svg>
-      ),
+      icon: <Activity className="h-10 w-10 text-white" />,
       color: 'from-slack-green to-teal-400'
     },
     {
       step: '03',
       title: 'Optimize & Scale',
       description: 'Let AI analyze and improve your automation while you scale across your organization.',
-      icon: props => (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-        </svg>
-      ),
+      icon: <BookOpen className="h-10 w-10 text-white" />,
       color: 'from-slack-yellow to-orange-400'
     }
   ];
@@ -82,7 +69,7 @@ const HowItWorksSection = () => {
                       "w-20 h-20 rounded-full bg-gradient-to-br shadow-lg flex items-center justify-center relative z-20",
                       item.color
                     )}>
-                      <item.icon className="h-10 w-10 text-white" />
+                      {item.icon}
                       
                       {/* Floating step number */}
                       <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-white dark:bg-slate-800 shadow-md flex items-center justify-center">
