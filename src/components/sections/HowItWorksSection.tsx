@@ -1,29 +1,58 @@
 
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { CircleCheck, ArrowRight, LucideIcon } from 'lucide-react';
 import FadeIn from '@/components/FadeIn';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
+
+interface StepProps {
+  step: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  color: string;
+}
 
 const HowItWorksSection = () => {
-  const steps = [
+  const steps: StepProps[] = [
     {
       step: '01',
       title: 'Connect Your Apps',
-      description: 'Easily integrate with your existing tools and platforms with our no-code connectors.'
+      description: 'Easily integrate with your existing tools and platforms with our no-code connectors.',
+      icon: props => (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+        </svg>
+      ),
+      color: 'from-slack-purple to-slack-blue'
     },
     {
       step: '02',
       title: 'Create Workflows',
-      description: 'Design intelligent workflows that automate your business processes end-to-end.'
+      description: 'Design intelligent workflows that automate your business processes end-to-end.',
+      icon: props => (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+        </svg>
+      ),
+      color: 'from-slack-green to-teal-400'
     },
     {
       step: '03',
       title: 'Optimize & Scale',
-      description: 'Let AI analyze and improve your automation while you scale across your organization.'
+      description: 'Let AI analyze and improve your automation while you scale across your organization.',
+      icon: props => (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+        </svg>
+      ),
+      color: 'from-slack-yellow to-orange-400'
     }
   ];
 
   return (
-    <section className="py-20 bg-slate-50 dark:bg-slate-900">
+    <section className="py-20 bg-slate-50 dark:bg-slate-900 overflow-hidden">
       <div className="container mx-auto px-4 md:px-8">
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center mb-16">
@@ -36,67 +65,75 @@ const HowItWorksSection = () => {
           </div>
         </FadeIn>
         
-        <div className="relative max-w-5xl mx-auto">
-          {/* Connecting line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-slack-purple/30 to-slack-blue/30 hidden md:block" />
+        <div className="max-w-6xl mx-auto relative">
+          {/* Desktop background line */}
+          <div className="absolute left-1/2 -translate-x-1/2 h-1 top-1/2 -translate-y-1/2 w-[90%] bg-gradient-to-r from-slack-purple/10 via-slack-blue/20 to-slack-green/10 rounded-full hidden md:block" />
           
-          {steps.map((item, index) => (
-            <FadeIn key={item.step} delay={index * 150}>
-              <div className={cn(
-                "relative mb-16 last:mb-0 md:grid md:grid-cols-7 md:gap-8 items-center",
-                index % 2 === 1 ? "md:text-right" : ""
-              )}>
-                {/* Step number and connecting elements */}
-                <div className={cn(
-                  "hidden md:flex items-center justify-center col-span-1",
-                  index % 2 === 1 ? "md:order-7" : ""
-                )}>
-                  <div className="relative">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-slack-purple to-slack-blue flex items-center justify-center shadow-lg">
-                      <span className="text-2xl font-bold text-white">{item.step}</span>
+          {/* Mobile background line */}
+          <div className="absolute top-0 bottom-0 left-[40px] w-1 bg-gradient-to-b from-slack-purple/20 via-slack-blue/20 to-slack-green/20 rounded-full md:hidden" />
+          
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 relative z-10">
+            {steps.map((item, index) => (
+              <FadeIn key={item.step} delay={index * 150}>
+                <div className="relative flex md:flex-col md:items-center">
+                  {/* Step icon */}
+                  <div className="flex-shrink-0">
+                    <div className={cn(
+                      "w-20 h-20 rounded-full bg-gradient-to-br shadow-lg flex items-center justify-center relative z-20",
+                      item.color
+                    )}>
+                      <item.icon className="h-10 w-10 text-white" />
+                      
+                      {/* Floating step number */}
+                      <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-white dark:bg-slate-800 shadow-md flex items-center justify-center">
+                        <span className="text-sm font-bold bg-clip-text text-transparent bg-gradient-to-br from-slack-purple to-slack-blue">{item.step}</span>
+                      </div>
+                      
+                      {/* Pulsing animation */}
+                      <div className={cn(
+                        "absolute inset-0 rounded-full bg-gradient-to-br opacity-30 animate-ping-slow",
+                        item.color
+                      )} />
                     </div>
+                    
+                    {/* Connector arrow (only between items) */}
                     {index < steps.length - 1 && (
-                      <ArrowRight className="absolute -bottom-14 left-1/2 transform -translate-x-1/2 rotate-90 text-slack-purple/70 h-8 w-8" />
+                      <div className="hidden md:block absolute top-10 -right-4 transform translate-x-full">
+                        <ArrowRight className="h-6 w-6 text-slate-400" />
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="ml-6 md:ml-0 md:mt-6 md:text-center">
+                    <h3 className="text-xl font-semibold mb-2 text-slack-black dark:text-white">
+                      {item.title}
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-400 md:px-4">
+                      {item.description}
+                    </p>
+                    
+                    {/* Completion check mark for last step */}
+                    {index === steps.length - 1 && (
+                      <div className="flex justify-center mt-4">
+                        <CircleCheck className="h-6 w-6 text-green-500" />
+                      </div>
                     )}
                   </div>
                 </div>
-                
-                {/* Content */}
-                <div className={cn(
-                  "bg-white dark:bg-slate-800/50 p-8 rounded-xl shadow-soft hover:shadow-medium transition-all duration-300 relative z-10",
-                  "border border-slate-200 dark:border-slate-700/50",
-                  "md:col-span-6",
-                  index % 2 === 1 ? "md:order-6" : ""
-                )}>
-                  {/* Mobile step indicator */}
-                  <div className="flex md:hidden items-center gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-slack-purple to-slack-blue flex items-center justify-center shadow-md">
-                      <span className="text-lg font-bold text-white">{item.step}</span>
-                    </div>
-                    <h3 className="text-xl font-semibold text-slack-black dark:text-white">
-                      {item.title}
-                    </h3>
-                  </div>
-                  
-                  {/* Desktop title */}
-                  <h3 className="hidden md:block text-xl font-semibold mb-3 text-slack-black dark:text-white">
-                    {item.title}
-                  </h3>
-                  
-                  <p className="text-slate-600 dark:text-slate-400">
-                    {item.description}
-                  </p>
-                  
-                  {/* Only display CheckCircle for last step */}
-                  {index === steps.length - 1 && (
-                    <div className="absolute -right-3 -bottom-3 bg-white dark:bg-slate-800 p-1 rounded-full shadow-md">
-                      <CheckCircle2 className="h-6 w-6 text-green-500" />
-                    </div>
-                  )}
-                </div>
-              </div>
-            </FadeIn>
-          ))}
+              </FadeIn>
+            ))}
+          </div>
+          
+          {/* CTA button */}
+          <FadeIn delay={450}>
+            <div className="flex justify-center mt-12">
+              <Button className="bg-gradient-to-r from-slack-purple to-slack-blue text-white hover:opacity-90 transition-opacity">
+                Get Started Now
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+          </FadeIn>
         </div>
       </div>
     </section>

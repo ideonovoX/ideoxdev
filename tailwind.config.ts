@@ -95,6 +95,11 @@ export default {
           '0%, 100%': { opacity: '1' },
           '50%': { opacity: '0.8' }
         },
+        'ping-slow': {
+          '0%': { transform: 'scale(1)', opacity: '0.6' },
+          '50%': { transform: 'scale(1.1)', opacity: '0.3' },
+          '100%': { transform: 'scale(1)', opacity: '0.6' }
+        },
         'rotate-slow': {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' }
@@ -107,6 +112,7 @@ export default {
         'fade-in': 'fade-in 0.6s ease-out',
         'slide-in-right': 'slide-in-right 0.5s ease-out',
         'pulse-soft': 'pulse-soft 3s infinite',
+        'ping-slow': 'ping-slow 3s infinite ease-in-out',
         'rotate-slow': 'rotate-slow 15s linear infinite'
 			},
       boxShadow: {
