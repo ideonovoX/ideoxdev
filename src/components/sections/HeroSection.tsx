@@ -35,7 +35,7 @@ const HeroSection = ({ sliderContent }: HeroSectionProps) => {
             <div className="flex-1 max-w-xs mx-auto sm:mx-0">
               <Input 
                 type="email" 
-                placeholder="Enter your email" 
+                placeholder="Email or Phone" 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="h-12"
