@@ -4,6 +4,8 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// Pages
 import Index from "./pages/Index";
 import Features from "./pages/Features";
 import Pricing from "./pages/Pricing";
@@ -14,6 +16,22 @@ import GetStarted from "./pages/GetStarted";
 import GetStartedForm from "./pages/GetStartedForm";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+
+// New Pages
+import Integrations from "./pages/Integrations";
+import Enterprise from "./pages/Enterprise";
+import Documentation from "./pages/Documentation";
+import Guides from "./pages/Guides";
+import ApiReference from "./pages/ApiReference";
+import AboutUs from "./pages/AboutUs";
+import Careers from "./pages/Careers";
+import Partners from "./pages/Partners";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+import Security from "./pages/Security";
+import Cookies from "./pages/Cookies";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +51,23 @@ const App = () => (
           <Route path="/login" element={<Login />} />
           <Route path="/get-started" element={<GetStarted />} />
           <Route path="/get-started-form" element={<GetStartedForm />} />
+          
+          {/* New Routes */}
+          <Route path="/integrations" element={<Integrations />} />
+          <Route path="/enterprise" element={<Enterprise />} />
+          <Route path="/docs" element={<Documentation />} />
+          <Route path="/guides" element={<Guides />} />
+          <Route path="/api" element={<ApiReference />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/partners" element={<Partners />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/security" element={<Security />} />
+          <Route path="/cookies" element={<Cookies />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+          
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
