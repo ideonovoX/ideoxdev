@@ -9,6 +9,7 @@ import HowItWorksSection from '@/components/sections/HowItWorksSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import CTASection from '@/components/sections/CTASection';
 import TechStackSection from '@/components/sections/TechStackSection';
+import ConnectAnythingSection from '@/components/sections/ConnectAnythingSection';
 
 const Index = () => {
   const sliderContent = [
@@ -35,6 +36,7 @@ const Index = () => {
       <Navbar />
       <HeroSection sliderContent={sliderContent} />
       <LogosSection />
+      <ConnectAnythingSection />
       <FeaturesSection />
       <StatsSection />
       <HowItWorksSection />

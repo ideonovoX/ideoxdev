@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import useTypewriter from '@/hooks/useTypewriter';
 
 interface SlideContent {
   title: string;
@@ -16,34 +17,29 @@ interface TextSliderProps {
 
 const TextSlider: React.FC<TextSliderProps> = ({
   slides,
-  interval = 3000,
+  interval = 5000, // Increased interval to give typing animation more time
   className,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { text, isTyping } = useTypewriter(slides[currentIndex].title, 50, 500);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, interval);
-
-    return () => clearInterval(timer);
-  }, [slides.length, interval]);
-
-  const renderTitle = (title: string, index: number) => {
-    // Apply multi-color gradient only to "Intelligent Automation"
-    if (title === "Intelligent Automation") {
-      return (
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-          <span className="bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent">
-            {title}
-          </span>
-        </h1>
-      );
+    if (!isTyping) {
+      const timer = setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+      }, interval);
+  
+      return () => clearTimeout(timer);
     }
-    
+  }, [slides.length, interval, currentIndex, isTyping]);
+
+  const renderTitle = () => {
     return (
-      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slack-black dark:text-white leading-tight mb-6">
-        {title}
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+        <span className="bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent">
+          {text}
+          {isTyping && <span className="animate-pulse">|</span>}
+        </span>
       </h1>
     );
   };
@@ -59,7 +55,7 @@ const TextSlider: React.FC<TextSliderProps> = ({
           transition={{ duration: 0.5, ease: "easeInOut" }}
           className="text-center"
         >
-          {renderTitle(slides[currentIndex].title, currentIndex)}
+          {renderTitle()}
           <p className="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
             {slides[currentIndex].description}
           </p>
