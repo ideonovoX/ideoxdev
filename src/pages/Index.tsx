@@ -9,6 +9,7 @@ import HowItWorksSection from '@/components/sections/HowItWorksSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import CTASection from '@/components/sections/CTASection';
 import TechStackSection from '@/components/sections/TechStackSection';
+import IntegrationsSection from '@/components/sections/IntegrationsSection';
 
 const Index = () => {
   const sliderContent = [
@@ -38,6 +39,7 @@ const Index = () => {
       <FeaturesSection />
       <StatsSection />
       <HowItWorksSection />
+      <IntegrationsSection />
       <TechStackSection />
       <TestimonialsSection />
       <CTASection />
