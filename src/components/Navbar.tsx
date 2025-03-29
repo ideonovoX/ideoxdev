@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Zap, ChevronDown } from 'lucide-react';
@@ -58,7 +59,7 @@ const Navbar = () => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className={`hover:bg-gradient-to-r hover:from-slack-purple/20 hover:via-slack-blue/20 hover:to-slack-green/20 ${isActive('/features') ? 'text-slack-purple' : ''}`}>Features</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className={isActive('/features') ? 'text-slack-purple' : ''}>Features</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                       <li className="row-span-3">
@@ -113,7 +114,7 @@ const Navbar = () => {
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className={`hover:bg-gradient-to-r hover:from-slack-purple/20 hover:via-slack-blue/20 hover:to-slack-green/20 ${isActive('/solutions') ? 'text-slack-purple' : ''}`}>Solutions</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className={isActive('/solutions') ? 'text-slack-purple' : ''}>Solutions</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                       <li className="row-span-3">
@@ -171,7 +172,7 @@ const Navbar = () => {
                   <Link
                     to="/pricing"
                     className={cn(
-                      "group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-gradient-to-r hover:from-slack-purple/20 hover:via-slack-blue/20 hover:to-slack-green/20 focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50",
+                      "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50",
                       isActive('/pricing') && "text-slack-purple"
                     )}
                   >
@@ -180,7 +181,7 @@ const Navbar = () => {
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className={`hover:bg-gradient-to-r hover:from-slack-purple/20 hover:via-slack-blue/20 hover:to-slack-green/20 ${isActive('/resources') || isActive('/docs') || isActive('/guides') || isActive('/api') || isActive('/blog') ? 'text-slack-purple' : ''}`}>Resources</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className={isActive('/resources') || isActive('/docs') || isActive('/guides') || isActive('/api') || isActive('/blog') ? 'text-slack-purple' : ''}>Resources</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                       <li>
@@ -228,7 +229,7 @@ const Navbar = () => {
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className={`hover:bg-gradient-to-r hover:from-slack-purple/20 hover:via-slack-blue/20 hover:to-slack-green/20 ${isActive('/contact') || isActive('/about') || isActive('/careers') || isActive('/partners') ? 'text-slack-purple' : ''}`}>Company</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className={isActive('/contact') || isActive('/about') || isActive('/careers') || isActive('/partners') ? 'text-slack-purple' : ''}>Company</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid gap-3 p-4 w-[200px] md:w-[400px] md:grid-cols-2">
                       <li>
@@ -270,7 +271,7 @@ const Navbar = () => {
             </NavigationMenu>
 
             <div className="hidden md:flex items-center space-x-4 ml-4">
-              <Button variant="ghost" size="sm" asChild className="hover:bg-gradient-to-r hover:from-slack-purple/20 hover:via-slack-blue/20 hover:to-slack-green/20">
+              <Button variant="ghost" size="sm" asChild>
                 <Link to="/login">Login</Link>
               </Button>
               <Button size="sm" asChild>
@@ -280,7 +281,7 @@ const Navbar = () => {
           </nav>
 
           <div className="flex md:hidden items-center space-x-4">
-            <Button variant="ghost" size="sm" asChild className="hover:bg-gradient-to-r hover:from-slack-purple/20 hover:via-slack-blue/20 hover:to-slack-green/20">
+            <Button variant="ghost" size="sm" asChild>
               <Link to="/login">Login</Link>
             </Button>
             <button

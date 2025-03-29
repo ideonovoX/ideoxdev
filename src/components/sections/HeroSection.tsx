@@ -7,13 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import AnimatedGradient from '@/components/AnimatedGradient';
 import TextSlider from '@/components/TextSlider';
 import { useToast } from '@/hooks/use-toast';
-import { 
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious
-} from "@/components/ui/carousel";
 
 interface HeroSectionProps {
   sliderContent: Array<{
@@ -42,40 +35,11 @@ const HeroSection = ({ sliderContent }: HeroSectionProps) => {
     navigate('/get-started-form');
   };
 
-  const visualImages = [
-    "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80", // laptop
-    "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80", // code
-    "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80", // circuit board
-    "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"  // matrix style
-  ];
-
   return (
-    <section className="relative min-h-screen flex flex-col md:flex-row overflow-hidden">
+    <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
       <AnimatedGradient />
-      
-      {/* Left side visual slider - visible on medium screens and up */}
-      <div className="hidden md:block md:w-1/2 h-screen relative">
-        <Carousel className="w-full h-full" autoplay={true} loop={true}>
-          <CarouselContent className="h-full">
-            {visualImages.map((src, index) => (
-              <CarouselItem key={index} className="h-full">
-                <div className="relative w-full h-full">
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent z-10" />
-                  <img 
-                    src={src} 
-                    alt={`AI Technology ${index + 1}`}
-                    className="w-full h-full object-cover object-center"
-                  />
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
-      </div>
-      
-      {/* Right side text content */}
-      <div className="w-full md:w-1/2 flex items-center justify-center min-h-screen pt-32 md:pt-0 px-4 md:px-8 relative">
-        <div className="max-w-2xl mx-auto relative z-10">
+      <div className="container mx-auto px-4 md:px-8 relative">
+        <div className="max-w-4xl mx-auto text-center mb-12">
           <div className="inline-flex items-center bg-slate-100 dark:bg-slate-800 rounded-full px-3 py-1 text-sm font-medium text-slack-purple mb-4 animate-fade-in">
             <span className="flex h-2 w-2 rounded-full bg-slack-green mr-2"></span>
             Now available for enterprise
@@ -104,6 +68,26 @@ const HeroSection = ({ sliderContent }: HeroSectionProps) => {
           <p className="text-sm text-slate-500 dark:text-slate-500 mt-3 animate-fade-in" style={{ animationDelay: '400ms' }}>
             No credit card required. Free 14-day trial.
           </p>
+        </div>
+        
+        <div className="relative rounded-xl overflow-hidden shadow-strong mt-8 mx-auto animate-fade-in" style={{ animationDelay: '500ms', maxWidth: '1000px' }}>
+          <div className="bg-gradient-to-b from-slack-purple/10 to-slack-blue/10 backdrop-blur-sm rounded-xl p-1">
+            <div className="bg-white dark:bg-slate-900 rounded-lg overflow-hidden">
+              <div className="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 px-4 py-3">
+                <div className="w-3 h-3 rounded-full bg-slack-red"></div>
+                <div className="w-3 h-3 rounded-full bg-slack-yellow"></div>
+                <div className="w-3 h-3 rounded-full bg-slack-green"></div>
+                <div className="ml-2 text-sm text-slate-600 dark:text-slate-400 font-mono">IdeoxAI Dashboard</div>
+              </div>
+              <img 
+                src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80" 
+                alt="AI Automation Dashboard" 
+                className="w-full object-cover"
+                style={{ height: '500px' }}
+                loading="lazy"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
