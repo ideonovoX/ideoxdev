@@ -1,4 +1,3 @@
-
 import BasicPage from '@/components/BasicPage';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -48,7 +47,7 @@ const featuredPartners = [
   {
     name: 'TechCorp',
     logo: 'https://via.placeholder.com/150x80',
-    description: 'Integration with TechCorp's enterprise platform enables seamless workflow automation across systems.',
+    description: "Integration with TechCorp's enterprise platform enables seamless workflow automation across systems.",
     url: '#'
   },
   {
