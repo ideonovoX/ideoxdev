@@ -55,7 +55,7 @@ const HeroSection = ({ sliderContent }: HeroSectionProps) => {
       
       {/* Left side visual slider - visible on medium screens and up */}
       <div className="hidden md:block md:w-1/2 h-screen relative">
-        <Carousel className="w-full h-full">
+        <Carousel className="w-full h-full" autoplay={true} loop={true}>
           <CarouselContent className="h-full">
             {visualImages.map((src, index) => (
               <CarouselItem key={index} className="h-full">
