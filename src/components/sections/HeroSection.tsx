@@ -3,8 +3,10 @@ import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { useNavigate } from 'react-router-dom';
 import AnimatedGradient from '@/components/AnimatedGradient';
 import TextSlider from '@/components/TextSlider';
+import { useToast } from '@/hooks/use-toast';
 
 interface HeroSectionProps {
   sliderContent: Array<{
@@ -15,6 +17,23 @@ interface HeroSectionProps {
 
 const HeroSection = ({ sliderContent }: HeroSectionProps) => {
   const [email, setEmail] = useState('');
+  const navigate = useNavigate();
+  const { toast } = useToast();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email) {
+      toast({
+        title: "Error",
+        description: "Please enter an email or phone number",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    navigate('/get-started-form');
+  };
 
   return (
     <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
@@ -31,21 +50,21 @@ const HeroSection = ({ sliderContent }: HeroSectionProps) => {
             className="animate-fade-in" 
           />
           
-          <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in mt-6" style={{ animationDelay: '300ms' }}>
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in mt-6" style={{ animationDelay: '300ms' }}>
             <div className="flex-1 max-w-xs mx-auto sm:mx-0">
               <Input 
-                type="email" 
+                type="text" 
                 placeholder="Email or Phone" 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="h-12"
               />
             </div>
-            <Button className="bg-slack-purple hover:bg-slack-purple/90 text-white h-12 px-6">
+            <Button type="submit" className="bg-slack-purple hover:bg-slack-purple/90 text-white h-12 px-6">
               Get Started Free
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-          </div>
+          </form>
           <p className="text-sm text-slate-500 dark:text-slate-500 mt-3 animate-fade-in" style={{ animationDelay: '400ms' }}>
             No credit card required. Free 14-day trial.
           </p>

@@ -11,6 +11,7 @@ import Resources from "./pages/Resources";
 import Solutions from "./pages/Solutions";
 import Login from "./pages/Login";
 import GetStarted from "./pages/GetStarted";
+import GetStartedForm from "./pages/GetStartedForm";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/get-started" element={<GetStarted />} />
+          <Route path="/get-started-form" element={<GetStartedForm />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
