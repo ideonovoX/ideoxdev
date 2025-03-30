@@ -36,11 +36,11 @@ const HeroSection = ({ sliderContent }: HeroSectionProps) => {
   };
 
   return (
-    <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
+    <section className="relative pt-36 pb-28 md:pt-44 md:pb-36 overflow-hidden">
       <AnimatedGradient />
       <div className="container mx-auto px-4 md:px-8 relative">
-        <div className="max-w-4xl mx-auto text-center mb-12">
-          <div className="inline-flex items-center bg-slate-100 dark:bg-slate-800 rounded-full px-3 py-1 text-sm font-medium text-slack-purple mb-4 animate-fade-in">
+        <div className="max-w-4xl mx-auto text-center mb-16">
+          <div className="inline-flex items-center bg-slate-100 dark:bg-slate-800 rounded-full px-3 py-1 text-sm font-medium text-slack-purple mb-6">
             <span className="flex h-2 w-2 rounded-full bg-slack-green mr-2"></span>
             Now available for enterprise
           </div>
@@ -50,7 +50,7 @@ const HeroSection = ({ sliderContent }: HeroSectionProps) => {
             className="animate-fade-in" 
           />
           
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in mt-6" style={{ animationDelay: '300ms' }}>
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in mt-8" style={{ animationDelay: '300ms' }}>
             <div className="flex-1 max-w-xs mx-auto sm:mx-0">
               <Input 
                 type="text" 
@@ -65,12 +65,12 @@ const HeroSection = ({ sliderContent }: HeroSectionProps) => {
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </form>
-          <p className="text-sm text-slate-500 dark:text-slate-500 mt-3 animate-fade-in" style={{ animationDelay: '400ms' }}>
+          <p className="text-sm text-slate-500 dark:text-slate-500 mt-4 animate-fade-in" style={{ animationDelay: '400ms' }}>
             No credit card required. Free 14-day trial.
           </p>
         </div>
         
-        <div className="relative rounded-xl overflow-hidden shadow-strong mt-8 mx-auto animate-fade-in" style={{ animationDelay: '500ms', maxWidth: '1000px' }}>
+        <div className="relative rounded-xl overflow-hidden shadow-strong mt-12 mx-auto animate-fade-in" style={{ animationDelay: '500ms', maxWidth: '1000px' }}>
           <div className="bg-gradient-to-b from-slack-purple/10 to-slack-blue/10 backdrop-blur-sm rounded-xl p-1">
             <div className="bg-white dark:bg-slate-900 rounded-lg overflow-hidden">
               <div className="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 px-4 py-3">
@@ -83,7 +83,7 @@ const HeroSection = ({ sliderContent }: HeroSectionProps) => {
                 src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80" 
                 alt="AI Automation Dashboard" 
                 className="w-full object-cover"
-                style={{ height: '500px' }}
+                style={{ height: '550px' }}
                 loading="lazy"
               />
             </div>

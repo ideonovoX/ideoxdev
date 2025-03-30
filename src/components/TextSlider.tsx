@@ -29,21 +29,13 @@ const TextSlider: React.FC<TextSliderProps> = ({
     return () => clearInterval(timer);
   }, [slides.length, interval]);
 
-  const renderTitle = (title: string, index: number) => {
-    // Apply multi-color gradient only to "Intelligent Automation"
-    if (title === "Intelligent Automation") {
-      return (
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-          <span className="bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent">
-            {title}
-          </span>
-        </h1>
-      );
-    }
-    
+  const renderTitle = (title: string) => {
+    // Apply multi-color gradient to all titles
     return (
-      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slack-black dark:text-white leading-tight mb-6">
-        {title}
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+        <span className="bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent">
+          {title}
+        </span>
       </h1>
     );
   };
@@ -59,7 +51,7 @@ const TextSlider: React.FC<TextSliderProps> = ({
           transition={{ duration: 0.5, ease: "easeInOut" }}
           className="text-center"
         >
-          {renderTitle(slides[currentIndex].title, currentIndex)}
+          {renderTitle(slides[currentIndex].title)}
           <p className="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
             {slides[currentIndex].description}
           </p>

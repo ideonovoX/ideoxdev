@@ -83,29 +83,35 @@ const integrationIcons = [
 
 const IntegrationsSection = () => {
   return (
-    <section className="py-20 bg-slate-50 dark:bg-slate-900/50">
+    <section className="py-20 bg-white dark:bg-slate-900 mt-8">
       <div className="container mx-auto px-4 md:px-8">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slack-black dark:text-white">
-            We Connect <span className="text-slack-purple">Anything</span> to <span className="text-slack-blue">Everything</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent">
+              We Connect Anything to Everything
+            </span>
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
             Best app & software integrations to optimize your business. Seamlessly move and transform data between different apps with our powerful integration platform.
           </p>
         </div>
 
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 md:gap-6 max-w-4xl mx-auto mb-12">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6 max-w-4xl mx-auto mb-16">
           {integrationIcons.map((integration, index) => (
             <div 
               key={index}
-              className="flex flex-col items-center justify-center p-4 bg-white dark:bg-slate-800 rounded-lg shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1"
+              className="flex flex-col items-center justify-center p-5 rounded-lg shadow-medium transition-all duration-300 hover:-translate-y-1 hover:shadow-strong"
+              style={{ 
+                backgroundColor: `${integration.color}15`, 
+                borderTop: `3px solid ${integration.color}`
+              }}
             >
               <div className="w-12 h-12 flex items-center justify-center mb-3">
                 <img 
                   src={integration.icon} 
                   alt={integration.name} 
                   className="w-8 h-8" 
-                  style={{ filter: "contrast(0.8)" }}
+                  style={{ filter: "none" }}
                   loading="lazy"
                 />
               </div>
@@ -121,7 +127,7 @@ const IntegrationsSection = () => {
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
-          <Button asChild className="gap-2">
+          <Button asChild className="gap-2 bg-gradient-to-r from-slack-purple to-slack-blue text-white hover:opacity-90 transition-opacity">
             <Link to="/get-started">
               Try It Free
               <ArrowUpRight className="h-4 w-4" />

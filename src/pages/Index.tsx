@@ -5,7 +5,6 @@ import HeroSection from '@/components/sections/HeroSection';
 import LogosSection from '@/components/sections/LogosSection';
 import FeaturesSection from '@/components/sections/FeaturesSection';
 import StatsSection from '@/components/sections/StatsSection';
-import HowItWorksSection from '@/components/sections/HowItWorksSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import CTASection from '@/components/sections/CTASection';
 import TechStackSection from '@/components/sections/TechStackSection';
@@ -35,11 +34,10 @@ const Index = () => {
     <div className="min-h-screen">
       <Navbar />
       <HeroSection sliderContent={sliderContent} />
+      <IntegrationsSection />
       <LogosSection />
       <FeaturesSection />
       <StatsSection />
-      <HowItWorksSection />
-      <IntegrationsSection />
       <TechStackSection />
       <TestimonialsSection />
       <CTASection />
