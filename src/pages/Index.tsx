@@ -9,6 +9,10 @@ import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import CTASection from '@/components/sections/CTASection';
 import TechStackSection from '@/components/sections/TechStackSection';
 import IntegrationsSection from '@/components/sections/IntegrationsSection';
+import ChatbotSection from '@/components/sections/ChatbotSection';
+import BusinessAutomationSection from '@/components/sections/BusinessAutomationSection';
+import FacebookAutomationSection from '@/components/sections/FacebookAutomationSection';
+import IndustriesSection from '@/components/sections/IndustriesSection';
 
 const Index = () => {
   const sliderContent = [
@@ -35,6 +39,10 @@ const Index = () => {
       <Navbar />
       <HeroSection sliderContent={sliderContent} />
       <IntegrationsSection />
+      <ChatbotSection />
+      <BusinessAutomationSection />
+      <FacebookAutomationSection />
+      <IndustriesSection />
       <LogosSection />
       <FeaturesSection />
       <StatsSection />

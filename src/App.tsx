@@ -33,6 +33,12 @@ import Cookies from "./pages/Cookies";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 
+// Feature Pages
+import ChatbotDetails from "./pages/ChatbotDetails";
+import ChatbotDemo from "./pages/ChatbotDemo";
+import BusinessAutomation from "./pages/BusinessAutomation";
+import FacebookAutomation from "./pages/FacebookAutomation";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -67,6 +73,12 @@ const App = () => (
           <Route path="/cookies" element={<Cookies />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          
+          {/* Feature-specific Routes */}
+          <Route path="/chatbot" element={<ChatbotDetails />} />
+          <Route path="/chatbot-demo" element={<ChatbotDemo />} />
+          <Route path="/business-automation" element={<BusinessAutomation />} />
+          <Route path="/facebook-automation" element={<FacebookAutomation />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
