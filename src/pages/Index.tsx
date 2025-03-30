@@ -1,9 +1,9 @@
 
+import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import HeroSection from '@/components/sections/HeroSection';
 import LogosSection from '@/components/sections/LogosSection';
-import FeaturesSection from '@/components/sections/FeaturesSection';
 import StatsSection from '@/components/sections/StatsSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import CTASection from '@/components/sections/CTASection';
@@ -13,6 +13,7 @@ import ChatbotSection from '@/components/sections/ChatbotSection';
 import BusinessAutomationSection from '@/components/sections/BusinessAutomationSection';
 import FacebookAutomationSection from '@/components/sections/FacebookAutomationSection';
 import IndustriesSection from '@/components/sections/IndustriesSection';
+import GoToTop from '@/components/GoToTop';
 
 const Index = () => {
   const sliderContent = [
@@ -29,27 +30,31 @@ const Index = () => {
       description: 'Provide instant 24/7 support and engage customers with our conversational AI that understands context and learns from interactions to deliver exceptional experiences.'
     },
     {
-      title: 'fCommerce Automation',
+      title: 'FB Page Automation',
       description: 'Revolutionize your social selling with AI-powered automation that manages product listings, pricing, and customer interactions across multiple social platforms.'
     }
   ];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen">
       <Navbar />
       <HeroSection sliderContent={sliderContent} />
-      <IntegrationsSection />
       <ChatbotSection />
       <BusinessAutomationSection />
       <FacebookAutomationSection />
+      <IntegrationsSection />
       <IndustriesSection />
       <LogosSection />
-      <FeaturesSection />
       <StatsSection />
       <TechStackSection />
       <TestimonialsSection />
       <CTASection />
       <Footer />
+      <GoToTop />
     </div>
   );
 };

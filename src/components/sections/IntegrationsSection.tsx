@@ -1,7 +1,9 @@
 
+import React, { useEffect } from 'react';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import FadeIn from '@/components/FadeIn';
 
 const integrationIcons = [
   {
@@ -82,58 +84,74 @@ const integrationIcons = [
 ];
 
 const IntegrationsSection = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <section className="py-20 bg-white dark:bg-slate-900 mt-8">
+    <section className="py-24 bg-white dark:bg-slate-900 relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+        <FadeIn>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
             <span className="bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent">
               We Connect Anything to Everything
             </span>
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto text-center mb-16">
             Best app & software integrations to optimize your business. Seamlessly move and transform data between different apps with our powerful integration platform.
           </p>
-        </div>
+        </FadeIn>
 
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6 max-w-4xl mx-auto mb-16">
-          {integrationIcons.map((integration, index) => (
-            <div 
-              key={index}
-              className="flex flex-col items-center justify-center p-5 rounded-lg shadow-medium transition-all duration-300 hover:-translate-y-1 hover:shadow-strong"
-              style={{ 
-                backgroundColor: `${integration.color}15`, 
-                borderTop: `3px solid ${integration.color}`
-              }}
-            >
-              <div className="w-12 h-12 flex items-center justify-center mb-3">
-                <img 
-                  src={integration.icon} 
-                  alt={integration.name} 
-                  className="w-8 h-8" 
-                  style={{ filter: "none" }}
-                  loading="lazy"
-                />
+        <FadeIn>
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6 max-w-4xl mx-auto mb-16">
+            {integrationIcons.map((integration, index) => (
+              <div 
+                key={index}
+                className="flex flex-col items-center justify-center p-5 rounded-lg shadow-medium transition-all duration-300 hover:-translate-y-1 hover:shadow-strong"
+                style={{ 
+                  backgroundColor: `${integration.color}15`, 
+                  borderTop: `3px solid ${integration.color}`
+                }}
+              >
+                <div className="w-12 h-12 flex items-center justify-center mb-3">
+                  <img 
+                    src={integration.icon} 
+                    alt={integration.name} 
+                    className="w-8 h-8" 
+                    style={{ 
+                      filter: "none", 
+                      fill: integration.color
+                    }}
+                    loading="lazy"
+                  />
+                </div>
+                <span 
+                  className="text-sm font-medium" 
+                  style={{ color: integration.color }}
+                >
+                  {integration.name}
+                </span>
               </div>
-              <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{integration.name}</span>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </FadeIn>
 
-        <div className="flex flex-wrap justify-center gap-4">
-          <Button asChild variant="outline" className="gap-2">
-            <Link to="/integrations">
-              View All Integrations
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Button>
-          <Button asChild className="gap-2 bg-gradient-to-r from-slack-purple to-slack-blue text-white hover:opacity-90 transition-opacity">
-            <Link to="/get-started">
-              Try It Free
-              <ArrowUpRight className="h-4 w-4" />
-            </Link>
-          </Button>
-        </div>
+        <FadeIn>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button asChild variant="outline" className="gap-2">
+              <Link to="/integrations">
+                View All Integrations
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
+            <Button asChild className="gap-2 bg-gradient-to-r from-slack-purple to-slack-blue text-white hover:opacity-90 transition-opacity">
+              <Link to="/get-started-form">
+                Try It Free
+                <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );

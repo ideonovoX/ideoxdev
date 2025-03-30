@@ -1,60 +1,100 @@
 
+import React, { useEffect } from 'react';
 import FadeIn from '@/components/FadeIn';
 import TestimonialCard from '@/components/TestimonialCard';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+
+const testimonials = [
+  {
+    quote: "IdeoxAI has transformed how we handle customer support. The AI chatbot has reduced our response time by 80% while maintaining high customer satisfaction.",
+    name: "Sarah Johnson",
+    title: "Customer Success Manager",
+    company: "TechGlobal",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
+  },
+  {
+    quote: "Implementing the business automation solution from IdeoxAI has saved us countless hours on repetitive tasks and helped us focus on strategic initiatives.",
+    name: "Michael Chen",
+    title: "Operations Director",
+    company: "Nexus Innovations",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
+  },
+  {
+    quote: "The Facebook automation tools have revolutionized our social media strategy. We've seen a 45% increase in engagement and our team saves 15 hours per week.",
+    name: "Emily Rodriguez",
+    title: "Digital Marketing Lead",
+    company: "BrandForward",
+    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
+  },
+  {
+    quote: "What impressed me most about IdeoxAI is how quickly it adapted to our specific industry needs. The customization capabilities are unmatched in the market.",
+    name: "David Wilson",
+    title: "CTO",
+    company: "HealthTech Solutions",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
+  },
+  {
+    quote: "The integration capabilities are exceptional. IdeoxAI seamlessly connected with all our existing systems, making the transition incredibly smooth for our team.",
+    name: "Amanda Patel",
+    title: "IT Systems Manager",
+    company: "Global Finance Group",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
+  },
+  {
+    quote: "The ROI we've seen with IdeoxAI has been remarkable. Within just three months, we reduced operational costs by 30% while improving our customer experience metrics.",
+    name: "James Taylor",
+    title: "CEO",
+    company: "Retail Innovations",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
+  }
+];
 
 const TestimonialsSection = () => {
-  const testimonials = [
-    {
-      quote: "IdeoxAI has completely transformed how our marketing team operates. We've saved countless hours on repetitive tasks and seen a 40% increase in campaign efficiency.",
-      author: "Sarah Johnson",
-      role: "Marketing Director",
-      company: "TechCorp Inc.",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
-    },
-    {
-      quote: "The intelligent workflow optimization has helped us identify bottlenecks we didn't even know existed. Our customer response time has improved by 65%.",
-      author: "Michael Chen",
-      role: "Operations Manager",
-      company: "Globex Solutions",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
-    },
-    {
-      quote: "Setting up integrations used to take our dev team days. With IdeoxAI, our business team can do it themselves in minutes. Game changer!",
-      author: "James Wilson",
-      role: "CTO",
-      company: "Innovate Labs",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
-    }
-  ];
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-    <section className="py-20 bg-white dark:bg-slack-black">
+    <section className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-8">
         <FadeIn>
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slack-black dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
+            <span className="bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent">
               What Our Customers Say
-            </h2>
-            <p className="text-xl text-slate-600 dark:text-slate-400">
-              Discover how IdeoxAI is transforming businesses worldwide
-            </p>
-          </div>
+            </span>
+          </h2>
+          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto text-center mb-16">
+            Discover how businesses around the world are transforming their operations with IdeoxAI's intelligent solutions.
+          </p>
         </FadeIn>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <FadeIn key={testimonial.author} delay={index * 150}>
-              <TestimonialCard 
-                quote={testimonial.quote}
-                author={testimonial.author}
-                role={testimonial.role}
-                company={testimonial.company}
-                image={testimonial.image}
-                index={index}
-              />
-            </FadeIn>
-          ))}
-        </div>
+        <FadeIn>
+          <Carousel 
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full max-w-5xl mx-auto px-4 sm:px-6"
+          >
+            <CarouselContent>
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index} className="sm:basis-1/2 lg:basis-1/3 pl-4 md:pl-6">
+                  <TestimonialCard 
+                    quote={testimonial.quote}
+                    name={testimonial.name}
+                    title={testimonial.title}
+                    company={testimonial.company}
+                    image={testimonial.image}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex justify-center mt-8 gap-2">
+              <CarouselPrevious className="static transform-none mx-2" />
+              <CarouselNext className="static transform-none mx-2" />
+            </div>
+          </Carousel>
+        </FadeIn>
       </div>
     </section>
   );

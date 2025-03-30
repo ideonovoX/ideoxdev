@@ -35,7 +35,7 @@ import BlogPost from "./pages/BlogPost";
 
 // Feature Pages
 import ChatbotDetails from "./pages/ChatbotDetails";
-import ChatbotDemo from "./pages/ChatbotDemo";
+import CheckoutDemo from "./pages/CheckoutDemo";
 import BusinessAutomation from "./pages/BusinessAutomation";
 import FacebookAutomation from "./pages/FacebookAutomation";
 
@@ -76,7 +76,7 @@ const App = () => (
           
           {/* Feature-specific Routes */}
           <Route path="/chatbot" element={<ChatbotDetails />} />
-          <Route path="/chatbot-demo" element={<ChatbotDemo />} />
+          <Route path="/checkout-demo" element={<CheckoutDemo />} />
           <Route path="/business-automation" element={<BusinessAutomation />} />
           <Route path="/facebook-automation" element={<FacebookAutomation />} />
           

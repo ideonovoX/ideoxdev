@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import BasicPage from '@/components/BasicPage';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
@@ -46,11 +46,15 @@ const demoCompanies = [
   }
 ];
 
-const ChatbotDemo = () => {
+const CheckoutDemo = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <BasicPage 
-      title="AI Chatbot Demo Companies" 
-      description="Explore these businesses that are successfully using our AI chatbot solutions to transform their customer experience."
+      title="AI Solutions Demo Companies" 
+      description="Explore these businesses that are successfully using our AI solutions to transform their customer experience and business operations."
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
         {demoCompanies.map((company, index) => (
@@ -83,10 +87,10 @@ const ChatbotDemo = () => {
       <div className="mt-16 text-center">
         <FadeIn>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-6">
-            Ready to see how our AI chatbot can transform your business?
+            Ready to see how our AI solutions can transform your business?
           </p>
           <Button asChild className="bg-slack-purple hover:bg-slack-purple/90 text-white">
-            <Link to="/get-started">
+            <Link to="/get-started-form">
               Start Your Free Trial
             </Link>
           </Button>
@@ -96,4 +100,4 @@ const ChatbotDemo = () => {
   );
 };
 
-export default ChatbotDemo;
+export default CheckoutDemo;
