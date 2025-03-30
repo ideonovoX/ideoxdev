@@ -85,7 +85,6 @@ const BusinessAutomationSection = () => {
                     <CheckCircle2 className={`h-6 w-6 mt-1 ${colors[index % colors.length]}`} />
                     <div>
                       <h4 className="font-semibold mb-1">{feature.title}</h4>
-                      <p className="text-slate-600 dark:text-slate-400">{feature.description}</p>
                     </div>
                   </div>
                 ))}
@@ -98,12 +97,12 @@ const BusinessAutomationSection = () => {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" className="border-slack-purple text-slack-purple hover:bg-slack-purple/10">
+                <Button asChild variant="outline" className="border-[#0EA5E9] text-[#0EA5E9] hover:bg-[#0EA5E9]/10">
                   <Link to="/checkout-demo">
                     Checkout Demo
                   </Link>
                 </Button>
-                <Button asChild className="bg-slack-green hover:bg-slack-green/90 text-white">
+                <Button asChild className="bg-[#F59E0B] hover:bg-[#F59E0B]/90 text-white">
                   <Link to="/get-started-form">
                     Try for Free
                     <ArrowRight className="ml-2 h-4 w-4" />

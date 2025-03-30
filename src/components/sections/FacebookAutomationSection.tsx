@@ -69,7 +69,6 @@ const FacebookAutomationSection = () => {
                     <CheckCircle2 className={`h-6 w-6 mt-1 ${colors[index % colors.length]}`} />
                     <div>
                       <h4 className="font-semibold mb-1">{feature.title}</h4>
-                      <p className="text-slate-600 dark:text-slate-400">{feature.description}</p>
                     </div>
                   </div>
                 ))}
@@ -82,12 +81,12 @@ const FacebookAutomationSection = () => {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" className="border-[#1877F2] text-[#1877F2] hover:bg-[#1877F2]/10">
+                <Button asChild variant="outline" className="border-[#EC4899] text-[#EC4899] hover:bg-[#EC4899]/10">
                   <Link to="/checkout-demo">
                     Checkout Demo
                   </Link>
                 </Button>
-                <Button asChild className="bg-slack-green hover:bg-slack-green/90 text-white">
+                <Button asChild className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white">
                   <Link to="/get-started-form">
                     Try for Free
                     <ArrowRight className="ml-2 h-4 w-4" />
