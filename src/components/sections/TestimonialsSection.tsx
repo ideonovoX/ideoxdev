@@ -7,43 +7,43 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 const testimonials = [
   {
     quote: "IdeoxAI has transformed how we handle customer support. The AI chatbot has reduced our response time by 80% while maintaining high customer satisfaction.",
-    name: "Sarah Johnson",
-    title: "Customer Success Manager",
+    author: "Sarah Johnson",
+    role: "Customer Success Manager",
     company: "TechGlobal",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
   },
   {
     quote: "Implementing the business automation solution from IdeoxAI has saved us countless hours on repetitive tasks and helped us focus on strategic initiatives.",
-    name: "Michael Chen",
-    title: "Operations Director",
+    author: "Michael Chen",
+    role: "Operations Director",
     company: "Nexus Innovations",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
   },
   {
     quote: "The Facebook automation tools have revolutionized our social media strategy. We've seen a 45% increase in engagement and our team saves 15 hours per week.",
-    name: "Emily Rodriguez",
-    title: "Digital Marketing Lead",
+    author: "Emily Rodriguez",
+    role: "Digital Marketing Lead",
     company: "BrandForward",
     image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
   },
   {
     quote: "What impressed me most about IdeoxAI is how quickly it adapted to our specific industry needs. The customization capabilities are unmatched in the market.",
-    name: "David Wilson",
-    title: "CTO",
+    author: "David Wilson",
+    role: "CTO",
     company: "HealthTech Solutions",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
   },
   {
     quote: "The integration capabilities are exceptional. IdeoxAI seamlessly connected with all our existing systems, making the transition incredibly smooth for our team.",
-    name: "Amanda Patel",
-    title: "IT Systems Manager",
+    author: "Amanda Patel",
+    role: "IT Systems Manager",
     company: "Global Finance Group",
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
   },
   {
     quote: "The ROI we've seen with IdeoxAI has been remarkable. Within just three months, we reduced operational costs by 30% while improving our customer experience metrics.",
-    name: "James Taylor",
-    title: "CEO",
+    author: "James Taylor",
+    role: "CEO",
     company: "Retail Innovations",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
   }
@@ -81,10 +81,11 @@ const TestimonialsSection = () => {
                 <CarouselItem key={index} className="sm:basis-1/2 lg:basis-1/3 pl-4 md:pl-6">
                   <TestimonialCard 
                     quote={testimonial.quote}
-                    name={testimonial.name}
-                    title={testimonial.title}
+                    author={testimonial.author}
+                    role={testimonial.role}
                     company={testimonial.company}
                     image={testimonial.image}
+                    index={index}
                   />
                 </CarouselItem>
               ))}
