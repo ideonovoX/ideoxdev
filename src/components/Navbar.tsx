@@ -61,7 +61,7 @@ const Navbar = () => {
                   <NavigationMenuTrigger 
                     className={cn(
                       isActive('/features') ? 'text-slack-purple' : '',
-                      'hover:bg-gradient-to-r hover:from-purple-50 hover:via-blue-50 hover:to-green-50 dark:hover:from-purple-900/20 dark:hover:via-blue-900/20 dark:hover:to-green-900/20 transition-all duration-300'
+                      'hover:bg-gradient-to-r hover:from-purple-100 hover:via-blue-100 hover:to-green-100 hover:text-slack-purple dark:hover:from-purple-900/20 dark:hover:via-blue-900/20 dark:hover:to-green-900/20 transition-all duration-300'
                     )}
                   >
                     Features
@@ -123,7 +123,7 @@ const Navbar = () => {
                   <NavigationMenuTrigger 
                     className={cn(
                       isActive('/solutions') ? 'text-slack-purple' : '',
-                      'hover:bg-gradient-to-r hover:from-purple-50 hover:via-blue-50 hover:to-green-50 dark:hover:from-purple-900/20 dark:hover:via-blue-900/20 dark:hover:to-green-900/20 transition-all duration-300'
+                      'hover:bg-gradient-to-r hover:from-purple-100 hover:via-blue-100 hover:to-green-100 hover:text-slack-purple dark:hover:from-purple-900/20 dark:hover:via-blue-900/20 dark:hover:to-green-900/20 transition-all duration-300'
                     )}
                   >
                     Solutions
@@ -185,7 +185,7 @@ const Navbar = () => {
                   <Link
                     to="/pricing"
                     className={cn(
-                      "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-gradient-to-r hover:from-purple-50 hover:via-blue-50 hover:to-green-50 dark:hover:from-purple-900/20 dark:hover:via-blue-900/20 dark:hover:to-green-900/20 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50",
+                      "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-gradient-to-r hover:from-purple-100 hover:via-blue-100 hover:to-green-100 hover:text-slack-purple dark:hover:from-purple-900/20 dark:hover:via-blue-900/20 dark:hover:to-green-900/20 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50",
                       isActive('/pricing') && "text-slack-purple"
                     )}
                   >
@@ -197,7 +197,7 @@ const Navbar = () => {
                   <NavigationMenuTrigger 
                     className={cn(
                       isActive('/resources') || isActive('/docs') || isActive('/guides') || isActive('/api') || isActive('/blog') ? 'text-slack-purple' : '',
-                      'hover:bg-gradient-to-r hover:from-purple-50 hover:via-blue-50 hover:to-green-50 dark:hover:from-purple-900/20 dark:hover:via-blue-900/20 dark:hover:to-green-900/20 transition-all duration-300'
+                      'hover:bg-gradient-to-r hover:from-purple-100 hover:via-blue-100 hover:to-green-100 hover:text-slack-purple dark:hover:from-purple-900/20 dark:hover:via-blue-900/20 dark:hover:to-green-900/20 transition-all duration-300'
                     )}
                   >
                     Resources
@@ -252,7 +252,7 @@ const Navbar = () => {
                   <NavigationMenuTrigger 
                     className={cn(
                       isActive('/contact') || isActive('/about') || isActive('/careers') || isActive('/partners') ? 'text-slack-purple' : '',
-                      'hover:bg-gradient-to-r hover:from-purple-50 hover:via-blue-50 hover:to-green-50 dark:hover:from-purple-900/20 dark:hover:via-blue-900/20 dark:hover:to-green-900/20 transition-all duration-300'
+                      'hover:bg-gradient-to-r hover:from-purple-100 hover:via-blue-100 hover:to-green-100 hover:text-slack-purple dark:hover:from-purple-900/20 dark:hover:via-blue-900/20 dark:hover:to-green-900/20 transition-all duration-300'
                     )}
                   >
                     Company
@@ -298,7 +298,7 @@ const Navbar = () => {
             </NavigationMenu>
 
             <div className="hidden md:flex items-center space-x-4 ml-4">
-              <Button variant="ghost" size="sm" asChild className="hover:bg-gradient-to-r hover:from-purple-50 hover:via-blue-50 hover:to-green-50 dark:hover:from-purple-900/20 dark:hover:via-blue-900/20 dark:hover:to-green-900/20">
+              <Button variant="ghost" size="sm" asChild className="hover:bg-gradient-to-r hover:from-purple-100 hover:via-blue-100 hover:to-green-100 hover:text-slack-purple dark:hover:from-purple-900/20 dark:hover:via-blue-900/20 dark:hover:to-green-900/20">
                 <Link to="/login">Login</Link>
               </Button>
               <Button size="sm" asChild>
@@ -308,7 +308,7 @@ const Navbar = () => {
           </nav>
 
           <div className="flex md:hidden items-center space-x-4">
-            <Button variant="ghost" size="sm" asChild className="hover:bg-gradient-to-r hover:from-purple-50 hover:via-blue-50 hover:to-green-50 dark:hover:from-purple-900/20 dark:hover:via-blue-900/20 dark:hover:to-green-900/20">
+            <Button variant="ghost" size="sm" asChild className="hover:bg-gradient-to-r hover:from-purple-100 hover:via-blue-100 hover:to-green-100 hover:text-slack-purple dark:hover:from-purple-900/20 dark:hover:via-blue-900/20 dark:hover:to-green-900/20">
               <Link to="/login">Login</Link>
             </Button>
             <button
@@ -324,36 +324,34 @@ const Navbar = () => {
         <div 
           className={cn(
             "md:hidden fixed inset-0 transition-transform duration-300 ease-in-out z-40",
-            "bg-gradient-to-br from-[#1A1F2C] via-[#2A2A3A] to-[#3A3A4A] backdrop-blur-xl",
-            "flex flex-col justify-center items-center space-y-6 px-6",
+            "bg-gradient-to-br from-purple-50/95 via-blue-50/95 to-green-50/95 dark:from-purple-900/90 dark:via-blue-900/90 dark:to-green-900/90 backdrop-blur-xl",
+            "flex flex-col justify-start items-center px-6 overflow-y-auto",
             isOpen ? "translate-x-0" : "translate-x-full"
           )}
         >
-          <div className="space-y-6 w-full max-w-md">
-            <div className="mb-8">
-              <div className="flex justify-end">
-                <button
-                  onClick={toggleMenu}
-                  className="text-white p-2"
-                  aria-label="Close Menu"
-                >
-                  <X className="h-6 w-6" />
-                </button>
-              </div>
+          <div className="space-y-6 w-full max-w-md py-20">
+            <div className="absolute top-4 right-4">
+              <button
+                onClick={toggleMenu}
+                className="p-2 rounded-full bg-white/20 text-slate-700 dark:text-white hover:bg-white/30"
+                aria-label="Close Menu"
+              >
+                <X className="h-6 w-6" />
+              </button>
             </div>
             
             <div className="space-y-1">
-              <div className="text-lg font-semibold text-white/80 mb-2 px-2">Features</div>
+              <div className="text-lg font-semibold text-slate-800 dark:text-white/80 mb-2 px-2 bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent">Features</div>
               <Link 
                 to="/features"
-                className="block py-2 px-4 text-white/70 hover:text-white rounded-md hover:bg-white/10"
+                className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
                 onClick={() => setIsOpen(false)}
               >
                 Features Overview
               </Link>
               <Link 
                 to="/integrations"
-                className="block py-2 px-4 text-white/70 hover:text-white rounded-md hover:bg-white/10"
+                className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
                 onClick={() => setIsOpen(false)}
               >
                 Integrations
@@ -361,17 +359,17 @@ const Navbar = () => {
             </div>
             
             <div className="space-y-1">
-              <div className="text-lg font-semibold text-white/80 mb-2 px-2">Solutions</div>
+              <div className="text-lg font-semibold text-slate-800 dark:text-white/80 mb-2 px-2 bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent">Solutions</div>
               <Link 
                 to="/solutions"
-                className="block py-2 px-4 text-white/70 hover:text-white rounded-md hover:bg-white/10"
+                className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
                 onClick={() => setIsOpen(false)}
               >
                 Solutions Overview
               </Link>
               <Link 
                 to="/enterprise"
-                className="block py-2 px-4 text-white/70 hover:text-white rounded-md hover:bg-white/10"
+                className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
                 onClick={() => setIsOpen(false)}
               >
                 Enterprise
@@ -380,38 +378,38 @@ const Navbar = () => {
             
             <Link 
               to="/pricing"
-              className="block py-2 px-4 text-lg font-semibold text-white/80 rounded-md hover:bg-white/10"
+              className="block py-2 px-4 text-lg font-semibold bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent rounded-md hover:bg-white/30"
               onClick={() => setIsOpen(false)}
             >
               Pricing
             </Link>
             
             <div className="space-y-1">
-              <div className="text-lg font-semibold text-white/80 mb-2 px-2">Resources</div>
+              <div className="text-lg font-semibold text-slate-800 dark:text-white/80 mb-2 px-2 bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent">Resources</div>
               <Link 
                 to="/docs"
-                className="block py-2 px-4 text-white/70 hover:text-white rounded-md hover:bg-white/10"
+                className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
                 onClick={() => setIsOpen(false)}
               >
                 Documentation
               </Link>
               <Link 
                 to="/guides"
-                className="block py-2 px-4 text-white/70 hover:text-white rounded-md hover:bg-white/10"
+                className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
                 onClick={() => setIsOpen(false)}
               >
                 Guides
               </Link>
               <Link 
                 to="/api"
-                className="block py-2 px-4 text-white/70 hover:text-white rounded-md hover:bg-white/10"
+                className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
                 onClick={() => setIsOpen(false)}
               >
                 API Reference
               </Link>
               <Link 
                 to="/blog"
-                className="block py-2 px-4 text-white/70 hover:text-white rounded-md hover:bg-white/10"
+                className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
                 onClick={() => setIsOpen(false)}
               >
                 Blog
@@ -419,31 +417,31 @@ const Navbar = () => {
             </div>
             
             <div className="space-y-1">
-              <div className="text-lg font-semibold text-white/80 mb-2 px-2">Company</div>
+              <div className="text-lg font-semibold text-slate-800 dark:text-white/80 mb-2 px-2 bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent">Company</div>
               <Link 
                 to="/about"
-                className="block py-2 px-4 text-white/70 hover:text-white rounded-md hover:bg-white/10"
+                className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
                 onClick={() => setIsOpen(false)}
               >
                 About Us
               </Link>
               <Link 
                 to="/careers"
-                className="block py-2 px-4 text-white/70 hover:text-white rounded-md hover:bg-white/10"
+                className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
                 onClick={() => setIsOpen(false)}
               >
                 Careers
               </Link>
               <Link 
                 to="/contact"
-                className="block py-2 px-4 text-white/70 hover:text-white rounded-md hover:bg-white/10"
+                className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
                 onClick={() => setIsOpen(false)}
               >
                 Contact
               </Link>
               <Link 
                 to="/partners"
-                className="block py-2 px-4 text-white/70 hover:text-white rounded-md hover:bg-white/10"
+                className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
                 onClick={() => setIsOpen(false)}
               >
                 Partners

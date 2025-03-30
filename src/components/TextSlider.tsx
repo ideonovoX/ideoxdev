@@ -32,7 +32,7 @@ const TextSlider: React.FC<TextSliderProps> = ({
   const renderTitle = (title: string) => {
     // Apply multi-color gradient to all titles
     return (
-      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
         <span className="bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent">
           {title}
         </span>
@@ -41,7 +41,7 @@ const TextSlider: React.FC<TextSliderProps> = ({
   };
 
   return (
-    <div className={cn("relative overflow-hidden", className)}>
+    <div className={cn("relative overflow-hidden py-6", className)}>
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
@@ -49,15 +49,15 @@ const TextSlider: React.FC<TextSliderProps> = ({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="text-center"
+          className="text-center px-4"
         >
           {renderTitle(slides[currentIndex].title)}
-          <p className="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-600 dark:text-slate-400 mb-12 max-w-2xl mx-auto">
             {slides[currentIndex].description}
           </p>
         </motion.div>
       </AnimatePresence>
-      <div className="flex justify-center gap-2 mt-4">
+      <div className="flex justify-center gap-2 mt-8">
         {slides.map((_, index) => (
           <button
             key={index}
