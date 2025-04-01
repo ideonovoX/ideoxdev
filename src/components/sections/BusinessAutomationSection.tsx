@@ -85,25 +85,25 @@ const BusinessAutomationSection = () => {
             <div className="space-y-8">
               <div className="grid grid-cols-1 gap-4">
                 {features.map((feature, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className={`h-6 w-6 mt-1 ${colors[index % colors.length]}`} />
+                  <div key={index} className="flex items-start gap-3 justify-end text-right">
                     <div>
                       <h4 className="font-semibold mb-1">{feature.title}</h4>
                     </div>
+                    <CheckCircle2 className={`h-6 w-6 mt-1 ${colors[index % colors.length]}`} />
                   </div>
                 ))}
               </div>
               
-              <div className="flex flex-wrap gap-4 mt-8">
+              <div className="flex flex-wrap gap-4 mt-8 justify-end">
                 <Button asChild className="bg-slack-blue hover:bg-slack-blue/90 text-white" onClick={handleLinkClick}>
                   <Link to="/business-automation">
                     Read More
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" className="border-[#8B5CF6] text-[#8B5CF6] hover:bg-[#8B5CF6]/10 font-semibold" onClick={handleLinkClick}>
+                <Button asChild variant="outline" className="border-[#8B5CF6] text-[#8B5CF6] hover:bg-[#8B5CF6]/10 hover:text-white font-semibold" onClick={handleLinkClick}>
                   <Link to="/checkout-demo">
-                    Checkout Demo
+                    Checkout Demo →
                   </Link>
                 </Button>
                 <Button asChild className="bg-[#F59E0B] hover:bg-[#F59E0B]/90 text-white" onClick={handleLinkClick}>

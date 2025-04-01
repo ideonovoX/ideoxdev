@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Zap, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -17,6 +17,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -30,6 +31,32 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node) && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -329,15 +356,19 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* Mobile menu - Fixed positioning instead of transform */}
         <div 
+          ref={mobileMenuRef}
           className={cn(
-            "md:hidden fixed inset-0 transition-transform duration-300 ease-in-out z-40",
+            "md:hidden fixed inset-0 z-40",
             "bg-gradient-to-br from-purple-50/95 via-blue-50/95 to-green-50/95 dark:from-purple-900/90 dark:via-blue-900/90 dark:to-green-900/90 backdrop-blur-xl",
             "flex flex-col justify-start items-center px-6 overflow-y-auto",
-            isOpen ? "translate-x-0" : "translate-x-full"
+            isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
           )}
+          style={{ transition: "opacity 0.3s ease, visibility 0.3s ease" }}
         >
           <div className="space-y-6 w-full max-w-md py-20">
+            {/* Only one close button */}
             <div className="absolute top-4 right-4">
               <button
                 onClick={toggleMenu}

@@ -55,10 +55,9 @@ const IntegrationsSection = () => {
         </div>
         
         <div className="flex justify-center mt-12">
-          <Button asChild className="bg-[#8B5CF6] hover:bg-[#8B5CF6]/90 text-white font-semibold px-8" onClick={handleLinkClick}>
+          <Button asChild className="bg-[#8B5CF6] hover:bg-[#8B5CF6]/90 hover:text-white text-white font-semibold px-8" onClick={handleLinkClick}>
             <Link to="/integrations">
-              View All Integrations
-              <ArrowRight className="ml-2 h-4 w-4" />
+              View All Integrations →
             </Link>
           </Button>
         </div>

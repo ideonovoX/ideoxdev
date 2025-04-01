@@ -65,22 +65,6 @@ const ChatbotSection = () => {
         </FadeIn>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <FadeIn direction="right">
-            <div className="rounded-xl overflow-hidden shadow-strong">
-              <div className="bg-gradient-to-br from-slack-purple/20 to-slack-blue/20 backdrop-blur-sm rounded-xl p-1">
-                <div className="bg-white dark:bg-slate-900 rounded-lg overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1516110833967-0b5716ca1387?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" 
-                    alt="AI Chatbot" 
-                    className="w-full object-cover rounded-lg"
-                    style={{ height: '500px' }}
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </div>
-          </FadeIn>
-          
           <FadeIn direction="left">
             <div className="space-y-8">
               <div className="grid grid-cols-1 gap-4">
@@ -101,9 +85,9 @@ const ChatbotSection = () => {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" className="border-[#8B5CF6] text-[#8B5CF6] hover:bg-[#8B5CF6]/10 font-semibold" onClick={handleLinkClick}>
+                <Button asChild variant="outline" className="border-[#8B5CF6] text-[#8B5CF6] hover:bg-[#8B5CF6]/10 hover:text-white font-semibold" onClick={handleLinkClick}>
                   <Link to="/checkout-demo">
-                    Checkout Demo
+                    Checkout Demo →
                   </Link>
                 </Button>
                 <Button asChild className="bg-[#EC4899] hover:bg-[#EC4899]/90 text-white" onClick={handleLinkClick}>
@@ -112,6 +96,22 @@ const ChatbotSection = () => {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
+              </div>
+            </div>
+          </FadeIn>
+          
+          <FadeIn direction="right">
+            <div className="rounded-xl overflow-hidden shadow-strong">
+              <div className="bg-gradient-to-br from-slack-purple/20 to-slack-blue/20 backdrop-blur-sm rounded-xl p-1">
+                <div className="bg-white dark:bg-slate-900 rounded-lg overflow-hidden">
+                  <img 
+                    src="https://images.unsplash.com/photo-1516110833967-0b5716ca1387?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" 
+                    alt="AI Chatbot" 
+                    className="w-full object-cover rounded-lg"
+                    style={{ height: '500px' }}
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
           </FadeIn>

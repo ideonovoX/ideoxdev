@@ -42,7 +42,7 @@ const HeroSection = ({ sliderContent }: HeroSectionProps) => {
             </Button>
           </div>
           <p className="text-sm text-slate-500 dark:text-slate-500 mt-4 animate-fade-in" style={{ animationDelay: '400ms' }}>
-            No credit card required. Free 3-month trial.
+            No credit card required. Free 3-months trial.
           </p>
         </div>
         
