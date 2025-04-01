@@ -46,6 +46,10 @@ const FacebookAutomationSection = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const handleLinkClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-8">
@@ -75,18 +79,18 @@ const FacebookAutomationSection = () => {
               </div>
               
               <div className="flex flex-wrap gap-4 mt-8">
-                <Button asChild className="bg-[#1877F2] hover:bg-[#1877F2]/90 text-white">
+                <Button asChild className="bg-[#1877F2] hover:bg-[#1877F2]/90 text-white" onClick={handleLinkClick}>
                   <Link to="/facebook-automation">
                     Read More
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" className="border-[#EC4899] text-[#EC4899] hover:bg-[#EC4899]/10">
+                <Button asChild variant="outline" className="border-[#8B5CF6] text-[#8B5CF6] hover:bg-[#8B5CF6]/10 font-semibold" onClick={handleLinkClick}>
                   <Link to="/checkout-demo">
                     Checkout Demo
                   </Link>
                 </Button>
-                <Button asChild className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white">
+                <Button asChild className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white" onClick={handleLinkClick}>
                   <Link to="/get-started-form">
                     Try for Free
                     <ArrowRight className="ml-2 h-4 w-4" />

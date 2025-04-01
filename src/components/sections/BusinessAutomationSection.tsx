@@ -7,28 +7,28 @@ import FadeIn from '@/components/FadeIn';
 
 const features = [
   {
-    title: "Smart Workflow Automation",
-    description: "Automate complex processes with intelligent decision-making capabilities."
+    title: "Workflow Automation",
+    description: "Streamline repetitive tasks and processes with intelligent workflow automation."
   },
   {
-    title: "Data-Driven Insights",
-    description: "Extract meaningful patterns and actionable intelligence from your business data."
+    title: "Document Processing",
+    description: "Extract and process data from documents using AI for faster, error-free operations."
   },
   {
-    title: "Reduced Operational Costs",
-    description: "Cut expenses while improving accuracy and reducing human error."
+    title: "Data Entry Automation",
+    description: "Eliminate manual data entry with intelligent capture and validation."
   },
   {
-    title: "Process Optimization",
-    description: "Identify and eliminate bottlenecks in your workflows for maximum efficiency."
+    title: "Approval Process Optimization",
+    description: "Accelerate approvals with automated routing and intelligent decision support."
   },
   {
-    title: "Seamless Integration",
-    description: "Connects with your existing software ecosystem with minimal disruption."
+    title: "CRM Integration",
+    description: "Sync customer data across platforms and automate customer journey touchpoints."
   },
   {
-    title: "Scalable Solutions",
-    description: "Grows with your business needs from simple tasks to complex operations."
+    title: "Analytics & Reporting",
+    description: "Gain actionable insights with automated data collection and report generation."
   }
 ];
 
@@ -36,9 +36,9 @@ const colors = [
   "text-slack-blue",
   "text-slack-green",
   "text-slack-purple",
-  "text-[#EC4899]",
+  "text-[#0EA5E9]",
   "text-[#F59E0B]",
-  "text-[#0EA5E9]"
+  "text-[#EC4899]"
 ];
 
 const BusinessAutomationSection = () => {
@@ -46,8 +46,12 @@ const BusinessAutomationSection = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const handleLinkClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
-    <section className="py-24 bg-slate-50 dark:bg-slate-900 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden" id="business-automation-section">
       <div className="container mx-auto px-4 md:px-8">
         <FadeIn>
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
@@ -56,7 +60,7 @@ const BusinessAutomationSection = () => {
             </span>
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto text-center mb-16">
-            AI-powered automation helps businesses streamline operations, reduce costs, and enhance productivity by handling repetitive tasks with precision and intelligence.
+            Transform your operations with intelligent automation that streamlines workflows, reduces errors, and frees your team to focus on strategic tasks that drive growth.
           </p>
         </FadeIn>
         
@@ -66,8 +70,8 @@ const BusinessAutomationSection = () => {
               <div className="bg-gradient-to-br from-slack-blue/20 to-slack-green/20 backdrop-blur-sm rounded-xl p-1">
                 <div className="bg-white dark:bg-slate-900 rounded-lg overflow-hidden">
                   <img 
-                    src="https://j3h5t9f5.delivery.rocketcdn.me/wp-content/uploads/Blog-1-Image--scaled.jpeg.webp" 
-                    alt="Business Automation with AI" 
+                    src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                    alt="Business Automation" 
                     className="w-full object-cover rounded-lg"
                     style={{ height: '500px' }}
                     loading="lazy"
@@ -91,18 +95,18 @@ const BusinessAutomationSection = () => {
               </div>
               
               <div className="flex flex-wrap gap-4 mt-8">
-                <Button asChild className="bg-slack-blue hover:bg-slack-blue/90 text-white">
+                <Button asChild className="bg-slack-blue hover:bg-slack-blue/90 text-white" onClick={handleLinkClick}>
                   <Link to="/business-automation">
                     Read More
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" className="border-[#0EA5E9] text-[#0EA5E9] hover:bg-[#0EA5E9]/10">
+                <Button asChild variant="outline" className="border-[#8B5CF6] text-[#8B5CF6] hover:bg-[#8B5CF6]/10 font-semibold" onClick={handleLinkClick}>
                   <Link to="/checkout-demo">
                     Checkout Demo
                   </Link>
                 </Button>
-                <Button asChild className="bg-[#F59E0B] hover:bg-[#F59E0B]/90 text-white">
+                <Button asChild className="bg-[#F59E0B] hover:bg-[#F59E0B]/90 text-white" onClick={handleLinkClick}>
                   <Link to="/get-started-form">
                     Try for Free
                     <ArrowRight className="ml-2 h-4 w-4" />

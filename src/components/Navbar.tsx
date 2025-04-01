@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Zap, ChevronDown } from 'lucide-react';
@@ -38,6 +39,11 @@ const Navbar = () => {
     return location.pathname === path;
   };
 
+  const handleLinkClick = () => {
+    window.scrollTo(0, 0);
+    if (isOpen) setIsOpen(false);
+  };
+
   return (
     <header 
       className={cn(
@@ -48,7 +54,7 @@ const Navbar = () => {
       <div className="container mx-auto">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center space-x-2">
+            <Link to="/" className="flex items-center space-x-2" onClick={handleLinkClick}>
               <Zap className="h-8 w-8 text-slack-purple" />
               <span className="text-xl font-bold text-slack-black dark:text-white">IdeoxAI</span>
             </Link>
@@ -73,6 +79,7 @@ const Navbar = () => {
                           <Link
                             className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 p-6 no-underline outline-none focus:shadow-md"
                             to="/features"
+                            onClick={handleLinkClick}
                           >
                             <div className="mb-2 mt-4 text-lg font-medium text-slack-purple">
                               Features Overview
@@ -84,7 +91,7 @@ const Navbar = () => {
                         </NavigationMenuLink>
                       </li>
                       <li>
-                        <Link to="/features#ai-chatbots" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 dark:hover:bg-slate-800 focus:bg-slate-100 dark:focus:bg-slate-800">
+                        <Link to="/features#ai-chatbots" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 dark:hover:bg-slate-800 focus:bg-slate-100 dark:focus:bg-slate-800" onClick={handleLinkClick}>
                           <div className="text-sm font-medium leading-none">AI Chatbots</div>
                           <p className="line-clamp-2 text-sm leading-snug text-slate-500 dark:text-slate-400">
                             Intelligent chat automation for customer support and engagement
@@ -92,7 +99,7 @@ const Navbar = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link to="/features#workflow-automation" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 dark:hover:bg-slate-800 focus:bg-slate-100 dark:focus:bg-slate-800">
+                        <Link to="/features#workflow-automation" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 dark:hover:bg-slate-800 focus:bg-slate-100 dark:focus:bg-slate-800" onClick={handleLinkClick}>
                           <div className="text-sm font-medium leading-none">Workflow Automation</div>
                           <p className="line-clamp-2 text-sm leading-snug text-slate-500 dark:text-slate-400">
                             Streamline your business processes with intelligent automation
@@ -100,7 +107,7 @@ const Navbar = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link to="/features#ecommerce-automation" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 dark:hover:bg-slate-800 focus:bg-slate-100 dark:focus:bg-slate-800">
+                        <Link to="/features#ecommerce-automation" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 dark:hover:bg-slate-800 focus:bg-slate-100 dark:focus:bg-slate-800" onClick={handleLinkClick}>
                           <div className="text-sm font-medium leading-none">eCommerce Automation</div>
                           <p className="line-clamp-2 text-sm leading-snug text-slate-500 dark:text-slate-400">
                             Automate product listings, pricing, and customer interactions
@@ -108,7 +115,7 @@ const Navbar = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link to="/integrations" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 dark:hover:bg-slate-800 focus:bg-slate-100 dark:focus:bg-slate-800">
+                        <Link to="/integrations" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 dark:hover:bg-slate-800 focus:bg-slate-100 dark:focus:bg-slate-800" onClick={handleLinkClick}>
                           <div className="text-sm font-medium leading-none">Integrations</div>
                           <p className="line-clamp-2 text-sm leading-snug text-slate-500 dark:text-slate-400">
                             Connect with your favorite tools and platforms
@@ -188,6 +195,7 @@ const Navbar = () => {
                       "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-gradient-to-r hover:from-purple-100 hover:via-blue-100 hover:to-green-100 hover:text-slack-purple dark:hover:from-purple-900/20 dark:hover:via-blue-900/20 dark:hover:to-green-900/20 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50",
                       isActive('/pricing') && "text-slack-purple"
                     )}
+                    onClick={handleLinkClick}
                   >
                     Pricing
                   </Link>
@@ -299,21 +307,21 @@ const Navbar = () => {
 
             <div className="hidden md:flex items-center space-x-4 ml-4">
               <Button variant="ghost" size="sm" asChild className="hover:bg-gradient-to-r hover:from-purple-100 hover:via-blue-100 hover:to-green-100 hover:text-slack-purple dark:hover:from-purple-900/20 dark:hover:via-blue-900/20 dark:hover:to-green-900/20">
-                <Link to="/login">Login</Link>
+                <Link to="/login" onClick={handleLinkClick}>Login</Link>
               </Button>
               <Button size="sm" asChild>
-                <Link to="/get-started">Get Started</Link>
+                <Link to="/get-started-form" onClick={handleLinkClick}>Get Started</Link>
               </Button>
             </div>
           </nav>
 
           <div className="flex md:hidden items-center space-x-4">
             <Button variant="ghost" size="sm" asChild className="hover:bg-gradient-to-r hover:from-purple-100 hover:via-blue-100 hover:to-green-100 hover:text-slack-purple dark:hover:from-purple-900/20 dark:hover:via-blue-900/20 dark:hover:to-green-900/20">
-              <Link to="/login">Login</Link>
+              <Link to="/login" onClick={handleLinkClick}>Login</Link>
             </Button>
             <button
               onClick={toggleMenu}
-              className="text-slack-black dark:text-white"
+              className="text-slack-black dark:text-white p-2 z-50"
               aria-label="Toggle Menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -345,14 +353,14 @@ const Navbar = () => {
               <Link 
                 to="/features"
                 className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
-                onClick={() => setIsOpen(false)}
+                onClick={handleLinkClick}
               >
                 Features Overview
               </Link>
               <Link 
                 to="/integrations"
                 className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
-                onClick={() => setIsOpen(false)}
+                onClick={handleLinkClick}
               >
                 Integrations
               </Link>
@@ -363,14 +371,14 @@ const Navbar = () => {
               <Link 
                 to="/solutions"
                 className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
-                onClick={() => setIsOpen(false)}
+                onClick={handleLinkClick}
               >
                 Solutions Overview
               </Link>
               <Link 
                 to="/enterprise"
                 className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
-                onClick={() => setIsOpen(false)}
+                onClick={handleLinkClick}
               >
                 Enterprise
               </Link>
@@ -379,7 +387,7 @@ const Navbar = () => {
             <Link 
               to="/pricing"
               className="block py-2 px-4 text-lg font-semibold bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent rounded-md hover:bg-white/30"
-              onClick={() => setIsOpen(false)}
+              onClick={handleLinkClick}
             >
               Pricing
             </Link>
@@ -389,28 +397,28 @@ const Navbar = () => {
               <Link 
                 to="/docs"
                 className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
-                onClick={() => setIsOpen(false)}
+                onClick={handleLinkClick}
               >
                 Documentation
               </Link>
               <Link 
                 to="/guides"
                 className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
-                onClick={() => setIsOpen(false)}
+                onClick={handleLinkClick}
               >
                 Guides
               </Link>
               <Link 
                 to="/api"
                 className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
-                onClick={() => setIsOpen(false)}
+                onClick={handleLinkClick}
               >
                 API Reference
               </Link>
               <Link 
                 to="/blog"
                 className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
-                onClick={() => setIsOpen(false)}
+                onClick={handleLinkClick}
               >
                 Blog
               </Link>
@@ -421,36 +429,36 @@ const Navbar = () => {
               <Link 
                 to="/about"
                 className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
-                onClick={() => setIsOpen(false)}
+                onClick={handleLinkClick}
               >
                 About Us
               </Link>
               <Link 
                 to="/careers"
                 className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
-                onClick={() => setIsOpen(false)}
+                onClick={handleLinkClick}
               >
                 Careers
               </Link>
               <Link 
                 to="/contact"
                 className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
-                onClick={() => setIsOpen(false)}
+                onClick={handleLinkClick}
               >
                 Contact
               </Link>
               <Link 
                 to="/partners"
                 className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
-                onClick={() => setIsOpen(false)}
+                onClick={handleLinkClick}
               >
                 Partners
               </Link>
             </div>
             
             <div className="pt-6 flex flex-col space-y-3">
-              <Button className="w-full" asChild onClick={() => setIsOpen(false)}>
-                <Link to="/get-started">Get Started</Link>
+              <Button className="w-full" asChild onClick={handleLinkClick}>
+                <Link to="/get-started-form">Get Started</Link>
               </Button>
             </div>
           </div>
