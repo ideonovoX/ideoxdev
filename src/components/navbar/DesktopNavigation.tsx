@@ -1,4 +1,3 @@
-
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -10,6 +9,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { Home } from 'lucide-react';
 
 interface DesktopNavigationProps {
   handleLinkClick: () => void;
@@ -27,6 +27,20 @@ const DesktopNavigation = ({ handleLinkClick }: DesktopNavigationProps) => {
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
+            <Link
+              to="/"
+              className={cn(
+                "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-gradient-to-r hover:from-purple-100 hover:via-blue-100 hover:to-green-100 hover:text-slack-purple dark:hover:from-purple-900/20 dark:hover:via-blue-900/20 dark:hover:to-green-900/20 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50",
+                isActive('/') && "text-slack-purple"
+              )}
+              onClick={handleLinkClick}
+            >
+              <Home className="mr-2 h-4 w-4" />
+              Home
+            </Link>
+          </NavigationMenuItem>
+          
+          <NavigationMenuItem className="hidden">
             <NavigationMenuTrigger 
               className={cn(
                 isActive('/features') ? 'text-slack-purple' : '',
@@ -164,7 +178,7 @@ const DesktopNavigation = ({ handleLinkClick }: DesktopNavigationProps) => {
             </Link>
           </NavigationMenuItem>
           
-          <NavigationMenuItem>
+          <NavigationMenuItem className="hidden">
             <NavigationMenuTrigger 
               className={cn(
                 isActive('/resources') || isActive('/docs') || isActive('/guides') || isActive('/api') || isActive('/blog') ? 'text-slack-purple' : '',
@@ -203,7 +217,7 @@ const DesktopNavigation = ({ handleLinkClick }: DesktopNavigationProps) => {
                   <Link to="/blog" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 dark:hover:bg-slate-800 focus:bg-slate-100 dark:focus:bg-slate-800">
                     <div className="text-sm font-medium leading-none">Blog</div>
                     <p className="line-clamp-2 text-sm leading-snug text-slate-500 dark:text-slate-400">
-                      Insights, news, and updates from IdeoxAI
+                      Insights, news, and updates
                     </p>
                   </Link>
                 </li>
@@ -269,7 +283,7 @@ const DesktopNavigation = ({ handleLinkClick }: DesktopNavigationProps) => {
       </NavigationMenu>
 
       <div className="hidden md:flex items-center space-x-4 ml-4">
-        <Button variant="ghost" size="sm" asChild className="hover:bg-gradient-to-r hover:from-purple-100 hover:via-blue-100 hover:to-green-100 hover:text-slack-purple dark:hover:from-purple-900/20 dark:hover:via-blue-900/20 dark:hover:to-green-900/20">
+        <Button variant="ghost" size="sm" asChild className="hidden hover:bg-gradient-to-r hover:from-purple-100 hover:via-blue-100 hover:to-green-100 hover:text-slack-purple dark:hover:from-purple-900/20 dark:hover:via-blue-900/20 dark:hover:to-green-900/20">
           <Link to="/login" onClick={handleLinkClick}>Login</Link>
         </Button>
         <Button size="sm" asChild>

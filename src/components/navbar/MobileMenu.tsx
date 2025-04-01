@@ -1,7 +1,7 @@
 
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { X } from 'lucide-react';
+import { X, Home, User, Phone, FileText, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -46,13 +46,12 @@ const MobileMenu = ({ isOpen, onClose, handleLinkClick }: MobileMenuProps) => {
       className={cn(
         "md:hidden fixed inset-0 z-40",
         "bg-gradient-to-br from-purple-50/95 via-blue-50/95 to-green-50/95 dark:from-purple-900/90 dark:via-blue-900/90 dark:to-green-900/90 backdrop-blur-xl",
-        "flex flex-col justify-start items-center px-6 overflow-y-auto",
+        "flex flex-col justify-start items-center px-6",
         isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
       )}
       style={{ transition: "opacity 0.3s ease, visibility 0.3s ease" }}
     >
-      <div className="space-y-6 w-full max-w-md py-20">
-        {/* Only one close button */}
+      <div className="w-full max-w-md py-10">
         <div className="absolute top-4 right-4">
           <button
             onClick={onClose}
@@ -63,115 +62,81 @@ const MobileMenu = ({ isOpen, onClose, handleLinkClick }: MobileMenuProps) => {
           </button>
         </div>
         
-        <div className="space-y-1">
-          <div className="text-lg font-semibold text-slate-800 dark:text-white/80 mb-2 px-2 bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent">Features</div>
+        <div className="space-y-3 mt-8">
           <Link 
-            to="/features"
-            className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
+            to="/"
+            className="flex items-center py-3 px-4 text-slate-700 hover:text-slack-purple dark:text-white/80 dark:hover:text-white rounded-md hover:bg-white/30"
             onClick={handleLinkClick}
           >
-            Features Overview
+            <Home className="mr-3 h-5 w-5" />
+            <span className="font-medium">Home</span>
           </Link>
-          <Link 
-            to="/integrations"
-            className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
-            onClick={handleLinkClick}
-          >
-            Integrations
-          </Link>
-        </div>
-        
-        <div className="space-y-1">
-          <div className="text-lg font-semibold text-slate-800 dark:text-white/80 mb-2 px-2 bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent">Solutions</div>
+          
           <Link 
             to="/solutions"
-            className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
+            className="flex items-center py-3 px-4 text-slate-700 hover:text-slack-purple dark:text-white/80 dark:hover:text-white rounded-md hover:bg-white/30"
             onClick={handleLinkClick}
           >
-            Solutions Overview
+            <svg className="mr-3 h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M16.28 13.61C15.15 14.74 13.53 15.09 12.1 14.64L9.51001 17.22C9.33001 17.41 8.96001 17.53 8.69001 17.49L7.49001 17.33C7.09001 17.28 6.73001 16.9 6.67001 16.51L6.51001 15.31C6.47001 15.05 6.60001 14.68 6.78001 14.49L9.36001 11.91C8.92001 10.48 9.26001 8.86001 10.39 7.73001C12.01 6.11001 14.65 6.11001 16.28 7.73001C17.9 9.34001 17.9 11.98 16.28 13.61Z" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M10.45 16.28L9.59998 15.42" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M13.3945 10.7H13.4035" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            <span className="font-medium">Solutions</span>
           </Link>
+          
           <Link 
-            to="/enterprise"
-            className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
+            to="/pricing"
+            className="flex items-center py-3 px-4 text-slate-700 hover:text-slack-purple dark:text-white/80 dark:hover:text-white rounded-md hover:bg-white/30"
             onClick={handleLinkClick}
           >
-            Enterprise
+            <svg className="mr-3 h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.67188 14.3298C8.67188 15.6198 9.66188 16.6598 10.8919 16.6598H13.4019C14.4719 16.6598 15.3419 15.7498 15.3419 14.6298C15.3419 13.4098 14.8119 12.9798 14.0219 12.6998L9.99187 11.2998C9.20187 11.0198 8.67188 10.5898 8.67188 9.36984C8.67188 8.24984 9.54187 7.33984 10.6119 7.33984H13.1219C14.3519 7.33984 15.3419 8.37984 15.3419 9.66984" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M12 6V18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            <span className="font-medium">Pricing</span>
           </Link>
-        </div>
-        
-        <Link 
-          to="/pricing"
-          className="block py-2 px-4 text-lg font-semibold bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent rounded-md hover:bg-white/30"
-          onClick={handleLinkClick}
-        >
-          Pricing
-        </Link>
-        
-        <div className="space-y-1">
-          <div className="text-lg font-semibold text-slate-800 dark:text-white/80 mb-2 px-2 bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent">Resources</div>
-          <Link 
-            to="/docs"
-            className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
-            onClick={handleLinkClick}
-          >
-            Documentation
-          </Link>
-          <Link 
-            to="/guides"
-            className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
-            onClick={handleLinkClick}
-          >
-            Guides
-          </Link>
-          <Link 
-            to="/api"
-            className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
-            onClick={handleLinkClick}
-          >
-            API Reference
-          </Link>
-          <Link 
-            to="/blog"
-            className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
-            onClick={handleLinkClick}
-          >
-            Blog
-          </Link>
-        </div>
-        
-        <div className="space-y-1">
-          <div className="text-lg font-semibold text-slate-800 dark:text-white/80 mb-2 px-2 bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent">Company</div>
+          
           <Link 
             to="/about"
-            className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
+            className="flex items-center py-3 px-4 text-slate-700 hover:text-slack-purple dark:text-white/80 dark:hover:text-white rounded-md hover:bg-white/30"
             onClick={handleLinkClick}
           >
-            About Us
+            <User className="mr-3 h-5 w-5" />
+            <span className="font-medium">About IdeoxAI</span>
           </Link>
-          <Link 
-            to="/careers"
-            className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
-            onClick={handleLinkClick}
-          >
-            Careers
-          </Link>
+          
           <Link 
             to="/contact"
-            className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
+            className="flex items-center py-3 px-4 text-slate-700 hover:text-slack-purple dark:text-white/80 dark:hover:text-white rounded-md hover:bg-white/30"
             onClick={handleLinkClick}
           >
-            Contact
+            <Phone className="mr-3 h-5 w-5" />
+            <span className="font-medium">Contact Us</span>
           </Link>
+          
           <Link 
-            to="/partners"
-            className="block py-2 px-4 text-slate-700 hover:text-slack-purple dark:text-white/70 dark:hover:text-white rounded-md hover:bg-white/30"
+            to="/blog"
+            className="flex items-center py-3 px-4 text-slate-700 hover:text-slack-purple dark:text-white/80 dark:hover:text-white rounded-md hover:bg-white/30"
             onClick={handleLinkClick}
           >
-            Partners
+            <FileText className="mr-3 h-5 w-5" />
+            <span className="font-medium">Blog</span>
+          </Link>
+          
+          <Link 
+            to="/security"
+            className="flex items-center py-3 px-4 text-slate-700 hover:text-slack-purple dark:text-white/80 dark:hover:text-white rounded-md hover:bg-white/30"
+            onClick={handleLinkClick}
+          >
+            <ShieldCheck className="mr-3 h-5 w-5" />
+            <span className="font-medium">Data Security</span>
           </Link>
         </div>
         
-        <div className="pt-6 flex flex-col space-y-3">
+        <div className="pt-6 flex flex-col">
           <Button className="w-full" asChild onClick={handleLinkClick}>
             <Link to="/get-started-form">Get Started</Link>
           </Button>

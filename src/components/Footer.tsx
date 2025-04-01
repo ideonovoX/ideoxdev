@@ -11,6 +11,15 @@ const Footer = () => {
     return location.pathname === path;
   };
   
+  // Mock blog posts (these would normally come from a data source)
+  const recentBlogPosts = [
+    { title: "How AI Is Revolutionizing Customer Service", slug: "ai-customer-service" },
+    { title: "5 Ways to Automate Your Business with IdeoXAI", slug: "business-automation" },
+    { title: "The Future of eCommerce Automation", slug: "ecommerce-automation" },
+    { title: "Implementing AI Solutions for Enterprise", slug: "ai-enterprise-solutions" }
+  ];
+  
+  // Reorganized footer links according to the request
   const footerLinks = [
     {
       title: 'Product',
@@ -22,21 +31,11 @@ const Footer = () => {
       ]
     },
     {
-      title: 'Resources',
-      links: [
-        { name: 'Documentation', href: '/docs' },
-        { name: 'Guides', href: '/guides' },
-        { name: 'API Reference', href: '/api' },
-        { name: 'Blog', href: '/blog' }
-      ]
-    },
-    {
       title: 'Company',
       links: [
         { name: 'About Us', href: '/about' },
         { name: 'Careers', href: '/careers' },
-        { name: 'Contact', href: '/contact' },
-        { name: 'Partners', href: '/partners' }
+        { name: 'Contact', href: '/contact' }
       ]
     },
     {
@@ -53,7 +52,7 @@ const Footer = () => {
   return (
     <footer className="bg-white dark:bg-slack-black pt-16 border-t border-gray-200 dark:border-gray-800">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center space-x-2 mb-4">
               <Zap className="h-8 w-8 text-slack-purple" />
@@ -89,29 +88,94 @@ const Footer = () => {
             </div>
           </div>
 
-          {footerLinks.map((column) => (
-            <div key={column.title}>
-              <h3 className="font-semibold text-slack-black dark:text-white mb-4">
-                {column.title}
-              </h3>
-              <ul className="space-y-3">
-                {column.links.map((link) => (
-                  <li key={link.name}>
-                    <Link 
-                      to={link.href}
-                      className={cn(
-                        "text-slate-600 dark:text-slate-400 hover:text-slack-purple dark:hover:text-slack-purple transition-colors relative inline-block",
-                        "after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-2px] after:left-0 after:bg-slack-purple after:origin-bottom-left after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left",
-                        isActive(link.href) && "after:scale-x-100 text-slack-purple dark:text-slack-purple"
-                      )}
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Product Column */}
+          <div>
+            <h3 className="font-semibold text-slack-black dark:text-white mb-4">
+              Product
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks[0].links.map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    to={link.href}
+                    className={cn(
+                      "text-slate-600 dark:text-slate-400 hover:text-slack-purple dark:hover:text-slack-purple transition-colors relative inline-block",
+                      "after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-2px] after:left-0 after:bg-slack-purple after:origin-bottom-left after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left",
+                      isActive(link.href) && "after:scale-x-100 text-slack-purple dark:text-slack-purple"
+                    )}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Blog Column */}
+          <div>
+            <h3 className="font-semibold text-slack-black dark:text-white mb-4">
+              Blog
+            </h3>
+            <ul className="space-y-3">
+              {recentBlogPosts.map((post, index) => (
+                <li key={index}>
+                  <Link 
+                    to={`/blog/${post.slug}`}
+                    className={cn(
+                      "text-slate-600 dark:text-slate-400 hover:text-slack-purple dark:hover:text-slack-purple transition-colors relative inline-block",
+                      "after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-2px] after:left-0 after:bg-slack-purple after:origin-bottom-left after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                    )}
+                  >
+                    {post.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company Column */}
+          <div>
+            <h3 className="font-semibold text-slack-black dark:text-white mb-4">
+              Company
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks[1].links.map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    to={link.href}
+                    className={cn(
+                      "text-slate-600 dark:text-slate-400 hover:text-slack-purple dark:hover:text-slack-purple transition-colors relative inline-block",
+                      "after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-2px] after:left-0 after:bg-slack-purple after:origin-bottom-left after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left",
+                      isActive(link.href) && "after:scale-x-100 text-slack-purple dark:text-slack-purple"
+                    )}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            {/* Legal Column */}
+            <h3 className="font-semibold text-slack-black dark:text-white mb-4 mt-8">
+              Legal
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks[2].links.map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    to={link.href}
+                    className={cn(
+                      "text-slate-600 dark:text-slate-400 hover:text-slack-purple dark:hover:text-slack-purple transition-colors relative inline-block",
+                      "after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-2px] after:left-0 after:bg-slack-purple after:origin-bottom-left after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left",
+                      isActive(link.href) && "after:scale-x-100 text-slack-purple dark:text-slack-purple"
+                    )}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 pb-8">
