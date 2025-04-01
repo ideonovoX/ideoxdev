@@ -1,6 +1,5 @@
 
 import { Menu } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 interface MobileNavControlsProps {
   isOpen: boolean;
@@ -10,10 +9,7 @@ interface MobileNavControlsProps {
 
 const MobileNavControls = ({ isOpen, toggleMenu }: MobileNavControlsProps) => {
   return (
-    <div className="flex md:hidden items-center space-x-4">
-      <Button size="sm" asChild className="mr-1">
-        <a href="/get-started-form">Get Started</a>
-      </Button>
+    <div className="flex md:hidden items-center">
       <button
         onClick={toggleMenu}
         className="text-slack-black dark:text-white p-2 z-50"

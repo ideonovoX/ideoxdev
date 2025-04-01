@@ -15,12 +15,19 @@ const Footer = () => {
   const recentBlogPosts = [
     { title: "How AI Is Revolutionizing Customer Service", slug: "ai-customer-service" },
     { title: "5 Ways to Automate Your Business with IdeoXAI", slug: "business-automation" },
-    { title: "The Future of eCommerce Automation", slug: "ecommerce-automation" },
-    { title: "Implementing AI Solutions for Enterprise", slug: "ai-enterprise-solutions" }
+    { title: "The Future of eCommerce Automation", slug: "ecommerce-automation" }
   ];
   
   // Reorganized footer links according to the request
   const footerLinks = [
+    {
+      title: 'Company',
+      links: [
+        { name: 'About Us', href: '/about' },
+        { name: 'Careers', href: '/careers' },
+        { name: 'Contact', href: '/contact' }
+      ]
+    },
     {
       title: 'Product',
       links: [
@@ -28,14 +35,6 @@ const Footer = () => {
         { name: 'Integrations', href: '/integrations' },
         { name: 'Enterprise', href: '/enterprise' },
         { name: 'Solutions', href: '/solutions' }
-      ]
-    },
-    {
-      title: 'Company',
-      links: [
-        { name: 'About Us', href: '/about' },
-        { name: 'Careers', href: '/careers' },
-        { name: 'Contact', href: '/contact' }
       ]
     },
     {
@@ -52,8 +51,9 @@ const Footer = () => {
   return (
     <footer className="bg-white dark:bg-slack-black pt-16 border-t border-gray-200 dark:border-gray-800">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-          <div className="lg:col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Company Column */}
+          <div>
             <Link to="/" className="flex items-center space-x-2 mb-4">
               <Zap className="h-8 w-8 text-slack-purple" />
               <span className="text-xl font-bold text-slack-black dark:text-white">IdeoxAI</span>
@@ -94,7 +94,30 @@ const Footer = () => {
               Product
             </h3>
             <ul className="space-y-3">
-              {footerLinks[0].links.map((link) => (
+              {footerLinks[1].links.map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    to={link.href}
+                    className={cn(
+                      "text-slate-600 dark:text-slate-400 hover:text-slack-purple dark:hover:text-slack-purple transition-colors relative inline-block",
+                      "after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-2px] after:left-0 after:bg-slack-purple after:origin-bottom-left after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left",
+                      isActive(link.href) && "after:scale-x-100 text-slack-purple dark:text-slack-purple"
+                    )}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal Column */}
+          <div>
+            <h3 className="font-semibold text-slack-black dark:text-white mb-4">
+              Legal
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks[2].links.map((link) => (
                 <li key={link.name}>
                   <Link 
                     to={link.href}
@@ -132,58 +155,11 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-
-          {/* Company Column */}
-          <div>
-            <h3 className="font-semibold text-slack-black dark:text-white mb-4">
-              Company
-            </h3>
-            <ul className="space-y-3">
-              {footerLinks[1].links.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    to={link.href}
-                    className={cn(
-                      "text-slate-600 dark:text-slate-400 hover:text-slack-purple dark:hover:text-slack-purple transition-colors relative inline-block",
-                      "after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-2px] after:left-0 after:bg-slack-purple after:origin-bottom-left after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left",
-                      isActive(link.href) && "after:scale-x-100 text-slack-purple dark:text-slack-purple"
-                    )}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-
-            {/* Legal Column */}
-            <h3 className="font-semibold text-slack-black dark:text-white mb-4 mt-8">
-              Legal
-            </h3>
-            <ul className="space-y-3">
-              {footerLinks[2].links.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    to={link.href}
-                    className={cn(
-                      "text-slate-600 dark:text-slate-400 hover:text-slack-purple dark:hover:text-slack-purple transition-colors relative inline-block",
-                      "after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-2px] after:left-0 after:bg-slack-purple after:origin-bottom-left after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left",
-                      isActive(link.href) && "after:scale-x-100 text-slack-purple dark:text-slack-purple"
-                    )}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
 
         <div className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 pb-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-slate-600 dark:text-slate-400 text-sm">
-              &copy; {currentYear} IdeoxAI. All rights reserved.
-            </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
+            <div className="flex space-x-6 mb-4 md:mb-0 order-2 md:order-1">
               <Link 
                 to="/privacy" 
                 className={cn(
@@ -215,6 +191,9 @@ const Footer = () => {
                 Cookies
               </Link>
             </div>
+            <p className="text-slate-600 dark:text-slate-400 text-sm order-1 md:order-2">
+              &copy; {currentYear} IdeoxAI. All rights reserved.
+            </p>
           </div>
         </div>
       </div>

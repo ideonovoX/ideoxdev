@@ -1,7 +1,7 @@
 
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { X, Home, User, Phone, FileText, ShieldCheck } from 'lucide-react';
+import { X, Home, User, Phone, FileText, ShieldCheck, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -47,12 +47,16 @@ const MobileMenu = ({ isOpen, onClose, handleLinkClick }: MobileMenuProps) => {
         "md:hidden fixed inset-0 z-40",
         "bg-gradient-to-br from-purple-50/95 via-blue-50/95 to-green-50/95 dark:from-purple-900/90 dark:via-blue-900/90 dark:to-green-900/90 backdrop-blur-xl",
         "flex flex-col justify-start items-center px-6",
-        isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+        isOpen ? "opacity-100 visible" : "opacity-0 invisible"
       )}
       style={{ transition: "opacity 0.3s ease, visibility 0.3s ease" }}
     >
-      <div className="w-full max-w-md py-10">
-        <div className="absolute top-4 right-4">
+      <div className="w-full max-w-md py-6">
+        <div className="flex items-center justify-between w-full mb-6">
+          <Link to="/" className="flex items-center space-x-2" onClick={handleLinkClick}>
+            <Zap className="h-8 w-8 text-slack-purple" />
+            <span className="text-xl font-bold text-slack-black dark:text-white">IdeoxAI</span>
+          </Link>
           <button
             onClick={onClose}
             className="p-2 rounded-full bg-white/20 text-slate-700 dark:text-white hover:bg-white/30"
@@ -62,7 +66,7 @@ const MobileMenu = ({ isOpen, onClose, handleLinkClick }: MobileMenuProps) => {
           </button>
         </div>
         
-        <div className="space-y-3 mt-8">
+        <div className="space-y-3">
           <Link 
             to="/"
             className="flex items-center py-3 px-4 text-slate-700 hover:text-slack-purple dark:text-white/80 dark:hover:text-white rounded-md hover:bg-white/30"
@@ -136,7 +140,7 @@ const MobileMenu = ({ isOpen, onClose, handleLinkClick }: MobileMenuProps) => {
           </Link>
         </div>
         
-        <div className="pt-6 flex flex-col">
+        <div className="pt-6">
           <Button className="w-full" asChild onClick={handleLinkClick}>
             <Link to="/get-started-form">Get Started</Link>
           </Button>
