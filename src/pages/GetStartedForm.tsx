@@ -15,6 +15,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import emailjs from 'emailjs-com';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
@@ -29,6 +30,11 @@ const formSchema = z.object({
 });
 
 type FormValues = z.infer<typeof formSchema>;
+
+// Replace these with your actual EmailJS credentials
+const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
+const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+const EMAILJS_USER_ID = "YOUR_USER_ID";
 
 const GetStartedForm = () => {
   const navigate = useNavigate();
@@ -52,11 +58,29 @@ const GetStartedForm = () => {
     setIsSubmitting(true);
     
     try {
-      // This would typically be a real API call to your backend
       console.log('Form data to be sent:', data);
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Prepare the email template parameters
+      const templateParams = {
+        from_name: data.name,
+        reply_to: data.email,
+        to_name: "IdeoxAI Team",
+        phone: data.phone || "Not provided",
+        organization: data.organization || "Not provided",
+        interested_in: data.interestedIn,
+        needs: data.needs,
+        additional_info: data.additionalInfo || "None",
+      };
+      
+      // Send the email using EmailJS
+      const response = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_USER_ID
+      );
+      
+      console.log('Email sent successfully:', response);
       
       toast({
         title: "Form submitted successfully!",
@@ -72,7 +96,7 @@ const GetStartedForm = () => {
       console.error('Error submitting form:', error);
       toast({
         title: "Something went wrong",
-        description: "Please try again later.",
+        description: "Please try again later or contact us directly.",
         variant: "destructive",
       });
     } finally {
