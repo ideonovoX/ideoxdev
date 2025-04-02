@@ -51,7 +51,7 @@ const MobileMenu = ({ isOpen, onClose, handleLinkClick }: MobileMenuProps) => {
       )}
       style={{ transition: "opacity 0.3s ease, visibility 0.3s ease" }}
     >
-      <div className="w-full max-w-md py-6" style="background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));">
+      <div className="w-full max-w-md py-6" style={{ backgroundImage: "linear-gradient(to bottom right, var(--tw-gradient-stops))" }}>
         <div className="flex items-center justify-between w-full mb-6">
           <Link to="/" className="flex items-center space-x-2" onClick={handleLinkClick}>
             <Zap className="h-8 w-8 text-slack-purple" />
