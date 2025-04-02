@@ -18,7 +18,7 @@ const CTASection = () => {
               </span>
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
-              Join thousands of companies already using IdeoxAI to streamline operations and boost productivity.
+              Join thousands of companies already using IdeoXai to streamline operations and boost productivity.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button asChild className="bg-slack-purple hover:bg-slack-purple/90 text-white h-12 px-6">

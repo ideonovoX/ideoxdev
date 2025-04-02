@@ -114,12 +114,12 @@ const GetStartedForm = () => {
       <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-gray-50 dark:bg-gray-900 pt-20 pb-20">
         <Link to="/" className="flex items-center mb-8 gap-2">
           <Zap className="h-8 w-8 text-slack-purple" />
-          <span className="text-xl font-bold text-slack-black dark:text-white">IdeoxAI</span>
+          <span className="text-xl font-bold text-slack-black dark:text-white">IdeoXai</span>
         </Link>
         
         <Card className="w-full max-w-3xl">
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl font-bold text-center">Get Started with IdeoxAI</CardTitle>
+            <CardTitle className="text-2xl font-bold text-center">Get Started with IdeoXai</CardTitle>
             <CardDescription className="text-center">
               Tell us about your needs and we'll get back to you shortly
             </CardDescription>

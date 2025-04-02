@@ -11,7 +11,7 @@ const NavLogo = ({ handleLinkClick }: NavLogoProps) => {
     <div className="flex items-center">
       <Link to="/" className="flex items-center space-x-2" onClick={handleLinkClick}>
         <Zap className="h-8 w-8 text-slack-purple" />
-        <span className="text-xl font-bold text-slack-black dark:text-white">IdeoxAI</span>
+        <span className="text-xl font-bold text-slack-black dark:text-white">IdeoXai</span>
       </Link>
     </div>
   );

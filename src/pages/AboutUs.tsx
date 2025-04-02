@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -14,7 +13,7 @@ const AboutUs = () => {
           <section className="mb-16">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-slack-black dark:text-white">
-                About IdeoxAI
+                About IdeoXai
               </h1>
               <p className="text-xl text-slate-600 dark:text-slate-400">
                 We're on a mission to revolutionize how businesses and individuals work by creating intelligent automation tools powered by cutting-edge AI technology.
@@ -29,7 +28,7 @@ const AboutUs = () => {
                   Our Story
                 </h2>
                 <p className="text-slate-600 dark:text-slate-400 mb-4">
-                  IdeoxAI was founded in 2022 by a team of AI enthusiasts and automation experts who recognized the transformative potential of combining sophisticated AI with powerful workflow automation.
+                  IdeoXai was founded in 2022 by a team of AI enthusiasts and automation experts who recognized the transformative potential of combining sophisticated AI with powerful workflow automation.
                 </p>
                 <p className="text-slate-600 dark:text-slate-400 mb-4">
                   What began as a small project to automate repetitive tasks has evolved into a comprehensive platform that helps thousands of businesses streamline their operations, improve customer interactions, and free up valuable time for innovation and growth.
@@ -46,7 +45,7 @@ const AboutUs = () => {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold mb-1">2022</h3>
-                      <p className="text-slate-600 dark:text-slate-400">IdeoxAI founded in Dhaka, Bangladesh</p>
+                      <p className="text-slate-600 dark:text-slate-400">IdeoXai founded in Dhaka, Bangladesh</p>
                     </div>
                   </div>
                   <div className="flex items-start">
@@ -121,7 +120,7 @@ const AboutUs = () => {
                 Leadership Team
               </h2>
               <p className="text-slate-600 dark:text-slate-400">
-                Meet the people behind IdeoxAI
+                Meet the people behind IdeoXai
               </p>
             </div>
             

@@ -14,7 +14,7 @@ const Footer = () => {
   // Mock blog posts (these would normally come from a data source)
   const recentBlogPosts = [
     { title: "How AI Is Revolutionizing Customer Service", slug: "ai-customer-service" },
-    { title: "5 Ways to Automate Your Business with IdeoXAI", slug: "business-automation" },
+    { title: "5 Ways to Automate Your Business with IdeoXai", slug: "business-automation" },
     { title: "The Future of eCommerce Automation", slug: "ecommerce-automation" }
   ];
   
@@ -51,12 +51,12 @@ const Footer = () => {
   return (
     <footer className="bg-white dark:bg-slack-black pt-16 border-t border-gray-200 dark:border-gray-800">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Column */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+          {/* Company Info Column */}
           <div>
             <Link to="/" className="flex items-center space-x-2 mb-4">
               <Zap className="h-8 w-8 text-slack-purple" />
-              <span className="text-xl font-bold text-slack-black dark:text-white">IdeoxAI</span>
+              <span className="text-xl font-bold text-slack-black dark:text-white">IdeoXai</span>
             </Link>
             <p className="text-slate-600 dark:text-slate-400 mb-4 max-w-sm">
               Revolutionizing workflows with intelligent automation powered by cutting-edge AI technology.
@@ -86,6 +86,29 @@ const Footer = () => {
                 <Instagram size={20} />
               </a>
             </div>
+          </div>
+
+          {/* Company Column */}
+          <div>
+            <h3 className="font-semibold text-slack-black dark:text-white mb-4">
+              Company
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks[0].links.map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    to={link.href}
+                    className={cn(
+                      "text-slate-600 dark:text-slate-400 hover:text-slack-purple dark:hover:text-slack-purple transition-colors relative inline-block",
+                      "after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-2px] after:left-0 after:bg-slack-purple after:origin-bottom-left after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left",
+                      isActive(link.href) && "after:scale-x-100 text-slack-purple dark:text-slack-purple"
+                    )}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Product Column */}
@@ -145,9 +168,10 @@ const Footer = () => {
                   <Link 
                     to={`/blog/${post.slug}`}
                     className={cn(
-                      "text-slate-600 dark:text-slate-400 hover:text-slack-purple dark:hover:text-slack-purple transition-colors relative inline-block",
+                      "text-slate-600 dark:text-slate-400 hover:text-slack-purple dark:hover:text-slack-purple transition-colors relative inline-block truncate max-w-full block",
                       "after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-2px] after:left-0 after:bg-slack-purple after:origin-bottom-left after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
                     )}
+                    title={post.title}
                   >
                     {post.title}
                   </Link>
@@ -192,7 +216,7 @@ const Footer = () => {
               </Link>
             </div>
             <p className="text-slate-600 dark:text-slate-400 text-sm order-2 md:order-1">
-              &copy; {currentYear} IdeoxAI. All rights reserved.
+              &copy; {currentYear} IdeoXai. All rights reserved.
             </p>
           </div>
         </div>
