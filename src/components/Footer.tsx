@@ -18,7 +18,7 @@ const Footer = () => {
     { title: "The Future of eCommerce Automation", slug: "ecommerce-automation" }
   ];
   
-  // Reorganized footer links according to the request
+  // Reorganized footer links in the specified order
   const footerLinks = [
     {
       title: 'Company',
@@ -54,38 +54,25 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Column */}
           <div>
-            <Link to="/" className="flex items-center space-x-2 mb-4">
-              <Zap className="h-8 w-8 text-slack-purple" />
-              <span className="text-xl font-bold text-slack-black dark:text-white">IdeoxAI</span>
-            </Link>
-            <p className="text-slate-600 dark:text-slate-400 mb-4 max-w-sm">
-              Revolutionizing workflows with intelligent automation powered by cutting-edge AI technology.
-            </p>
-            <div className="mb-4">
-              <p className="text-slate-600 dark:text-slate-400">
-                Address: Sonabaria, Satkhira, Dhaka, Bangladesh
-              </p>
-              <p className="text-slate-600 dark:text-slate-400">
-                Contact: +8801311344747
-              </p>
-              <p className="text-slate-600 dark:text-slate-400">
-                Email: ai@ideox.ai
-              </p>
-            </div>
-            <div className="flex space-x-4">
-              <a href="#" className="text-slack-darkGray hover:text-slack-purple transition-colors">
-                <Twitter size={20} />
-              </a>
-              <a href="#" className="text-slack-darkGray hover:text-slack-purple transition-colors">
-                <Linkedin size={20} />
-              </a>
-              <a href="#" className="text-slack-darkGray hover:text-slack-purple transition-colors">
-                <Github size={20} />
-              </a>
-              <a href="#" className="text-slack-darkGray hover:text-slack-purple transition-colors">
-                <Instagram size={20} />
-              </a>
-            </div>
+            <h3 className="font-semibold text-slack-black dark:text-white mb-4">
+              Company
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks[0].links.map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    to={link.href}
+                    className={cn(
+                      "text-slate-600 dark:text-slate-400 hover:text-slack-purple dark:hover:text-slack-purple transition-colors relative inline-block",
+                      "after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-2px] after:left-0 after:bg-slack-purple after:origin-bottom-left after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left",
+                      isActive(link.href) && "after:scale-x-100 text-slack-purple dark:text-slack-purple"
+                    )}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Product Column */}
@@ -140,7 +127,7 @@ const Footer = () => {
               Blog
             </h3>
             <ul className="space-y-3">
-              {recentBlogPosts.map((post, index) => (
+              {recentBlogPosts.slice(0, 3).map((post, index) => (
                 <li key={index}>
                   <Link 
                     to={`/blog/${post.slug}`}
@@ -159,7 +146,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 pb-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex space-x-6 mb-4 md:mb-0 order-2 md:order-1">
+            <div className="flex space-x-6 mb-4 md:mb-0 order-1 md:order-1">
               <Link 
                 to="/privacy" 
                 className={cn(
@@ -191,9 +178,36 @@ const Footer = () => {
                 Cookies
               </Link>
             </div>
-            <p className="text-slate-600 dark:text-slate-400 text-sm order-1 md:order-2">
+            <p className="text-slate-600 dark:text-slate-400 text-sm order-2 md:order-2">
               &copy; {currentYear} IdeoxAI. All rights reserved.
             </p>
+          </div>
+          
+          {/* Mobile-only footer links order */}
+          <div className="flex flex-col-reverse md:hidden mt-4">
+            <p className="text-slate-600 dark:text-slate-400 text-sm text-center mt-4">
+              &copy; {currentYear} IdeoxAI. All rights reserved.
+            </p>
+            <div className="flex justify-center space-x-4 mb-2">
+              <Link 
+                to="/privacy" 
+                className="text-sm text-slate-600 dark:text-slate-400 hover:text-slack-purple"
+              >
+                Privacy
+              </Link>
+              <Link 
+                to="/terms" 
+                className="text-sm text-slate-600 dark:text-slate-400 hover:text-slack-purple"
+              >
+                Terms
+              </Link>
+              <Link 
+                to="/cookies" 
+                className="text-sm text-slate-600 dark:text-slate-400 hover:text-slack-purple"
+              >
+                Cookies
+              </Link>
+            </div>
           </div>
         </div>
       </div>

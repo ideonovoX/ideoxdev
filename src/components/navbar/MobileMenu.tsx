@@ -47,9 +47,16 @@ const MobileMenu = ({ isOpen, onClose, handleLinkClick }: MobileMenuProps) => {
         "md:hidden fixed inset-0 z-40",
         "bg-gradient-to-br from-purple-50/95 via-blue-50/95 to-green-50/95 dark:from-purple-900/90 dark:via-blue-900/90 dark:to-green-900/90 backdrop-blur-xl",
         "flex flex-col justify-start items-center px-6",
-        isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
       )}
-      style={{ transition: "opacity 0.3s ease, visibility 0.3s ease" }}
+      style={{ 
+        transition: "opacity 0.3s ease, visibility 0.3s ease",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%"
+      }}
     >
       <div className="w-full max-w-md py-6">
         <div className="flex items-center justify-between w-full mb-6">
