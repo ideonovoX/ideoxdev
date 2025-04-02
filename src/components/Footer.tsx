@@ -159,7 +159,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 pb-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex space-x-6 mb-4 md:mb-0 order-2 md:order-1">
+            <div className="flex space-x-6 mb-4 md:mb-0 order-1 md:order-2">
               <Link 
                 to="/privacy" 
                 className={cn(
@@ -191,7 +191,7 @@ const Footer = () => {
                 Cookies
               </Link>
             </div>
-            <p className="text-slate-600 dark:text-slate-400 text-sm order-1 md:order-2">
+            <p className="text-slate-600 dark:text-slate-400 text-sm order-2 md:order-1">
               &copy; {currentYear} IdeoxAI. All rights reserved.
             </p>
           </div>
