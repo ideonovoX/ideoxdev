@@ -5,10 +5,13 @@ import { HelmetProvider } from 'react-helmet-async'
 import App from './App.tsx'
 import './index.css'
 
+// Create the helmet context first
+const helmetContext = {};
+
 createRoot(document.getElementById("root")!).render(
-  <HelmetProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <HelmetProvider context={helmetContext}>
       <App />
-    </BrowserRouter>
-  </HelmetProvider>
+    </HelmetProvider>
+  </BrowserRouter>
 );

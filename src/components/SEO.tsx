@@ -33,14 +33,14 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={imageUrl} />
+      {imageUrl && <meta property="og:image" content={imageUrl} />}
       
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={canonicalUrl} />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={imageUrl} />
+      {imageUrl && <meta name="twitter:image" content={imageUrl} />}
       
       {/* Schema.org markup */}
       {schemaMarkup && (
