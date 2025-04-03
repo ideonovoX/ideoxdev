@@ -46,7 +46,7 @@ const GetStartedForm = () => {
       
       toast({
         title: "Form submitted successfully!",
-        description: "We'll be in touch with you shortly.",
+        description: "Your information has been sent to aiagent@freelancedemy.com. We'll be in touch shortly.",
       });
       
       // Navigate back to homepage after successful submission
@@ -58,7 +58,7 @@ const GetStartedForm = () => {
       console.error('Error submitting form:', error);
       toast({
         title: "Something went wrong",
-        description: "Please try again later or contact us directly.",
+        description: "Please try again later or contact us directly at aiagent@freelancedemy.com.",
         variant: "destructive",
       });
     } finally {
