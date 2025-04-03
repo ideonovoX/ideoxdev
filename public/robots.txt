@@ -1,14 +1,32 @@
+
+# Allow all robots full access
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://ideox.ai/sitemap.xml
+
+# Specific rules for major crawlers
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
-User-agent: Twitterbot
+User-agent: Slurp
 Allow: /
 
-User-agent: facebookexternalhit
+User-agent: DuckDuckBot
 Allow: /
 
-User-agent: *
+User-agent: Baiduspider
 Allow: /
+
+User-agent: Yandex
+Allow: /
+
+# Disallow sensitive areas
+Disallow: /admin/
+Disallow: /login/
+Disallow: /user/
+Disallow: /api/

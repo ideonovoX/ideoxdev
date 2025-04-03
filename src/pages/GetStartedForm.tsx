@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useToast } from '@/hooks/use-toast';
 import { Form } from '@/components/ui/form';
-import { CardContent, CardFooter } from '@/components/ui/card';
+import { CardContent } from '@/components/ui/card';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FormHeader from '@/components/forms/FormHeader';
@@ -15,6 +15,8 @@ import NeedsInfoFields from '@/components/forms/NeedsInfoFields';
 import FormActions from '@/components/forms/FormActions';
 import { getStartedFormSchema, type GetStartedFormValues } from '@/utils/formSchemas';
 import { sendFormEmail } from '@/utils/emailService';
+import SEO from '@/components/SEO';
+import { generateWebPageSchema } from '@/utils/schemaMarkup';
 
 const GetStartedForm = () => {
   const navigate = useNavigate();
@@ -70,8 +72,20 @@ const GetStartedForm = () => {
     navigate('/');
   };
 
+  const pageSchema = generateWebPageSchema({
+    title: "Get Started with IdeoXai - Request Information",
+    description: "Fill out our form to get started with IdeoXai's AI automation solutions. Tell us about your business needs and we'll help you transform your operations.",
+    url: "https://ideox.ai/get-started-form"
+  });
+
   return (
     <>
+      <SEO 
+        title="Get Started with IdeoXai - Request Information"
+        description="Fill out our form to get started with IdeoXai's AI automation solutions. Tell us about your business needs and we'll help you transform your operations."
+        canonicalUrl="https://ideox.ai/get-started-form"
+        schemaMarkup={pageSchema}
+      />
       <Navbar />
       <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-gray-50 dark:bg-gray-900 pt-20 pb-20">
         <FormHeader 

@@ -8,6 +8,8 @@ import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination';
 import { Search, Calendar, User, ArrowRight, Tag } from 'lucide-react';
+import SEO from '@/components/SEO';
+import { generateWebPageSchema } from '@/utils/schemaMarkup';
 
 // Sample blog post data
 const blogPosts = [
@@ -166,8 +168,20 @@ const Blog = () => {
   const featuredPost = blogPosts[0]; // Use the first post as featured
   const regularPosts = blogPosts.slice(1); // Rest of the posts
 
+  const blogSchema = generateWebPageSchema({
+    title: "IdeoXai Blog - AI Automation Insights & Tutorials",
+    description: "Explore the latest insights, tutorials, and news about AI automation, chatbots, and workflow optimization on the IdeoXai blog.",
+    url: "https://ideox.ai/blog"
+  });
+
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO 
+        title="IdeoXai Blog - AI Automation Insights & Tutorials"
+        description="Explore the latest insights, tutorials, and news about AI automation, chatbots, and workflow optimization on the IdeoXai blog."
+        canonicalUrl="https://ideox.ai/blog"
+        schemaMarkup={blogSchema}
+      />
       <Navbar />
       <main className="flex-grow pt-24 pb-16">
         <div className="container mx-auto px-4 md:px-8">

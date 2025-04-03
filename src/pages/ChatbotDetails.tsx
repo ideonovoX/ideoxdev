@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Bot, MessageSquare, Zap, Users, Lock, Settings } from 'lucide-react';
 import FadeIn from '@/components/FadeIn';
 import FeatureCard from '@/components/FeatureCard';
+import SEO from '@/components/SEO';
+import { generateServiceSchema } from '@/utils/schemaMarkup';
 
 const features = [
   {
@@ -42,8 +44,21 @@ const features = [
 ];
 
 const ChatbotDetails = () => {
+  const serviceSchema = generateServiceSchema({
+    name: "AI-Powered Chatbot Solutions",
+    description: "Transform your customer experience with intelligent, conversational AI that understands, learns, and delivers results.",
+    url: "https://ideox.ai/chatbot",
+    imageUrl: "https://ideox.ai/images/chatbot-service.jpg"
+  });
+
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="AI-Powered Chatbot Solutions | IdeoXai"
+        description="Transform your customer experience with intelligent, conversational AI chatbots that understand, learn, and deliver exceptional support 24/7."
+        canonicalUrl="https://ideox.ai/chatbot"
+        schemaMarkup={serviceSchema}
+      />
       <Navbar />
       <main>
         <section className="pt-36 pb-20 relative overflow-hidden">

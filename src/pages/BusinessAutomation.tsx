@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, BarChart, FileText, Clock, RefreshCcw, Zap, Database } from 'lucide-react';
 import FadeIn from '@/components/FadeIn';
 import FeatureCard from '@/components/FeatureCard';
+import SEO from '@/components/SEO';
+import { generateServiceSchema } from '@/utils/schemaMarkup';
 
 const features = [
   {
@@ -42,8 +44,21 @@ const features = [
 ];
 
 const BusinessAutomation = () => {
+  const serviceSchema = generateServiceSchema({
+    name: "Business Automation Solutions",
+    description: "Streamline operations, reduce costs, and boost productivity with intelligent automation solutions tailored to your business needs.",
+    url: "https://ideox.ai/business-automation",
+    imageUrl: "https://ideox.ai/images/business-automation.jpg"
+  });
+
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Business Automation Solutions | IdeoXai"
+        description="Streamline operations, reduce costs, and boost productivity with intelligent automation solutions tailored to your business needs."
+        canonicalUrl="https://ideox.ai/business-automation"
+        schemaMarkup={serviceSchema}
+      />
       <Navbar />
       <main>
         <section className="pt-36 pb-20 relative overflow-hidden">

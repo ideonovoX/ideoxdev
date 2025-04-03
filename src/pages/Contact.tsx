@@ -8,6 +8,8 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 import { useState } from 'react';
 import { useToast } from '@/components/ui/use-toast';
 import FadeIn from '@/components/FadeIn';
+import SEO from '@/components/SEO';
+import { generateWebPageSchema } from '@/utils/schemaMarkup';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -37,8 +39,20 @@ const Contact = () => {
     });
   };
 
+  const contactSchema = generateWebPageSchema({
+    title: "Contact IdeoXai - Get in Touch with Our Team",
+    description: "Contact IdeoXai for questions about our AI automation solutions, chatbots, and business automation services. Our team is ready to assist you.",
+    url: "https://ideox.ai/contact"
+  });
+
   return (
     <div className="min-h-screen bg-white dark:bg-slack-black">
+      <SEO 
+        title="Contact IdeoXai - Get in Touch with Our Team"
+        description="Contact IdeoXai for questions about our AI automation solutions, chatbots, and business automation services. Our team is ready to assist you."
+        canonicalUrl="https://ideox.ai/contact"
+        schemaMarkup={contactSchema}
+      />
       <Navbar />
       
       <section className="pt-32 pb-24 md:pt-40 md:pb-32">

@@ -14,6 +14,8 @@ import BusinessAutomationSection from '@/components/sections/BusinessAutomationS
 import FacebookAutomationSection from '@/components/sections/FacebookAutomationSection';
 import IndustriesSection from '@/components/sections/IndustriesSection';
 import GoToTop from '@/components/GoToTop';
+import SEO from '@/components/SEO';
+import { generateOrganizationSchema } from '@/utils/schemaMarkup';
 
 const Index = () => {
   const sliderContent = [
@@ -39,8 +41,16 @@ const Index = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const organizationSchema = generateOrganizationSchema();
+
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="IdeoXai - AI Automation Solutions for Business" 
+        description="Transform your business with IdeoXai's intelligent AI solutions for automation, chatbots, and social media management. Boost productivity and streamline operations."
+        canonicalUrl="https://ideox.ai/"
+        schemaMarkup={organizationSchema}
+      />
       <Navbar />
       <HeroSection sliderContent={sliderContent} />
       <ChatbotSection />
