@@ -5,7 +5,7 @@ import { GetStartedFormValues } from './formSchemas';
 // EmailJS credentials
 const EMAILJS_SERVICE_ID = "service_ideox_id";
 const EMAILJS_TEMPLATE_ID = "template_r82cb38";
-const EMAILJS_USER_ID = "v6g1LY5Mntrxy9AwL";
+const EMAILJS_USER_ID = "UF9uyP2j19y9rEiif1mf5";
 
 // The email addresses for form submissions
 const BUSINESS_EMAIL = "ideonovoit@gmail.com"; // Updated business email
