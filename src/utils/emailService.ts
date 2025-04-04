@@ -11,24 +11,33 @@ const EMAILJS_USER_ID = "v6g1LY5Mntrxy9AwL";
 const TARGET_EMAIL = "onlyshipar@gmail.com";
 
 export const sendFormEmail = async (data: GetStartedFormValues) => {
-  const templateParams = {
-    from_name: data.name,
-    reply_to: data.email,
-    to_email: TARGET_EMAIL,
-    to_name: "IdeoXai Team",
-    phone: data.phone || "Not provided",
-    organization: data.organization || "Not provided",
-    interested_in: data.interestedIn,
-    needs: data.needs,
-    additional_info: data.additionalInfo || "None",
-  };
-  
-  console.log(`Sending form data to ${TARGET_EMAIL}`);
-  
-  return await emailjs.send(
-    EMAILJS_SERVICE_ID,
-    EMAILJS_TEMPLATE_ID,
-    templateParams,
-    EMAILJS_USER_ID
-  );
+  try {
+    const templateParams = {
+      from_name: data.name,
+      reply_to: data.email,
+      to_email: TARGET_EMAIL,
+      to_name: "IdeoXai Team",
+      phone: data.phone || "Not provided",
+      organization: data.organization || "Not provided",
+      interested_in: data.interestedIn,
+      needs: data.needs,
+      additional_info: data.additionalInfo || "None",
+    };
+    
+    console.log(`Sending form data to ${TARGET_EMAIL}`);
+    console.log('Template params:', templateParams);
+    
+    const response = await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+      templateParams,
+      EMAILJS_USER_ID
+    );
+    
+    console.log('EmailJS response:', response);
+    return response;
+  } catch (error) {
+    console.error('Error sending email:', error);
+    throw error;
+  }
 };

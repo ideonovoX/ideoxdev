@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useToast } from '@/hooks/use-toast';
+import { toast as sonnerToast } from 'sonner';
 import { Form } from '@/components/ui/form';
 import { CardContent } from '@/components/ui/card';
 import Navbar from '@/components/Navbar';
@@ -46,23 +47,36 @@ const GetStartedForm = () => {
       
       console.log('Email sent successfully:', response);
       
+      // Show both toast notifications for better visibility
       toast({
         title: "Form submitted successfully!",
-        description: "Your information has been sent to aiagent@freelancedemy.com. We'll be in touch shortly.",
+        description: `Your information has been sent to ${data.email}. We'll be in touch shortly.`,
       });
+      
+      sonnerToast.success(
+        "Form Submitted", 
+        `We've sent your request to ${data.email}`
+      );
       
       // Navigate back to homepage after successful submission
       setTimeout(() => {
         navigate('/');
-      }, 2000);
+      }, 3000);
       
     } catch (error) {
       console.error('Error submitting form:', error);
+      
+      // Show both toast notifications for better visibility of the error
       toast({
         title: "Something went wrong",
-        description: "Please try again later or contact us directly at aiagent@freelancedemy.com.",
+        description: "Please try again later or contact us directly at onlyshipar@gmail.com.",
         variant: "destructive",
       });
+      
+      sonnerToast.error(
+        "Submission Failed", 
+        "There was a problem sending your form. Please try again."
+      );
     } finally {
       setIsSubmitting(false);
     }
