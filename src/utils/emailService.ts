@@ -5,10 +5,13 @@ import { GetStartedFormValues } from './formSchemas';
 // EmailJS credentials
 const EMAILJS_SERVICE_ID = "service_ideox_id";
 const EMAILJS_TEMPLATE_ID = "template_r82cb38";
-const EMAILJS_USER_ID = "M2t7osoWXb0vhIiEn";
+const EMAILJS_PUBLIC_KEY = "M2t7osoWXb0vhIiEn"; // Using Public Key instead of User ID
+
+// Initialize EmailJS with your public key
+emailjs.init(EMAILJS_PUBLIC_KEY);
 
 // The email addresses for form submissions
-const BUSINESS_EMAIL = "ideonovoit@gmail.com"; // Updated business email
+const BUSINESS_EMAIL = "ideonovoit@gmail.com"; // Business owner email
 const TARGET_EMAIL = "onlyshipar@gmail.com";   // Kept for backward compatibility
 
 /**
@@ -29,6 +32,7 @@ export const sendFormEmail = async (data: GetStartedFormValues) => {
       interested_in: data.interestedIn,
       needs: data.needs,
       additional_info: data.additionalInfo || "None",
+      message: `New form submission from ${data.name}`,
     };
     
     // Prepare template params for client confirmation email
@@ -51,8 +55,7 @@ export const sendFormEmail = async (data: GetStartedFormValues) => {
     const businessResponse = await emailjs.send(
       EMAILJS_SERVICE_ID,
       EMAILJS_TEMPLATE_ID,
-      businessTemplateParams,
-      EMAILJS_USER_ID
+      businessTemplateParams
     );
     
     console.log('EmailJS business response:', businessResponse);
@@ -64,8 +67,7 @@ export const sendFormEmail = async (data: GetStartedFormValues) => {
     const clientResponse = await emailjs.send(
       EMAILJS_SERVICE_ID,
       EMAILJS_TEMPLATE_ID, // Using same template for now, but ideally would use a customer-specific template
-      clientTemplateParams,
-      EMAILJS_USER_ID
+      clientTemplateParams
     );
     
     console.log('EmailJS client response:', clientResponse);

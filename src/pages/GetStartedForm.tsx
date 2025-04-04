@@ -47,13 +47,13 @@ const GetStartedForm = () => {
       
       console.log('Emails sent successfully:', response);
       
-      // Show both toast notifications for better visibility
+      // Show toast notification
       toast({
         title: "Form submitted successfully!",
         description: `We've sent a confirmation to your email (${data.email}). We'll be in touch shortly.`,
       });
       
-      // Fix the sonnerToast usage - pass description as an object property
+      // Show sonner toast
       sonnerToast.success("Form Submitted", {
         description: `Check your inbox at ${data.email} for our confirmation email`
       });
@@ -66,14 +66,14 @@ const GetStartedForm = () => {
     } catch (error) {
       console.error('Error submitting form:', error);
       
-      // Show both toast notifications for better visibility of the error
+      // Show toast notification for error
       toast({
         title: "Something went wrong",
         description: "Please try again later or contact us directly at ideonovoit@gmail.com.",
         variant: "destructive",
       });
       
-      // Fix the sonnerToast usage - pass description as an object property
+      // Show sonner toast for error
       sonnerToast.error("Submission Failed", {
         description: "There was a problem sending your form. Please try again."
       });
