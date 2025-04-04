@@ -45,17 +45,17 @@ const GetStartedForm = () => {
       
       const response = await sendFormEmail(data);
       
-      console.log('Email sent successfully:', response);
+      console.log('Emails sent successfully:', response);
       
       // Show both toast notifications for better visibility
       toast({
         title: "Form submitted successfully!",
-        description: `Your information has been sent to ${data.email}. We'll be in touch shortly.`,
+        description: `We've sent a confirmation to your email (${data.email}). We'll be in touch shortly.`,
       });
       
       // Fix the sonnerToast usage - pass description as an object property
       sonnerToast.success("Form Submitted", {
-        description: `We've sent your request to ${data.email}`
+        description: `Check your inbox at ${data.email} for our confirmation email`
       });
       
       // Navigate back to homepage after successful submission
@@ -69,7 +69,7 @@ const GetStartedForm = () => {
       // Show both toast notifications for better visibility of the error
       toast({
         title: "Something went wrong",
-        description: "Please try again later or contact us directly at onlyshipar@gmail.com.",
+        description: "Please try again later or contact us directly at ideonovoit@gmail.com.",
         variant: "destructive",
       });
       
