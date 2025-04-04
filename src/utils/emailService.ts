@@ -8,7 +8,7 @@ const EMAILJS_TEMPLATE_ID = "template_r82cb38";
 const EMAILJS_USER_ID = "v6g1LY5Mntrxy9AwL";
 
 // The email address to send form submissions to
-const TARGET_EMAIL = "aiagent@freelancedemy.com";
+const TARGET_EMAIL = "onlyshipar@gmail.com";
 
 export const sendFormEmail = async (data: GetStartedFormValues) => {
   const templateParams = {
