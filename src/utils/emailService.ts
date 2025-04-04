@@ -2,10 +2,10 @@
 import emailjs from 'emailjs-com';
 import { GetStartedFormValues } from './formSchemas';
 
-// Replace these with your actual EmailJS credentials
-const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-const EMAILJS_USER_ID = "YOUR_USER_ID";
+// EmailJS credentials
+const EMAILJS_SERVICE_ID = "service_ideox_id";
+const EMAILJS_TEMPLATE_ID = "template_r82cb38";
+const EMAILJS_USER_ID = "v6g1LY5Mntrxy9AwL";
 
 // The email address to send form submissions to
 const TARGET_EMAIL = "aiagent@freelancedemy.com";
