@@ -53,10 +53,10 @@ const GetStartedForm = () => {
         description: `Your information has been sent to ${data.email}. We'll be in touch shortly.`,
       });
       
-      sonnerToast.success(
-        "Form Submitted", 
-        `We've sent your request to ${data.email}`
-      );
+      // Fix the sonnerToast usage - pass description as an object property
+      sonnerToast.success("Form Submitted", {
+        description: `We've sent your request to ${data.email}`
+      });
       
       // Navigate back to homepage after successful submission
       setTimeout(() => {
@@ -73,10 +73,10 @@ const GetStartedForm = () => {
         variant: "destructive",
       });
       
-      sonnerToast.error(
-        "Submission Failed", 
-        "There was a problem sending your form. Please try again."
-      );
+      // Fix the sonnerToast usage - pass description as an object property
+      sonnerToast.error("Submission Failed", {
+        description: "There was a problem sending your form. Please try again."
+      });
     } finally {
       setIsSubmitting(false);
     }
