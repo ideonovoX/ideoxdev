@@ -12,7 +12,7 @@ const MobileNavControls = ({ isOpen, toggleMenu }: MobileNavControlsProps) => {
     <div className="flex md:hidden items-center">
       <button
         onClick={toggleMenu}
-        className="text-slack-black dark:text-white p-2 z-50"
+        className="text-slate-800 dark:text-white p-2 z-50"
         aria-label="Toggle Menu"
       >
         {!isOpen && <Menu className="h-6 w-6" />}
