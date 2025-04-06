@@ -1,7 +1,5 @@
-
 import React from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import BasicPage from '@/components/BasicPage';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight, BarChart, FileText, Clock, RefreshCcw, Zap, Database } from 'lucide-react';
@@ -52,47 +50,20 @@ const BusinessAutomation = () => {
   });
 
   return (
-    <div className="min-h-screen">
+    <>
       <SEO 
         title="Business Automation Solutions | IdeoXai"
         description="Streamline operations, reduce costs, and boost productivity with intelligent automation solutions tailored to your business needs."
         canonicalUrl="https://ideox.ai/business-automation"
         schemaMarkup={serviceSchema}
       />
-      <Navbar />
-      <main>
-        <section className="pt-36 pb-20 relative overflow-hidden">
-          <div className="container mx-auto px-4 md:px-8">
-            <div className="max-w-4xl mx-auto text-center mb-16">
-              <FadeIn>
-                <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                  <span className="bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent">
-                    Transform Your Business with AI Automation
-                  </span>
-                </h1>
-                <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
-                  Streamline operations, reduce costs, and boost productivity with intelligent automation solutions tailored to your business needs.
-                </p>
-                <div className="flex flex-wrap justify-center gap-4">
-                  <Button asChild className="bg-slack-blue hover:bg-slack-blue/90 text-white">
-                    <Link to="/get-started">
-                      Get Started
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button asChild variant="outline" className="border-slack-purple text-slack-purple hover:bg-slack-purple/10">
-                    <Link to="/automation-demo">
-                      See Demo
-                    </Link>
-                  </Button>
-                </div>
-              </FadeIn>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 bg-slate-50 dark:bg-slate-900">
-          <div className="container mx-auto px-4 md:px-8">
+      <BasicPage 
+        title="Transform Your Business with AI Automation"
+        highlightedWord="Automation" 
+        description="Streamline operations, reduce costs, and boost productivity with intelligent automation solutions tailored to your business needs."
+      >
+        <section className="py-20 bg-slate-50 dark:bg-slate-900 -mx-4 px-4 md:-mx-8 md:px-8">
+          <div className="container mx-auto">
             <FadeIn>
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
                 <span className="bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent">
@@ -120,92 +91,87 @@ const BusinessAutomation = () => {
         </section>
 
         <section className="py-20">
-          <div className="container mx-auto px-4 md:px-8">
-            <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto">
+            <FadeIn>
+              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+                <span className="bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent">
+                  How Business Automation Works
+                </span>
+              </h2>
+            </FadeIn>
+            
+            <div className="space-y-12 mt-12">
               <FadeIn>
-                <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
-                  <span className="bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent">
-                    How Business Automation Works
-                  </span>
-                </h2>
+                <div className="flex flex-col md:flex-row gap-8 items-center">
+                  <div className="md:w-1/2">
+                    <h3 className="text-2xl font-semibold mb-4">Identify Opportunities</h3>
+                    <p className="text-lg text-slate-600 dark:text-slate-400">
+                      Our AI analyzes your business processes to identify areas where automation can have the greatest impact on efficiency and productivity.
+                    </p>
+                  </div>
+                  <div className="md:w-1/2 bg-gradient-to-br from-slate-100 to-white dark:from-slate-800 dark:to-slate-700 p-6 rounded-xl shadow-medium">
+                    <div className="h-60 flex items-center justify-center">
+                      <BarChart className="h-24 w-24 text-slack-blue" />
+                    </div>
+                  </div>
+                </div>
               </FadeIn>
               
-              <div className="space-y-12 mt-12">
-                <FadeIn>
-                  <div className="flex flex-col md:flex-row gap-8 items-center">
-                    <div className="md:w-1/2">
-                      <h3 className="text-2xl font-semibold mb-4">Identify Opportunities</h3>
-                      <p className="text-lg text-slate-600 dark:text-slate-400">
-                        Our AI analyzes your business processes to identify areas where automation can have the greatest impact on efficiency and productivity.
-                      </p>
-                    </div>
-                    <div className="md:w-1/2 bg-gradient-to-br from-slate-100 to-white dark:from-slate-800 dark:to-slate-700 p-6 rounded-xl shadow-medium">
-                      <div className="h-60 flex items-center justify-center">
-                        <BarChart className="h-24 w-24 text-slack-blue" />
-                      </div>
+              <FadeIn>
+                <div className="flex flex-col md:flex-row-reverse gap-8 items-center">
+                  <div className="md:w-1/2">
+                    <h3 className="text-2xl font-semibold mb-4">Build Smart Workflows</h3>
+                    <p className="text-lg text-slate-600 dark:text-slate-400">
+                      Create intelligent workflows that connect different systems and processes, automating routine tasks and decisions without human intervention.
+                    </p>
+                  </div>
+                  <div className="md:w-1/2 bg-gradient-to-br from-slate-100 to-white dark:from-slate-800 dark:to-slate-700 p-6 rounded-xl shadow-medium">
+                    <div className="h-60 flex items-center justify-center">
+                      <RefreshCcw className="h-24 w-24 text-slack-purple" />
                     </div>
                   </div>
-                </FadeIn>
-                
-                <FadeIn>
-                  <div className="flex flex-col md:flex-row-reverse gap-8 items-center">
-                    <div className="md:w-1/2">
-                      <h3 className="text-2xl font-semibold mb-4">Build Smart Workflows</h3>
-                      <p className="text-lg text-slate-600 dark:text-slate-400">
-                        Create intelligent workflows that connect different systems and processes, automating routine tasks and decisions without human intervention.
-                      </p>
-                    </div>
-                    <div className="md:w-1/2 bg-gradient-to-br from-slate-100 to-white dark:from-slate-800 dark:to-slate-700 p-6 rounded-xl shadow-medium">
-                      <div className="h-60 flex items-center justify-center">
-                        <RefreshCcw className="h-24 w-24 text-slack-purple" />
-                      </div>
+                </div>
+              </FadeIn>
+              
+              <FadeIn>
+                <div className="flex flex-col md:flex-row gap-8 items-center">
+                  <div className="md:w-1/2">
+                    <h3 className="text-2xl font-semibold mb-4">Continuously Improve</h3>
+                    <p className="text-lg text-slate-600 dark:text-slate-400">
+                      Our AI-powered platform learns from each interaction, continuously improving processes and adapting to changing business needs.
+                    </p>
+                  </div>
+                  <div className="md:w-1/2 bg-gradient-to-br from-slate-100 to-white dark:from-slate-800 dark:to-slate-700 p-6 rounded-xl shadow-medium">
+                    <div className="h-60 flex items-center justify-center">
+                      <Zap className="h-24 w-24 text-slack-green" />
                     </div>
                   </div>
-                </FadeIn>
-                
-                <FadeIn>
-                  <div className="flex flex-col md:flex-row gap-8 items-center">
-                    <div className="md:w-1/2">
-                      <h3 className="text-2xl font-semibold mb-4">Continuously Improve</h3>
-                      <p className="text-lg text-slate-600 dark:text-slate-400">
-                        Our AI-powered platform learns from each interaction, continuously improving processes and adapting to changing business needs.
-                      </p>
-                    </div>
-                    <div className="md:w-1/2 bg-gradient-to-br from-slate-100 to-white dark:from-slate-800 dark:to-slate-700 p-6 rounded-xl shadow-medium">
-                      <div className="h-60 flex items-center justify-center">
-                        <Zap className="h-24 w-24 text-slack-green" />
-                      </div>
-                    </div>
-                  </div>
-                </FadeIn>
-              </div>
+                </div>
+              </FadeIn>
             </div>
           </div>
         </section>
 
-        <section className="py-20 bg-slate-50 dark:bg-slate-900">
-          <div className="container mx-auto px-4 md:px-8 text-center">
-            <FadeIn>
-              <h2 className="text-3xl md:text-4xl font-bold mb-8">
-                <span className="bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent">
-                  Ready to Supercharge Your Business?
-                </span>
-              </h2>
-              <p className="text-xl text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto">
-                Join hundreds of businesses that are leveraging IdeoxAI to streamline operations, reduce costs, and drive growth.
-              </p>
-              <Button asChild className="bg-slack-blue hover:bg-slack-blue/90 text-white px-8 py-6 text-lg">
-                <Link to="/get-started">
-                  Start Your Free Trial
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </FadeIn>
-          </div>
+        <section className="py-20 bg-slate-50 dark:bg-slate-900 -mx-4 px-4 md:-mx-8 md:px-8 text-center">
+          <FadeIn>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8">
+              <span className="bg-gradient-to-r from-slack-purple via-slack-blue to-slack-green bg-clip-text text-transparent">
+                Ready to Supercharge Your Business?
+              </span>
+            </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto">
+              Join hundreds of businesses that are leveraging IdeoxAI to streamline operations, reduce costs, and drive growth.
+            </p>
+            <Button asChild className="bg-slack-blue hover:bg-slack-blue/90 text-white px-8 py-6 text-lg">
+              <Link to="/get-started">
+                Start Your Free Trial
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </FadeIn>
         </section>
-      </main>
-      <Footer />
-    </div>
+      </BasicPage>
+    </>
   );
 };
 

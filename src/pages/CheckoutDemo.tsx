@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import BasicPage from '@/components/BasicPage';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
@@ -48,10 +48,6 @@ const demoCompanies = [
 ];
 
 const CheckoutDemo = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const demoSchema = generateWebPageSchema({
     title: "AI Solutions Demo Companies | IdeoXai",
     description: "Explore businesses that are successfully using IdeoXai's AI solutions to transform their customer experience and business operations.",
@@ -67,10 +63,11 @@ const CheckoutDemo = () => {
         schemaMarkup={demoSchema}
       />
       <BasicPage 
-        title="AI Solutions Demo Companies" 
+        title="AI Solutions Demo Companies"
+        highlightedWord="Demo" 
         description="Explore these businesses that are successfully using our AI solutions to transform their customer experience and business operations."
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {demoCompanies.map((company, index) => (
             <FadeIn key={company.name} delay={index * 100}>
               <Card className="h-full hover:shadow-medium transition-shadow duration-300">
