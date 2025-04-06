@@ -1,7 +1,7 @@
 
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { X, Home, User, Phone, FileText, ShieldCheck, Zap } from 'lucide-react';
+import { X, Home, User, Phone, FileText, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -54,8 +54,11 @@ const MobileMenu = ({ isOpen, onClose, handleLinkClick }: MobileMenuProps) => {
       <div className="w-full max-w-md py-6" style={{ backgroundImage: "linear-gradient(to bottom right, var(--tw-gradient-stops))" }}>
         <div className="flex items-center justify-between w-full mb-6">
           <Link to="/" className="flex items-center space-x-2" onClick={handleLinkClick}>
-            <Zap className="h-8 w-8 text-slack-purple" />
-            <span className="text-xl font-bold text-slack-black dark:text-white">IdeoxAI</span>
+            <img 
+              src="/lovable-uploads/679e28e1-ef64-40c7-90a2-8050d4bb4128.png" 
+              alt="IdeoXai Logo" 
+              className="h-8 w-auto"
+            />
           </Link>
           <button
             onClick={onClose}

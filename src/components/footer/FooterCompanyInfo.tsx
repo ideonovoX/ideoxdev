@@ -1,14 +1,16 @@
 
 import { Link } from 'react-router-dom';
-import { Zap } from 'lucide-react';
 import FooterSocialLinks from './FooterSocialLinks';
 
 const FooterCompanyInfo = () => {
   return (
     <div>
       <Link to="/" className="flex items-center space-x-2 mb-4">
-        <Zap className="h-8 w-8 text-slack-purple" />
-        <span className="text-xl font-bold text-slack-black dark:text-white">IdeoXai</span>
+        <img 
+          src="/lovable-uploads/679e28e1-ef64-40c7-90a2-8050d4bb4128.png" 
+          alt="IdeoXai Logo" 
+          className="h-12 w-auto"
+        />
       </Link>
       <p className="text-slate-600 dark:text-slate-400 mb-4 max-w-sm">
         Revolutionizing workflows with intelligent automation powered by cutting-edge AI technology.

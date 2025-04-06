@@ -10,7 +10,7 @@ const NavLogo = ({ handleLinkClick }: NavLogoProps) => {
     <div className="flex items-center">
       <Link to="/" className="flex items-center space-x-2" onClick={handleLinkClick}>
         <img 
-          src="/lovable-uploads/439205cc-0083-4f3a-a658-23eb8872e230.png" 
+          src="/lovable-uploads/679e28e1-ef64-40c7-90a2-8050d4bb4128.png" 
           alt="IdeoXai Logo" 
           className="h-10 w-auto"
         />
