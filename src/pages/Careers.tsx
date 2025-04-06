@@ -1,11 +1,9 @@
-
-import React from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import BasicPage from '@/components/BasicPage';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ArrowRight, MapPin, Briefcase, Calendar } from 'lucide-react';
+import React from 'react';
 
 const jobOpenings = [
   {
@@ -125,238 +123,228 @@ const benefits = [
 
 const Careers = () => {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
-      <main className="flex-grow pt-24 pb-16">
-        <div className="container mx-auto px-4 md:px-8">
-          <section className="mb-16">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-slack-black dark:text-white">
-                Join Our Team
-              </h1>
-              <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
-                Help us build the future of intelligent automation. We're looking for talented individuals who are passionate about AI, innovation, and making a difference.
-              </p>
-              <Button size="lg">
-                <a href="#openings">View Open Positions</a>
-              </Button>
-            </div>
-          </section>
+    <BasicPage
+      title="Join Our Team"
+      highlightedWord="Join"
+      description="Help us build the future of intelligent automation with IdeoXai"
+    >
+      <section className="mb-16">
+        <Button size="lg" className="mx-auto block">
+          <a href="#openings">View Open Positions</a>
+        </Button>
+      </section>
 
-          <section className="mb-16">
-            <div className="max-w-5xl mx-auto">
-              <div className="relative rounded-xl overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                  alt="Team working together" 
-                  className="w-full h-[400px] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-slack-purple/80 to-slack-blue/80 flex items-center justify-center">
-                  <div className="text-white text-center max-w-xl p-6">
-                    <h2 className="text-3xl font-bold mb-4">Our Culture</h2>
-                    <p className="text-lg">
-                      We believe in collaboration, innovation, and personal growth. At IdeoxAI, you'll work with some of the brightest minds in AI, solving challenging problems that impact the way people work around the world.
-                    </p>
-                  </div>
-                </div>
+      <section className="mb-16">
+        <div className="max-w-5xl mx-auto">
+          <div className="relative rounded-xl overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+              alt="Team working together" 
+              className="w-full h-[400px] object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-slack-purple/80 to-slack-blue/80 flex items-center justify-center">
+              <div className="text-white text-center max-w-xl p-6">
+                <h2 className="text-3xl font-bold mb-4">Our Culture</h2>
+                <p className="text-lg">
+                  We believe in collaboration, innovation, and personal growth. At IdeoxAI, you'll work with some of the brightest minds in AI, solving challenging problems that impact the way people work around the world.
+                </p>
               </div>
             </div>
-          </section>
+          </div>
+        </div>
+      </section>
 
-          <section className="mb-16">
-            <div className="max-w-4xl mx-auto text-center mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-slack-black dark:text-white">
-                Why Join IdeoxAI?
-              </h2>
+      <section className="mb-16">
+        <div className="max-w-4xl mx-auto text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-slack-black dark:text-white">
+            Why Join IdeoxAI?
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400">
+            We offer more than just a job. Here's what you can expect when you join our team.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {benefits.map((benefit, index) => (
+            <Card key={index} className="p-6">
+              <div className="mb-4">
+                {benefit.icon}
+              </div>
+              <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
               <p className="text-slate-600 dark:text-slate-400">
-                We offer more than just a job. Here's what you can expect when you join our team.
+                {benefit.description}
               </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {benefits.map((benefit, index) => (
-                <Card key={index} className="p-6">
-                  <div className="mb-4">
-                    {benefit.icon}
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section id="openings" className="mb-16">
+        <div className="max-w-4xl mx-auto mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-slack-black dark:text-white">
+            Open Positions
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400">
+            Find your next role at IdeoxAI
+          </p>
+        </div>
+        
+        <Tabs defaultValue="all" className="max-w-4xl mx-auto">
+          <TabsList className="mb-6">
+            <TabsTrigger value="all">All</TabsTrigger>
+            <TabsTrigger value="engineering">Engineering</TabsTrigger>
+            <TabsTrigger value="design">Design</TabsTrigger>
+            <TabsTrigger value="customer">Customer Success</TabsTrigger>
+          </TabsList>
+          
+          <TabsContent value="all">
+            <div className="space-y-4">
+              {jobOpenings.map((job, index) => (
+                <Card key={index} className="p-6 hover:shadow-md transition-all">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">{job.title}</h3>
+                      <div className="flex flex-wrap gap-3 mb-3">
+                        <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
+                          <MapPin className="h-4 w-4 mr-1" />
+                          {job.location}
+                        </div>
+                        <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
+                          <Briefcase className="h-4 w-4 mr-1" />
+                          {job.department}
+                        </div>
+                        <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
+                          <Calendar className="h-4 w-4 mr-1" />
+                          {job.type}
+                        </div>
+                      </div>
+                      <p className="text-slate-600 dark:text-slate-400 mb-4">{job.description}</p>
+                    </div>
+                    <Button variant="outline" className="mt-4 md:mt-0 md:ml-4 md:self-start">
+                      <a href={`/careers/${job.slug}`} className="flex items-center">
+                        View Details
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </a>
+                    </Button>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
-                  <p className="text-slate-600 dark:text-slate-400">
-                    {benefit.description}
-                  </p>
                 </Card>
               ))}
             </div>
-          </section>
-
-          <section id="openings" className="mb-16">
-            <div className="max-w-4xl mx-auto mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-slack-black dark:text-white">
-                Open Positions
-              </h2>
-              <p className="text-slate-600 dark:text-slate-400">
-                Find your next role at IdeoxAI
-              </p>
-            </div>
-            
-            <Tabs defaultValue="all" className="max-w-4xl mx-auto">
-              <TabsList className="mb-6">
-                <TabsTrigger value="all">All</TabsTrigger>
-                <TabsTrigger value="engineering">Engineering</TabsTrigger>
-                <TabsTrigger value="design">Design</TabsTrigger>
-                <TabsTrigger value="customer">Customer Success</TabsTrigger>
-              </TabsList>
-              
-              <TabsContent value="all">
-                <div className="space-y-4">
-                  {jobOpenings.map((job, index) => (
-                    <Card key={index} className="p-6 hover:shadow-md transition-all">
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                        <div>
-                          <h3 className="text-xl font-semibold mb-2">{job.title}</h3>
-                          <div className="flex flex-wrap gap-3 mb-3">
-                            <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
-                              <MapPin className="h-4 w-4 mr-1" />
-                              {job.location}
-                            </div>
-                            <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
-                              <Briefcase className="h-4 w-4 mr-1" />
-                              {job.department}
-                            </div>
-                            <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
-                              <Calendar className="h-4 w-4 mr-1" />
-                              {job.type}
-                            </div>
+          </TabsContent>
+          
+          <TabsContent value="engineering">
+            <div className="space-y-4">
+              {jobOpenings
+                .filter(job => job.department === 'Engineering')
+                .map((job, index) => (
+                  <Card key={index} className="p-6 hover:shadow-md transition-all">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                      <div>
+                        <h3 className="text-xl font-semibold mb-2">{job.title}</h3>
+                        <div className="flex flex-wrap gap-3 mb-3">
+                          <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
+                            <MapPin className="h-4 w-4 mr-1" />
+                            {job.location}
                           </div>
-                          <p className="text-slate-600 dark:text-slate-400 mb-4">{job.description}</p>
+                          <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
+                            <Briefcase className="h-4 w-4 mr-1" />
+                            {job.department}
+                          </div>
+                          <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
+                            <Calendar className="h-4 w-4 mr-1" />
+                            {job.type}
+                          </div>
                         </div>
-                        <Button variant="outline" className="mt-4 md:mt-0 md:ml-4 md:self-start">
-                          <a href={`/careers/${job.slug}`} className="flex items-center">
-                            View Details
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                          </a>
-                        </Button>
+                        <p className="text-slate-600 dark:text-slate-400 mb-4">{job.description}</p>
                       </div>
-                    </Card>
-                  ))}
-                </div>
-              </TabsContent>
-              
-              <TabsContent value="engineering">
-                <div className="space-y-4">
-                  {jobOpenings
-                    .filter(job => job.department === 'Engineering')
-                    .map((job, index) => (
-                      <Card key={index} className="p-6 hover:shadow-md transition-all">
-                        <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                          <div>
-                            <h3 className="text-xl font-semibold mb-2">{job.title}</h3>
-                            <div className="flex flex-wrap gap-3 mb-3">
-                              <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
-                                <MapPin className="h-4 w-4 mr-1" />
-                                {job.location}
-                              </div>
-                              <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
-                                <Briefcase className="h-4 w-4 mr-1" />
-                                {job.department}
-                              </div>
-                              <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
-                                <Calendar className="h-4 w-4 mr-1" />
-                                {job.type}
-                              </div>
-                            </div>
-                            <p className="text-slate-600 dark:text-slate-400 mb-4">{job.description}</p>
+                      <Button variant="outline" className="mt-4 md:mt-0 md:ml-4 md:self-start">
+                        <a href={`/careers/${job.slug}`} className="flex items-center">
+                          View Details
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </a>
+                      </Button>
+                    </div>
+                  </Card>
+                ))}
+            </div>
+          </TabsContent>
+          
+          <TabsContent value="design">
+            <div className="space-y-4">
+              {jobOpenings
+                .filter(job => job.department === 'Design')
+                .map((job, index) => (
+                  <Card key={index} className="p-6 hover:shadow-md transition-all">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                      <div>
+                        <h3 className="text-xl font-semibold mb-2">{job.title}</h3>
+                        <div className="flex flex-wrap gap-3 mb-3">
+                          <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
+                            <MapPin className="h-4 w-4 mr-1" />
+                            {job.location}
                           </div>
-                          <Button variant="outline" className="mt-4 md:mt-0 md:ml-4 md:self-start">
-                            <a href={`/careers/${job.slug}`} className="flex items-center">
-                              View Details
-                              <ArrowRight className="ml-2 h-4 w-4" />
-                            </a>
-                          </Button>
-                        </div>
-                      </Card>
-                    ))}
-                </div>
-              </TabsContent>
-              
-              <TabsContent value="design">
-                <div className="space-y-4">
-                  {jobOpenings
-                    .filter(job => job.department === 'Design')
-                    .map((job, index) => (
-                      <Card key={index} className="p-6 hover:shadow-md transition-all">
-                        <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                          <div>
-                            <h3 className="text-xl font-semibold mb-2">{job.title}</h3>
-                            <div className="flex flex-wrap gap-3 mb-3">
-                              <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
-                                <MapPin className="h-4 w-4 mr-1" />
-                                {job.location}
-                              </div>
-                              <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
-                                <Briefcase className="h-4 w-4 mr-1" />
-                                {job.department}
-                              </div>
-                              <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
-                                <Calendar className="h-4 w-4 mr-1" />
-                                {job.type}
-                              </div>
-                            </div>
-                            <p className="text-slate-600 dark:text-slate-400 mb-4">{job.description}</p>
+                          <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
+                            <Briefcase className="h-4 w-4 mr-1" />
+                            {job.department}
                           </div>
-                          <Button variant="outline" className="mt-4 md:mt-0 md:ml-4 md:self-start">
-                            <a href={`/careers/${job.slug}`} className="flex items-center">
-                              View Details
-                              <ArrowRight className="ml-2 h-4 w-4" />
-                            </a>
-                          </Button>
-                        </div>
-                      </Card>
-                    ))}
-                </div>
-              </TabsContent>
-              
-              <TabsContent value="customer">
-                <div className="space-y-4">
-                  {jobOpenings
-                    .filter(job => job.department === 'Customer Success')
-                    .map((job, index) => (
-                      <Card key={index} className="p-6 hover:shadow-md transition-all">
-                        <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                          <div>
-                            <h3 className="text-xl font-semibold mb-2">{job.title}</h3>
-                            <div className="flex flex-wrap gap-3 mb-3">
-                              <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
-                                <MapPin className="h-4 w-4 mr-1" />
-                                {job.location}
-                              </div>
-                              <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
-                                <Briefcase className="h-4 w-4 mr-1" />
-                                {job.department}
-                              </div>
-                              <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
-                                <Calendar className="h-4 w-4 mr-1" />
-                                {job.type}
-                              </div>
-                            </div>
-                            <p className="text-slate-600 dark:text-slate-400 mb-4">{job.description}</p>
+                          <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
+                            <Calendar className="h-4 w-4 mr-1" />
+                            {job.type}
                           </div>
-                          <Button variant="outline" className="mt-4 md:mt-0 md:ml-4 md:self-start">
-                            <a href={`/careers/${job.slug}`} className="flex items-center">
-                              View Details
-                              <ArrowRight className="ml-2 h-4 w-4" />
-                            </a>
-                          </Button>
                         </div>
-                      </Card>
-                    ))}
-                </div>
-              </TabsContent>
-            </Tabs>
-          </section>
-        </div>
-      </main>
-      <Footer />
-    </div>
+                        <p className="text-slate-600 dark:text-slate-400 mb-4">{job.description}</p>
+                      </div>
+                      <Button variant="outline" className="mt-4 md:mt-0 md:ml-4 md:self-start">
+                        <a href={`/careers/${job.slug}`} className="flex items-center">
+                          View Details
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </a>
+                      </Button>
+                    </div>
+                  </Card>
+                ))}
+            </div>
+          </TabsContent>
+          
+          <TabsContent value="customer">
+            <div className="space-y-4">
+              {jobOpenings
+                .filter(job => job.department === 'Customer Success')
+                .map((job, index) => (
+                  <Card key={index} className="p-6 hover:shadow-md transition-all">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                      <div>
+                        <h3 className="text-xl font-semibold mb-2">{job.title}</h3>
+                        <div className="flex flex-wrap gap-3 mb-3">
+                          <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
+                            <MapPin className="h-4 w-4 mr-1" />
+                            {job.location}
+                          </div>
+                          <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
+                            <Briefcase className="h-4 w-4 mr-1" />
+                            {job.department}
+                          </div>
+                          <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
+                            <Calendar className="h-4 w-4 mr-1" />
+                            {job.type}
+                          </div>
+                        </div>
+                        <p className="text-slate-600 dark:text-slate-400 mb-4">{job.description}</p>
+                      </div>
+                      <Button variant="outline" className="mt-4 md:mt-0 md:ml-4 md:self-start">
+                        <a href={`/careers/${job.slug}`} className="flex items-center">
+                          View Details
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </a>
+                      </Button>
+                    </div>
+                  </Card>
+                ))}
+            </div>
+          </TabsContent>
+        </Tabs>
+      </section>
+    </BasicPage>
   );
 };
 

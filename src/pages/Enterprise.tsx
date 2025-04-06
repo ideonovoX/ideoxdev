@@ -1,14 +1,11 @@
-
 import BasicPage from '@/components/BasicPage';
-import { Button } from '@/components/ui/button';
-import { Shield, Server, Users, Clock, Layers, Workflow } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
-const Enterprise = () => {
+const EnterprisePage = () => {
   return (
-    <BasicPage 
-      title="Enterprise Solutions" 
-      description="Powerful AI automation solutions designed for enterprise-scale operations."
+    <BasicPage
+      title="Enterprise Solutions"
+      highlightedWord="Enterprise"
+      description="Powerful AI automation built for scale, security, and compliance"
     >
       <div className="space-y-12 mt-8">
         <section>
@@ -134,4 +131,4 @@ const Enterprise = () => {
   );
 };
 
-export default Enterprise;
+export default EnterprisePage;
