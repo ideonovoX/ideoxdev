@@ -11,7 +11,7 @@ import { getStartedFormSchema } from '@/utils/formSchemas';
 import { Form } from '@/components/ui/form';
 import { useState } from 'react';
 import { useToast } from '@/components/ui/use-toast';
-import { sendEmail } from '@/utils/emailService';
+import { sendFormEmail } from '@/utils/emailService';
 
 const GetStartedForm = () => {
   const { toast } = useToast();
@@ -20,20 +20,20 @@ const GetStartedForm = () => {
   const form = useForm({
     resolver: zodResolver(getStartedFormSchema),
     defaultValues: {
-      firstName: '',
-      lastName: '',
+      name: '',
       email: '',
-      company: '',
-      jobTitle: '',
+      phone: '',
+      organization: '',
+      interestedIn: 'Chat Bot' as const,
       needs: '',
-      interests: []
+      additionalInfo: ''
     }
   });
 
-  const onSubmit = async (values) => {
+  const onSubmit = async (values: any) => {
     setIsSubmitting(true);
     try {
-      await sendEmail(values);
+      await sendFormEmail(values);
       toast({
         title: "Form submitted!",
         description: "We'll be in touch with you soon.",
@@ -50,6 +50,10 @@ const GetStartedForm = () => {
     setIsSubmitting(false);
   };
 
+  const handleCancel = () => {
+    form.reset();
+  };
+
   return (
     <BasicPage 
       title="Get Started with IdeoXai"
@@ -60,15 +64,15 @@ const GetStartedForm = () => {
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <FormHeader 
-              heading="Let's start your AI automation journey" 
-              text="Please fill out this form and our team will contact you soon to discuss how IdeoXai can help your business."
+              title="Let's start your AI automation journey" 
+              description="Please fill out this form and our team will contact you soon to discuss how IdeoXai can help your business."
             />
             
             <PersonalInfoFields form={form} />
             <NeedsInfoFields form={form} />
             <InterestSelection form={form} />
             
-            <FormActions isSubmitting={isSubmitting} />
+            <FormActions isSubmitting={isSubmitting} onCancel={handleCancel} />
           </form>
         </Form>
       </div>
