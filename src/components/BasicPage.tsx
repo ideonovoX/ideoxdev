@@ -3,6 +3,7 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
+import BreadcrumbNav from '@/components/Breadcrumb';
 
 interface BasicPageProps {
   title: string;
@@ -20,6 +21,7 @@ const BasicPage: React.FC<BasicPageProps> = ({
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
+      <BreadcrumbNav />
       <PageHeader 
         title={title}
         highlightedWord={highlightedWord}
