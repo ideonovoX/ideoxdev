@@ -6,18 +6,18 @@ import { Link } from 'react-router-dom';
 import FadeIn from '@/components/FadeIn';
 
 const integrations = [
-  { name: "Slack", logo: "https://cdn.worldvectorlogo.com/logos/slack-new-logo.svg" },
-  { name: "Zoom", logo: "https://cdn.worldvectorlogo.com/logos/zoom-5.svg" },
-  { name: "Microsoft Teams", logo: "https://cdn.worldvectorlogo.com/logos/microsoft-teams-1.svg" },
-  { name: "Google Workspace", logo: "https://cdn.worldvectorlogo.com/logos/google-workspace-icon-1.svg" },
-  { name: "Salesforce", logo: "https://cdn.worldvectorlogo.com/logos/salesforce-2.svg" },
-  { name: "HubSpot", logo: "https://cdn.worldvectorlogo.com/logos/hubspot-2.svg" },
-  { name: "Zendesk", logo: "https://cdn.worldvectorlogo.com/logos/zendesk-1.svg" },
-  { name: "Shopify", logo: "https://cdn.worldvectorlogo.com/logos/shopify.svg" },
-  { name: "Asana", logo: "https://cdn.worldvectorlogo.com/logos/asana-logo.svg" },
-  { name: "Trello", logo: "https://cdn.worldvectorlogo.com/logos/trello.svg" },
-  { name: "Jira", logo: "https://cdn.worldvectorlogo.com/logos/jira-3.svg" },
-  { name: "QuickBooks", logo: "https://cdn.worldvectorlogo.com/logos/quickbooks-1.svg" }
+  { name: "Slack", logo: "https://www.make.com/_nuxt/img/slack.82652c8.svg" },
+  { name: "Microsoft Teams", logo: "https://www.make.com/_nuxt/img/microsoft-teams.ba96efe.svg" },
+  { name: "Google Workspace", logo: "https://www.make.com/_nuxt/img/google-workspace.64bd0ad.svg" },
+  { name: "Salesforce", logo: "https://www.make.com/_nuxt/img/salesforce.1d38fcf.svg" },
+  { name: "HubSpot", logo: "https://www.make.com/_nuxt/img/hubspot.97add5f.svg" },
+  { name: "Shopify", logo: "https://www.make.com/_nuxt/img/shopify.90ea409.svg" },
+  { name: "Asana", logo: "https://www.make.com/_nuxt/img/asana.8902bd6.svg" },
+  { name: "Trello", logo: "https://www.make.com/_nuxt/img/trello.1fad05a.svg" },
+  { name: "Jira", logo: "https://www.make.com/_nuxt/img/jira.4174539.svg" },
+  { name: "Airtable", logo: "https://www.make.com/_nuxt/img/airtable.fcf3476.svg" },
+  { name: "Notion", logo: "https://www.make.com/_nuxt/img/notion.3f2a440.svg" },
+  { name: "Zapier", logo: "https://www.make.com/_nuxt/img/zapier.cbcb28d.svg" }
 ];
 
 const IntegrationsSection = () => {
@@ -55,9 +55,9 @@ const IntegrationsSection = () => {
         </div>
         
         <div className="flex justify-center mt-12">
-          <Button asChild className="bg-[#8B5CF6] hover:bg-[#8B5CF6]/90 hover:text-white text-white font-semibold px-8" onClick={handleLinkClick}>
+          <Button asChild className="bg-[#8B5CF6] hover:bg-[#8B5CF6]/90 hover:text-white text-white font-semibold px-8 group" onClick={handleLinkClick}>
             <Link to="/integrations">
-              View All Integrations →
+              View All Integrations <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
         </div>
