@@ -1,12 +1,11 @@
 
 import React from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Calendar, Megaphone, MessageSquare, BarChart, Image, Repeat } from 'lucide-react';
 import FadeIn from '@/components/FadeIn';
 import FeatureCard from '@/components/FeatureCard';
+import BasicPage from '@/components/BasicPage';
 
 const features = [
   {
@@ -43,40 +42,31 @@ const features = [
 
 const FacebookAutomation = () => {
   return (
-    <div className="min-h-screen">
-      <Navbar />
-      <main>
-        <section className="pt-36 pb-20 relative overflow-hidden">
-          <div className="container mx-auto px-4 md:px-8">
-            <div className="max-w-4xl mx-auto text-center mb-16">
-              <FadeIn>
-                <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                  <span className="bg-gradient-to-r from-[#1877F2] via-slack-blue to-slack-green bg-clip-text text-transparent">
-                    Facebook Business Page Automation
-                  </span>
-                </h1>
-                <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
-                  Supercharge your Facebook presence with AI-powered automation that handles content creation, scheduling, engagement, and analytics.
-                </p>
-                <div className="flex flex-wrap justify-center gap-4">
-                  <Button asChild className="bg-[#1877F2] hover:bg-[#1877F2]/90 text-white">
-                    <Link to="/get-started">
-                      Get Started
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button asChild variant="outline" className="border-[#1877F2] text-[#1877F2] hover:bg-[#1877F2]/10">
-                    <Link to="/facebook-demo">
-                      See Demo
-                    </Link>
-                  </Button>
-                </div>
-              </FadeIn>
+    <BasicPage
+      title="Facebook Business Page Automation"
+      highlightedWord="Facebook"
+      description="Supercharge your Facebook presence with AI-powered automation that handles content creation, scheduling, engagement, and analytics"
+    >
+      <div className="py-8">
+        <div className="max-w-4xl mx-auto text-center mb-16">
+          <FadeIn>
+            <div className="flex flex-wrap justify-center gap-4 mt-8">
+              <Button asChild className="bg-[#1877F2] hover:bg-[#1877F2]/90 text-white">
+                <Link to="/get-started">
+                  Get Started
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button asChild variant="outline" className="border-[#1877F2] text-[#1877F2] hover:bg-[#1877F2]/10">
+                <Link to="/facebook-demo">
+                  See Demo
+                </Link>
+              </Button>
             </div>
-          </div>
-        </section>
+          </FadeIn>
+        </div>
 
-        <section className="py-20 bg-slate-50 dark:bg-slate-900">
+        <section className="py-20 bg-slate-50 dark:bg-slate-900 rounded-xl">
           <div className="container mx-auto px-4 md:px-8">
             <FadeIn>
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
@@ -169,7 +159,7 @@ const FacebookAutomation = () => {
           </div>
         </section>
 
-        <section className="py-20 bg-slate-50 dark:bg-slate-900">
+        <section className="py-20 bg-slate-50 dark:bg-slate-900 rounded-xl mt-8">
           <div className="container mx-auto px-4 md:px-8 text-center">
             <FadeIn>
               <h2 className="text-3xl md:text-4xl font-bold mb-8">
@@ -189,9 +179,8 @@ const FacebookAutomation = () => {
             </FadeIn>
           </div>
         </section>
-      </main>
-      <Footer />
-    </div>
+      </div>
+    </BasicPage>
   );
 };
 

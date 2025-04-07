@@ -1,8 +1,7 @@
 
+import BasicPage from '@/components/BasicPage';
 import { Zap, FileText, BookOpen, GraduationCap, Video, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
 import FeatureCard from "@/components/FeatureCard";
 
@@ -80,35 +79,25 @@ const Resources = () => {
   ];
 
   return (
-    <>
-      <Navbar />
-      <main className="pt-20 bg-gray-50 dark:bg-gray-900">
-        {/* Hero Section */}
-        <section className="py-16 md:py-20">
-          <div className="container mx-auto px-4 md:px-8">
-            <FadeIn className="text-center max-w-3xl mx-auto">
-              <h1 className="text-4xl md:text-5xl font-bold text-slack-black dark:text-white mb-6">
-                Resources to help you succeed
-              </h1>
-              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-10">
-                Explore our comprehensive collection of guides, tutorials, and documentation to get the most out of AutomateAI.
-              </p>
-              <div className="relative max-w-xl mx-auto">
-                <input
-                  type="text"
-                  placeholder="Search resources..."
-                  className="w-full rounded-full border border-gray-300 dark:border-gray-700 py-3 px-6 pr-12 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-slack-purple"
-                />
-                <Button className="absolute right-1 top-1 rounded-full bg-slack-purple hover:bg-slack-purple/90 h-9">
-                  Search
-                </Button>
-              </div>
-            </FadeIn>
-          </div>
-        </section>
+    <BasicPage
+      title="Resources to help you succeed"
+      highlightedWord="Resources"
+      description="Explore our comprehensive collection of guides, tutorials, and documentation to get the most out of AutomateAI"
+    >
+      <div className="py-8">
+        <div className="relative max-w-xl mx-auto mb-12">
+          <input
+            type="text"
+            placeholder="Search resources..."
+            className="w-full rounded-full border border-gray-300 dark:border-gray-700 py-3 px-6 pr-12 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-slack-purple"
+          />
+          <Button className="absolute right-1 top-1 rounded-full bg-slack-purple hover:bg-slack-purple/90 h-9">
+            Search
+          </Button>
+        </div>
 
         {/* Resource Categories */}
-        <section className="py-12 md:py-16 bg-white dark:bg-gray-900/50">
+        <section className="py-12 md:py-16 bg-white dark:bg-gray-900/50 rounded-xl">
           <div className="container mx-auto px-4 md:px-8">
             <FadeIn className="text-center mb-12">
               <h2 className="text-3xl font-bold text-slack-black dark:text-white mb-4">
@@ -197,7 +186,7 @@ const Resources = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-slack-purple/10 dark:bg-slack-purple/5">
+        <section className="py-16 bg-slack-purple/10 dark:bg-slack-purple/5 rounded-xl mt-12">
           <div className="container mx-auto px-4 md:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <FadeIn>
@@ -219,9 +208,8 @@ const Resources = () => {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
-    </>
+      </div>
+    </BasicPage>
   );
 };
 

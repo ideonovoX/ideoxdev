@@ -6,10 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import BasicPage from "@/components/BasicPage";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -42,12 +41,15 @@ const Login = () => {
   };
 
   return (
-    <>
-      <Navbar />
-      <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-gray-50 dark:bg-gray-900 pt-20 pb-20">
+    <BasicPage
+      title="Sign in to your account"
+      highlightedWord="Sign in"
+      description="Enter your credentials to access your dashboard and tools"
+    >
+      <div className="flex flex-col items-center justify-center p-4">
         <Link to="/" className="flex items-center mb-8 gap-2">
           <Zap className="h-8 w-8 text-slack-purple" />
-          <span className="text-xl font-bold text-slack-black dark:text-white">AutomateAI</span>
+          <span className="text-xl font-bold text-slack-black dark:text-white">IdeoXai</span>
         </Link>
         
         <Card className="w-full max-w-md">
@@ -112,8 +114,7 @@ const Login = () => {
           </CardContent>
         </Card>
       </div>
-      <Footer />
-    </>
+    </BasicPage>
   );
 };
 
