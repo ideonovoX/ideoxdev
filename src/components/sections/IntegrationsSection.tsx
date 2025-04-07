@@ -6,18 +6,18 @@ import { Link } from 'react-router-dom';
 import FadeIn from '@/components/FadeIn';
 
 const integrations = [
-  { name: "Slack", logo: "https://www.make.com/_nuxt/img/slack.82652c8.svg" },
-  { name: "Microsoft Teams", logo: "https://www.make.com/_nuxt/img/microsoft-teams.ba96efe.svg" },
-  { name: "Google Workspace", logo: "https://www.make.com/_nuxt/img/google-workspace.64bd0ad.svg" },
-  { name: "Salesforce", logo: "https://www.make.com/_nuxt/img/salesforce.1d38fcf.svg" },
-  { name: "HubSpot", logo: "https://www.make.com/_nuxt/img/hubspot.97add5f.svg" },
-  { name: "Shopify", logo: "https://www.make.com/_nuxt/img/shopify.90ea409.svg" },
-  { name: "Asana", logo: "https://www.make.com/_nuxt/img/asana.8902bd6.svg" },
-  { name: "Trello", logo: "https://www.make.com/_nuxt/img/trello.1fad05a.svg" },
-  { name: "Jira", logo: "https://www.make.com/_nuxt/img/jira.4174539.svg" },
-  { name: "Airtable", logo: "https://www.make.com/_nuxt/img/airtable.fcf3476.svg" },
-  { name: "Notion", logo: "https://www.make.com/_nuxt/img/notion.3f2a440.svg" },
-  { name: "Zapier", logo: "https://www.make.com/_nuxt/img/zapier.cbcb28d.svg" }
+  { name: "Slack", letter: "S", color: "bg-green-500" },
+  { name: "Microsoft Teams", letter: "M", color: "bg-blue-500" },
+  { name: "Google Workspace", letter: "G", color: "bg-yellow-500" },
+  { name: "Salesforce", letter: "S", color: "bg-indigo-500" },
+  { name: "HubSpot", letter: "H", color: "bg-orange-500" },
+  { name: "Shopify", letter: "S", color: "bg-teal-500" },
+  { name: "Asana", letter: "A", color: "bg-pink-500" },
+  { name: "Trello", letter: "T", color: "bg-cyan-500" },
+  { name: "Jira", letter: "J", color: "bg-purple-500" },
+  { name: "Airtable", letter: "A", color: "bg-red-500" },
+  { name: "Notion", letter: "N", color: "bg-slate-500" },
+  { name: "Zapier", letter: "Z", color: "bg-amber-500" }
 ];
 
 const IntegrationsSection = () => {
@@ -35,7 +35,7 @@ const IntegrationsSection = () => {
             </span>
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto text-center mb-16">
-            Seamlessly integrate with your favorite tools and platforms to automate workflows and data exchange without complex coding or setup.
+            Seamlessly integrate with 35+ popular tools and platforms to automate workflows and data exchange without complex coding or setup.
           </p>
         </FadeIn>
         
@@ -43,12 +43,9 @@ const IntegrationsSection = () => {
           {integrations.map((integration, index) => (
             <FadeIn key={index} delay={index * 0.1}>
               <div className="bg-white dark:bg-slate-800 shadow-md rounded-xl p-4 h-24 flex items-center justify-center hover:shadow-lg transition-shadow">
-                <img 
-                  src={integration.logo} 
-                  alt={integration.name} 
-                  className="max-h-10 max-w-[80%] object-contain" 
-                  loading="lazy"
-                />
+                <div className={`${integration.color} w-12 h-12 rounded-md flex items-center justify-center`}>
+                  <span className="text-white font-bold text-xl">{integration.letter}</span>
+                </div>
               </div>
             </FadeIn>
           ))}
