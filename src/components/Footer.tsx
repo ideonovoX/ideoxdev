@@ -4,7 +4,6 @@ import FooterNavLinks from './footer/FooterNavLinks';
 import FooterColumn from './footer/FooterColumn';
 import FooterBlogPosts from './footer/FooterBlogPosts';
 import FooterCopyright from './footer/FooterCopyright';
-import AnimatedGradient from './AnimatedGradient';
 
 const Footer = () => {
   // Mock blog posts (these would normally come from a data source)
@@ -45,13 +44,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-white dark:bg-slack-black pt-16 border-t border-gray-200 dark:border-gray-800 relative overflow-hidden">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <AnimatedGradient />
-      </div>
-      
-      <div className="container mx-auto px-4 md:px-8 relative z-10">
+    <footer className="bg-white dark:bg-slack-black pt-16 border-t border-gray-200 dark:border-gray-800">
+      <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info Column */}
           <FooterCompanyInfo />
