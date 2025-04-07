@@ -1,4 +1,8 @@
+
 import BasicPage from '@/components/BasicPage';
+import { Shield, Server, Users, Clock, Layers } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 const EnterprisePage = () => {
   return (
@@ -88,7 +92,7 @@ const EnterprisePage = () => {
             
             <div className="border border-gray-200 dark:border-gray-800 rounded-lg p-6">
               <div className="flex items-center mb-4">
-                <Workflow className="h-10 w-10 text-slack-purple mr-4" />
+                <Users className="h-10 w-10 text-slack-purple mr-4" />
                 <h3 className="text-xl font-semibold">Intelligent Customer Service</h3>
               </div>
               <p className="text-slate-600 dark:text-slate-400 mb-4">

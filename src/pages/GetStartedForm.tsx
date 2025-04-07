@@ -7,17 +7,17 @@ import InterestSelection from '@/components/forms/InterestSelection';
 import FormActions from '@/components/forms/FormActions';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { getStartedFormSchema } from '@/utils/formSchemas';
+import { getStartedFormSchema, GetStartedFormValues } from '@/utils/formSchemas';
 import { Form } from '@/components/ui/form';
 import { useState } from 'react';
-import { useToast } from '@/components/ui/use-toast';
+import { useToast } from '@/hooks/use-toast';
 import { sendFormEmail } from '@/utils/emailService';
 
 const GetStartedForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   
-  const form = useForm({
+  const form = useForm<GetStartedFormValues>({
     resolver: zodResolver(getStartedFormSchema),
     defaultValues: {
       name: '',
@@ -30,7 +30,7 @@ const GetStartedForm = () => {
     }
   });
 
-  const onSubmit = async (values: any) => {
+  const onSubmit = async (values: GetStartedFormValues) => {
     setIsSubmitting(true);
     try {
       await sendFormEmail(values);
